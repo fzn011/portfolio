@@ -6,7 +6,7 @@ This site showcases my projects, skills, and background as a Computer Science gr
 ---
 
 ## 🔗 Live Portfolio
-👉 [Faiaz Zahin](https://fzn011.github.io/portfolio/)
+👉 <a href="https://fzn011.github.io/portfolio/" target="_blank"><b>Faiaz Zahin</b></a> 
 
 ## 📷 Scan QR
 👉 <img width="400" height="400" alt="Faiaz Zahin" src="https://github.com/user-attachments/assets/e722d810-f9e3-4d78-aca6-c63249fbfdaf" />
