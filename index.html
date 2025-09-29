@@ -1,0 +1,1328 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+
+<head>
+   <meta charset="utf-8" />
+   <meta http-equiv="x-ua-compatible" content="ie=edge" />
+   <meta name="viewport" content="width=device-width, initial-scale=1" />
+   <meta name="description" content="" />
+
+   <!-- Site Title -->
+   <!--title>Gerold - Personal Portfolio HTML5 Template</title-->
+   <title>Faiaz Zahin - Personal Portfolio</title>
+
+   <!-- Place favicon.ico in the root directory -->
+   <!--link rel="apple-touch-icon" href="./assets/img/favicon.png" /-->
+   <!--link rel="shortcut icon" type="image/png" href="./assets/img/favicon.png" /-->
+   <link rel="apple-touch-icon" href="./assets/img/Faiaz favicon.png" />
+   <link rel="shortcut icon" type="image/png" href="./assets/img/Faiaz favicon.png" />
+
+   <!-- CSS here -->
+   <link rel="stylesheet" href="assets/css/animate.min.css" />
+   <link rel="stylesheet" href="assets/css/bootstrap.min.css" />
+   <link rel="stylesheet" href="assets/css/font-awesome-pro.min.css" />
+   <link rel="stylesheet" href="assets/css/flaticon_gerold.css" />
+   <link rel="stylesheet" href="assets/css/nice-select.css" />
+   <link rel="stylesheet" href="assets/css/backToTop.css" />
+   <link rel="stylesheet" href="assets/css/owl.carousel.min.css" />
+   <link rel="stylesheet" href="assets/css/swiper.min.css" />
+   <link rel="stylesheet" href="assets/css/odometer-theme-default.css" />
+   <link rel="stylesheet" href="assets/css/magnific-popup.css" />
+   <link rel="stylesheet" href="assets/css/main.css" />
+   <link rel="stylesheet" href="assets/css/light-mode.css" />
+   <link rel="stylesheet" href="assets/css/responsive.css" />
+</head>
+
+<body>
+   <!-- Counter function of the 4 segments -->
+   <script>
+      document.addEventListener("DOMContentLoaded", function () {
+         const counters = document.querySelectorAll(".odometer");
+
+         // Find the maximum number among all counters
+         let max = 0;
+         counters.forEach(counter => {
+            const value = parseInt(counter.getAttribute("data-count"));
+            if (value > max) max = value;
+         });
+
+         // Set a total animation duration (in milliseconds)
+         const totalDuration = 4000; // 3 seconds
+
+         counters.forEach(counter => {
+            const target = parseInt(counter.getAttribute("data-count"));
+            const increment = target / (totalDuration / 16); // Assuming ~60 FPS
+
+            let current = 0;
+            const updateCounter = () => {
+                  current += increment;
+                  if (current >= target) {
+                     counter.innerText = target;
+                     return;
+                  }
+                  counter.innerText = Math.floor(current);
+                  requestAnimationFrame(updateCounter);
+            };
+
+            updateCounter();
+         });
+      });
+   </script>
+
+
+   <!-- Preloader Area Start -->
+   <div class="preloader">
+      <svg viewBox="0 0 1000 1000" preserveAspectRatio="none">
+         <path id="preloaderSvg" d="M0,1005S175,995,500,995s500,5,500,5V0H0Z"></path>
+      </svg>
+
+      <div class="preloader-heading">
+         <div class="load-text">
+            <span>L</span>
+            <span>o</span>
+            <span>a</span>
+            <span>d</span>
+            <span>i</span>
+            <span>n</span>
+            <span>g</span>
+         </div>
+      </div>
+   </div>
+   <!-- Preloader Area End -->
+
+   <!-- start: Back To Top -->
+   <div class="progress-wrap" id="scrollUp">
+      <svg class="progress-circle svg-content" width="100%" height="100%" viewBox="-1 -1 102 102">
+         <path d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98" />
+      </svg>
+   </div>
+   <!-- end: Back To Top -->
+
+   <!-- HEADER START -->
+   <header class="tj-header-area header-absolute">
+      <div class="container">
+         <div class="row">
+            <div class="col-12 d-flex flex-wrap align-items-center">
+               <div class="logo-box">
+                  <a href="index.html">
+                     <!--img src="assets/img/logo/logo.png" alt="" /-->
+                     <img src="assets/img/logo/FZ Logo.png" alt="" />
+                  </a>
+               </div>
+
+               <div class="header-info-list d-none d-md-inline-block">
+                  <ul class="ul-reset">
+                     <li><a href="mailto:faiazzahin@gmail.com">faiazzahin@gmail.com</a></li>
+                  </ul>
+               </div>
+               <div class="header-menu">
+                  <nav>
+                     <ul>
+                        <li><a href="#about-me">About Me</a></li>
+                        <li><a href="#resume-section">Education</a></li>
+                        <li><a href="#works-section">Projects</a></li>
+                        <li><a href="#skills-section">Skills</a></li>
+                        <li><a href="#contact-section">Contact</a></li>
+                     </ul>
+                  </nav>
+               </div>
+               <div class="header-button">
+                  <!--a href="#" class="btn tj-btn-primary">Hire me!</a-->
+                  <a href="https://drive.google.com/file/d/1DEpAwLmEAzUWyFeL5DXQySB6J7F6zk7h/view" class="btn tj-btn-primary" target="_blank" rel="noopener noreferrer">View CV <i class="flaticon-search"></i></a>
+               </div>
+               <div class="menu-bar d-lg-none">
+                  <button>
+                     <span></span>
+                     <span></span>
+                     <span></span>
+                     <span></span>
+                  </button>
+               </div>
+            </div>
+         </div>
+      </div>
+   </header>
+   <header class="tj-header-area header-2 header-sticky sticky-out">
+      <div class="container">
+         <div class="row">
+            <div class="col-12 d-flex flex-wrap align-items-center">
+               <div class="logo-box">
+                  <a href="index.html">
+                     <!--img src="assets/img/logo/logo.png" alt="" /-->
+                     <img src="assets/img/logo/FZ Logo.png" alt="" />
+                  </a>
+               </div>
+
+               <div class="header-info-list d-none d-md-inline-block">
+                  <ul class="ul-reset">
+                     <li><a href="mailto:faiazzahin@gmail.com">faiazzahin@gmail.com</a></li>
+                  </ul>
+               </div>
+
+               <div class="header-menu">
+                  <nav>
+                     <ul>
+                        <li><a href="#about-me">About Me</a></li>
+                        <li><a href="#resume-section">Education</a></li>
+                        <li><a href="#works-section">Projects</a></li>
+                        <li><a href="#skills-section">Skills</a></li>
+                        <li><a href="#contact-section">Contact</a></li>
+                     </ul>
+                  </nav>
+               </div>
+
+               <div class="header-button">
+                  <a href="https://drive.google.com/file/d/1DEpAwLmEAzUWyFeL5DXQySB6J7F6zk7h/view" class="btn tj-btn-primary" target="_blank" rel="noopener noreferrer">View CV <i class="flaticon-search"></i></i></a>
+               </div>
+
+               <div class="menu-bar d-lg-none">
+                  <button>
+                     <span></span>
+                     <span></span>
+                     <span></span>
+                     <span></span>
+                  </button>
+               </div>
+            </div>
+         </div>
+      </div>
+   </header>
+   <!-- HEADER END -->
+
+   <main class="site-content" id="about-me">
+      <!-- HERO SECTION START -->
+      <section class="hero-section d-flex align-items-center" id="intro">
+         <div class="intro_text">
+            <svg viewBox="0 0 1320 300">
+               <text x="50%" Y="50%" text-anchor="middle">FAIAZ</text>
+            </svg>
+         </div>
+         <div class="container">
+            <div class="row align-items-center">
+               <div class="col-md-6">
+                  <div class="hero-content-box">
+                     <span class="hero-sub-title">I am Faiaz</span>
+                     <!--h1 class="hero-title">Web Developer +<br />UX Designer</h1-->
+                     <h1 class="hero-title">CS Graduate +<br />Data Analyst</h1>
+                     <div class="hero-image-box d-md-none text-center">
+                        <!--img src="assets/img/hero/me.png" alt="" /-->
+                        <img src="assets/img/hero/Faiaz Photo.png" alt="" />
+                     </div>
+
+                     <!--p class="lead">
+                        I break down complex user experinece problems to create integritiy focussed solutions that
+                        connect billions of people
+                     </p-->
+                     <p>
+                        Fresh Computer Science graduate skilled in Python, Laravel, SQL, and data analysis. Experienced in developing software solutions, managing projects, and preparing reports. Eager to apply my knowledge and contribute to innovative IT and digital services.
+                     </p>
+                     <div class="button-box d-flex flex-wrap align-items-center">
+                        <!--a href="#" class="btn tj-btn-secondary">Download CV <i class="flaticon-download"></i></a-->
+                        <ul class="ul-reset social-icons">
+                           <li>
+                              <a href="#"><i class="fa-light fa-basketball" target="_blank" rel="noopener noreferrer"></i></a>
+                           </li>
+                           <li>
+                              <a href="https://www.linkedin.com/in/faiaz-zahin21/" target="_blank" rel="noopener noreferrer""><i class="fa-brands fa-linkedin-in"></i></a>
+                           </li>
+                           <li>
+                              <a href="https://github.com/fzn011" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-github"></i></a>
+                           </li>
+                           <li>
+                              <a href="https://www.facebook.com/iamfzn0" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-facebook"></i></a>
+                           </li>
+                        </ul>
+                     </div>
+                  </div>
+               </div>
+               <div class="col-md-6 d-none d-md-block">
+                  <div class="hero-image-box text-center">
+                     <img src="assets/img/hero/Faiaz Photo.png" alt="" />
+                     <!--img src="assets/img/hero/me.png" alt="" /-->
+                  </div>
+               </div>
+            </div>
+            <div class="funfact-area">
+               <div class="row">
+                  <div class="col-6 col-lg-3">
+                     <div class="funfact-item d-flex flex-column flex-sm-row flex-wrap align-items-center">
+                        <div class="number"><span class="odometer" data-count="2">0</span>+</div>
+                        <div class="text">Years of <br />Experience</div>
+                     </div>
+                  </div>
+                  <div class="col-6 col-lg-3">
+                     <div class="funfact-item d-flex flex-column flex-sm-row flex-wrap align-items-center">
+                        <div class="number"><span class="odometer" data-count="20">0</span>+</div>
+                        <div class="text">Projects <br />Completed</div>
+                     </div>
+                  </div>
+                  <div class="col-6 col-lg-3">
+                     <div class="funfact-item d-flex flex-column flex-sm-row flex-wrap align-items-center">
+                        <div class="number"><span class="odometer" data-count="5">0</span>+</div>
+                        <div class="text">Projects <br />On going</div>
+                     </div>
+                  </div>
+                  <div class="col-6 col-lg-3">
+                     <div class="funfact-item d-flex flex-column flex-sm-row flex-wrap align-items-center">
+                        <div class="number"><span class="odometer" data-count="500">0</span>+</div>
+                        <div class="text">Sleepless <br />Nights</div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </section>
+      <!-- HERO SECTION END -->
+      
+      <!-- Education SECTION START -->
+      <section class="resume-section" id="resume-section">
+         <div class="container">
+            <div class="row">
+               <div class="row justify-content-center">
+               <!-- div class="col-md-6" -->
+               <!-- Section Title -->
+               <div class="col-lg-10 col-md-12 " align="center">
+                  <div class="section-header wow fadeInUp" data-wow-delay=".4s">
+                     <h2 class="section-title"><i class="flaticon-graduation-cap"></i> My Education</h2>
+                  </div>
+                  
+                  <!-- 2 Column Layout -->
+                  <div class="resume-widget">
+                     <!-- BRAC University -->
+                     <a href="https://www.bracu.ac.bd/" target="_blank" rel="noopener noreferrer" style="text-decoration: none; color: inherit;">
+                        <div class="resume-item wow fadeInRight" data-wow-delay=".5s" align="left">
+                           <div class="time">2021 - 2025</div>
+                           <h3 class="resume-title">BSc in CSE</h3>
+                           <div class="institute">BRAC University</div>
+                        </div>
+                     </a>
+                     <!-- Adamjee Cantonment College -->
+                     <a href="https://acc.edu.bd/" target="_blank" rel="noopener noreferrer" style="text-decoration: none; color: inherit;">
+                        <div class="resume-item wow fadeInRight" data-wow-delay=".6s" align="right">
+                           <div class="time">2017 - 2019</div>
+                           <h3 class="resume-title">Higher School Certificate</h3>
+                           <div class="institute">Adamjee Cantonment College</div>
+                        </div>
+                     </a>
+                     <!-- Bangladesh International School & College -->
+                     <a href="https://bisc.com.bd/" target="_blank" rel="noopener noreferrer" style="text-decoration: none; color: inherit;">
+                        <div class="resume-item wow fadeInRight" data-wow-delay=".7s" align="left">
+                           <div class="time">2015 - 2017</div>
+                           <h3 class="resume-title">Secondary School Certificate</h3>
+                           <div class="institute">Bangladesh International School & College</div>
+                        </div>
+                     </a>
+                     <!-- Savar Cantonment Morning Glory School & College -->
+                     <!--a href="https://mgsc.edu.bd/" target="_blank" rel="noopener noreferrer" style="text-decoration: none; color: inherit;">
+                        <div class="resume-item wow fadeInRight" data-wow-delay=".8s" align="right">
+                           <div class="time">2007 - 2008</div>
+                           <h3 class="resume-title">Primary School</h3>
+                           <div class="institute">Savar Cantonment Morning Glory School & College</div>
+                        </div>
+                     </a-->
+                     <!-- Mainamati English School & College -->
+                     <!--a href="https://mesc.edu.bd/" target="_blank" rel="noopener noreferrer" style="text-decoration: none; color: inherit;">
+                        <div class="resume-item wow fadeInRight" data-wow-delay=".8s" align="left">
+                           <div class="time">2006 - 2007</div>
+                           <h3 class="resume-title">Primary School</h3>
+                           <div class="institute">Mainamati English School & College</div>
+                        </div>
+                     </a-->
+                     <!-- Navy Anchorage School & College Dhaka -->
+                     <!--a href="https://nascd.edu.bd/" target="_blank" rel="noopener noreferrer" style="text-decoration: none; color: inherit;">
+                        <div class="resume-item wow fadeInRight" data-wow-delay=".8s" align="right">
+                           <div class="time">2005 - 2006</div>
+                           <h3 class="resume-title">Primary School</h3>
+                           <div class="institute">Navy Anchorage School & College Dhaka</div>
+                        </div>
+                     </a-->
+                  </div>
+               </div>
+            </div>
+         </div>
+      </section>
+      <!-- Education SECTION END -->
+
+      <!-- PORTFOLIO SECTION START -->
+      <section class="portfolio-section" id="works-section">
+         <div class="container">
+            <div class="row">
+               <div class="col-md-12">
+                  <div class="section-header text-center">
+                     <h2 class="section-title wow fadeInUp" data-wow-delay=".3s">My Recent Works</h2>
+                     <p class="wow fadeInUp" data-wow-delay=".4s">
+                        Display of some of my works are over here.
+                        <br> Rest you may find it in my github.
+                     </p>
+                  </div>
+               </div>
+            </div>
+
+            <div class="row">
+               <div class="col-md-12">
+                  <div class="portfolio-filter text-center wow fadeInUp" data-wow-delay=".5s">
+                     <div class="button-group filter-button-group">
+                        <button data-filter="*" class="active">All</button>
+                        <button data-filter=".aiml">ML/AI</button>
+                        <button data-filter=".web">Web Development</button>
+                        <button data-filter=".others">Others</button>
+                        <div class="active-bg"></div>
+                     </div>
+                  </div>
+
+                  <div class="portfolio-box wow fadeInUp" data-wow-delay=".6s">
+                     <div class="portfolio-sizer"></div>
+                     <div class="gutter-sizer"></div>
+                     <div class="portfolio-item web">
+                        <div class="image-box">
+                           <img src="assets/img/portfolio/LMS/LMS 1st Cover.png" alt="" />
+                        </div>
+                        <div class="content-box">
+                           <h3 class="portfolio-title">Learning Management System</h3>
+                           <p>A Laravel-based web app that delivers structured lessons and interactive learning content.</p>
+                           <i class="flaticon-up-right-arrow"></i>
+                           <button data-mfp-src="#portfolio-lms" class="portfolio-link modal-popup"></button>
+                        </div>
+                     </div>
+                     <div class="portfolio-item aiml">
+                        <div class="image-box">
+                           <img src="assets/img/portfolio/AI ML/Rainfall 1st Cover.png" alt="" />
+                        </div>
+                        <div class="content-box">
+                           <!--h3 class="portfolio-title">New Age</h3-->
+                           <h3 class="portfolio-title">Rainfall Prediction</h3>
+                           <p>A machine learning project that predicts upcoming rainfall using patterns from historical weather data.</p>
+                           <i class="flaticon-up-right-arrow"></i>
+                           <button data-mfp-src="#portfolio-aiml" class="portfolio-link modal-popup"></button>
+                        </div>
+                     </div>
+                     <div class="portfolio-item web">
+                        <div class="image-box">
+                           <img src="assets/img/portfolio/Clock/Clock 1st Cover.png" alt="" />
+                        </div>
+                        <div class="content-box">
+                           <h3 class="portfolio-title">Digital Clock</h3>
+                           <p>A web-based time utility combining a Stopwatch and Real-Time Clock with Calendar in a simple, interactive interface.</p>
+                           <i class="flaticon-up-right-arrow"></i>
+                           <button data-mfp-src="#portfolio-clock" class="portfolio-link modal-popup"></button>
+                        </div>
+                     </div>
+                     <div class="portfolio-item others">
+                        <div class="image-box">
+                           <img src="assets/img/portfolio/SAP/SAP 1st Cover.png" alt="" />
+                        </div>
+                        <div class="content-box">
+                           <h3 class="portfolio-title">Simple As Possible(SAP-1)</h3>
+                           <p>This project implements the SAP-1 8-bit computer in Proteus, showcasing basic processing, control, and memory functions.</p>
+                           <i class="flaticon-up-right-arrow"></i>
+                           <button data-mfp-src="#portfolio-sap" class="portfolio-link modal-popup"></button>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </section>
+      <!-- PORTFOLIO SECTION END -->
+
+      <!-- start: Portfolio Popup -->
+      
+      <!--LMS-->
+
+      <div id="portfolio-lms" class="popup_content_area zoom-anim-dialog mfp-hide">
+         <div class="popup_modal_img">
+            <img src="./assets/img/portfolio/LMS/LMS 2nd Cover.png" alt="" />
+         </div>
+         <div class="popup_modal_content">
+            <div class="portfolio_info">
+               <div class="portfolio_info_text">
+                  <h2 class="title">LMS</h2>
+                  <div class="desc">
+                     <p>
+                        Learning-Website is a Laravel-based application that offers structured lessons and interactive content using Blade templates, CSS/JS, and a database back-end for a user-friendly interface.
+                     </p>
+                  </div>
+                  <a href="https://github.com/fzn011/Learning-Website" target="_blank" class="btn tj-btn-primary">View on Github<i class="fal fa-arrow-right"></i></a>
+               </div>
+               <div class="portfolio_info_items">
+                  <div class="info_item">
+                     <div class="key">Category</div>
+                     <div class="value">Web Development</div>
+                  </div>
+                  <div class="info_item">
+                     <div class="key">Submitted to</div>
+                     <div class="value">University Project</div>
+                  </div>
+                  <div class="info_item">
+                     <div class="key">Start Date</div>
+                     <div class="value">March 23, 2024</div>
+                  </div>
+                  <div class="info_item">
+                     <div class="key">Duration</div>
+                     <div class="value">5 Months</div>
+                  </div>
+               </div>
+            </div>
+
+            <div class="portfolio_gallery owl-carousel">
+               <div class="gallery_item">
+                  <img src="./assets/img/portfolio/LMS/LMS 01.png" alt="" />
+               </div>
+               <div class="gallery_item">
+                  <img src="./assets/img/portfolio/LMS/LMS 02.png" alt="" />
+               </div>
+               <div class="gallery_item">
+                  <img src="./assets/img/portfolio/LMS/LMS 03.png" alt="" />
+               </div>
+               <div class="gallery_item">
+                  <img src="./assets/img/portfolio/LMS/LMS 04.png" alt="" />
+               </div>
+            </div>
+
+            <div class="portfolio_description">
+               <h2 class="title">Project Description</h2>
+               <div class="desc">
+                  <p>
+                     Learning Website is a lightweight educational web application built using Laravel (PHP) with Blade templates, JavaScript, CSS/SCSS, and a frontend build tool chain (Vite). It provides a structured way to host and navigate learning content-lessons, resources, and assets-while organizing routes, views, and database models in a clean and maintainable architecture. The repository reflects best practices for modularity and flexibility in a teaching-oriented web environment.
+                  </p>
+               </div>
+            </div>
+
+            <div class="portfolio_story_approach">
+               <div class="portfolio_approach">
+                  <div class="approach_title">
+                     <h4 class="title">APPROACH</h4>
+                  </div>
+                  <div class="approach_content">
+                     <p>
+                        The project starts with setting up the Laravel backend: configuring routing, controllers, blade views, and database schema. Static assets like styles (SCSS), JavaScript, and frontend templates are managed through the resources folder and compiled using Vite. The design favors separation of concerns-keeping layout, content, and logic in distinct components. It emphasizes simplicity and reusability, allowing the site to scale by adding new lessons or features without major restructuring. Versions and dependencies are managed with composer/ npm, enabling stable development and easy updates.
+                     </p>
+                  </div>
+               </div>
+            </div>
+
+            <div class="portfolio_navigation"></div>
+         </div>
+      </div>
+      <!--LMS Ends-->
+
+      <!--AI/ML-->
+
+      <div id="portfolio-aiml" class="popup_content_area zoom-anim-dialog mfp-hide">
+         <div class="popup_modal_img">
+            <img src="./assets/img/portfolio/AI ML/Rainfall 2nd Cover.png" alt="" />
+         </div>
+         <div class="popup_modal_content">
+            <div class="portfolio_info">
+               <div class="portfolio_info_text">
+                  <h2 class="title">Rainfall Prediction</h2>
+                  <div class="desc">
+                     <p>
+                        This project applies machine learning techniques to analyze historical weather data and predict future rainfall patterns, 
+                        aiming to improve accuracy in short-term weather forecasting.
+                     </p>
+                  </div>
+                  <a href="https://github.com/touhidulislam1999/Rainfall-Prediction-Using-Machine-Learning" target="_blank" class="btn tj-btn-primary">View on Github<i class="fal fa-arrow-right"></i></a>
+               </div>
+               <div class="portfolio_info_items">
+                  <div class="info_item">
+                     <div class="key">Category</div>
+                     <div class="value">AI/ML</div>
+                  </div>
+                  <div class="info_item">
+                     <div class="key">Submitted to</div>
+                     <div class="value">University Project</div>
+                  </div>
+                  <div class="info_item">
+                     <div class="key">Start Date</div>
+                     <div class="value">August 12, 2022</div>
+                  </div>
+                  <div class="info_item">
+                     <div class="key">Duration</div>
+                     <div class="value">3 Months</div>
+                  </div>
+               </div>
+            </div>
+
+            <div class="portfolio_gallery owl-carousel">
+               <div class="gallery_item">
+                  <img src="./assets/img/portfolio/AI ML/AI-ML 01.png" alt="" />
+               </div>
+               <div class="gallery_item">
+                  <img src="./assets/img/portfolio/AI ML/AI-ML 02.png" alt="" />
+               </div>
+               <div class="gallery_item">
+                  <img src="./assets/img/portfolio/AI ML/AI-ML 03.png" alt="" />
+               </div>
+               <div class="gallery_item">
+                  <img src="./assets/img/portfolio/AI ML/AI-ML 04.png" alt="" />
+               </div>
+            </div>
+
+            <div class="portfolio_description">
+               <h2 class="title">Project Description</h2>
+               <div class="desc">
+                  <p>
+                     This project focuses on building a machine learning-based model to predict rainfall using historical weather data. By analyzing patterns in parameters such as temperature, humidity, and previous rainfall records, the system aims to forecast upcoming weather conditions with improved accuracy. The project not only explores preprocessing and feature selection but also compares different algorithms to evaluate performance and reliability. The ultimate goal is to provide a data-driven approach to weather forecasting that can support planning and decision-making in agriculture, disaster management, and daily life activities.
+                  </p>
+               </div>
+            </div>
+
+            <div class="portfolio_story_approach">
+               <div class="portfolio_approach">
+                  <div class="approach_title">
+                     <h4 class="title">APPROACH</h4>
+                  </div>
+                  <div class="approach_content">
+                     <p>
+                        The approach begins with data collection and cleaning to handle missing values, outliers, and inconsistencies in the dataset. Exploratory data analysis (EDA) is then performed to identify key features influencing rainfall, with visualization techniques like correlation heatmaps and distribution plots. Next, the data is split into training and testing sets, followed by applying supervised learning models such as Logistic Regression, Random Forest, and Decision Trees. The models are tuned using cross-validation and evaluated with metrics like accuracy, precision, recall, and F1-score. Finally, the best-performing model is selected, and the results are validated to ensure generalization. This structured pipeline ensures a robust prediction framework grounded in reproducibility and data-driven insights.
+                     </p>
+                  </div>
+               </div>
+            </div>
+
+            <div class="portfolio_navigation"></div>
+         </div>
+      </div>
+      <!--AI/ML Ends-->
+      
+
+      <!--Clock-->
+      
+      <div id="portfolio-clock" class="popup_content_area zoom-anim-dialog mfp-hide">
+         <div class="popup_modal_img">
+            <img src="./assets/img/portfolio/Clock/Clock 2nd Cover.png" alt="" />
+         </div>
+         <div class="popup_modal_content">
+            <div class="portfolio_info">
+               <div class="portfolio_info_text">
+                  <h2 class="title">Digital Clock</h2>
+                  <div class="desc">
+                     <p>
+                        A web-based time utility combining a Stopwatch and Real-Time Clock with Calendar, built with HTML, CSS, and JavaScript, offering a simple and responsive interface in one solution.
+                     </p>
+                  </div>
+                  <a href="https://github.com/touhidulislam1999/Stopwatch-using-Javascript-CSS-HTML" target="_blank" class="btn tj-btn-primary">View on Github <i class="fal fa-arrow-right"></i></a>
+               </div>
+               <div class="portfolio_info_items">
+                  <div class="info_item">
+                     <div class="key">Category</div>
+                     <div class="value">Web Development</div>
+                  </div>
+                  <div class="info_item">
+                     <div class="key">Submitted to</div>
+                     <div class="value">Personal Project</div>
+                  </div>
+                  <div class="info_item">
+                     <div class="key">Start Date</div>
+                     <div class="value">September 20, 2024</div>
+                  </div>
+                  <div class="info_item">
+                     <div class="key">Duration</div>
+                     <div class="value">7 Days</div>
+                  </div>
+               </div>
+            </div>
+
+            <div class="portfolio_gallery owl-carousel">
+               <div class="gallery_item">
+                  <img src="./assets/img/portfolio/Clock/Clock 01.png" alt="" />
+               </div>
+               <div class="gallery_item">
+                  <img src="./assets/img/portfolio/Clock/Clock 02.png" alt="" />
+               </div>
+               <div class="gallery_item">
+                  <img src="./assets/img/portfolio/Clock/Clock 03.png" alt="" />
+               </div>
+               <div class="gallery_item">
+                  <img src="./assets/img/portfolio/Clock/Clock 04.png" alt="" />
+               </div>
+            </div>
+
+            <div class="portfolio_description">
+               <h2 class="title">Project Description</h2>
+               <div class="desc">
+                  <p>
+                     This project is a web-based time utility that combines two crucial elements: a <b>Real-Time Clock with Calendar</b> that shows the time and date in real time and a <b>Stopwatch</b> for accurate time monitoring.  Completely constructed with <b>HTML, CSS, and JavaScript</b>, it offers a responsive and fluid user experience on all platforms.  While the real-time clock continuously updates to keep users in sync with the precise time and date, the stopwatch provides start, pause, and reset functions for precise measurement.  With its simple and easy-to-use layout, the tool offers an interactive way to efficiently manage time, combining functionality and aesthetic appeal into one cohesive platform.
+                  </p>
+               </div>
+            </div>
+
+            <div class="portfolio_story_approach">
+               <div class="portfolio_approach">
+                  <div class="approach_title">
+                     <h4 class="title">APPROACH</h4>
+                  </div>
+                  <div class="approach_content">
+                     <p>
+                        This project's methodology involves designing two main modules: a Stopwatch and a Real-Time Clock with Calendar, using HTML for structure, CSS for styling and responsiveness, and JavaScript for dynamic functionality. The Stopwatch uses interval-based calculations and event-driven controls (start, pause, reset) to accurately track time that has passed, while the Clock & Calendar module uses JavaScript's <b>Date</b> object and periodic updates to display real-time hours, minutes, seconds, and dates. Both modules are incorporated into a single, responsive interface with consistent styling to ensure usability across devices, offering a user-friendly and effective web-based time management tool.
+                     </p>
+                  </div>
+               </div>
+            </div>
+
+            <div class="portfolio_navigation"></div>
+         </div>
+      </div>
+      <!--Clock Ends-->
+
+      <!--SAP-->
+
+      <div id="portfolio-sap" class="popup_content_area zoom-anim-dialog mfp-hide">
+         <div class="popup_modal_img">
+            <img src="./assets/img/portfolio/SAP/SAP 2nd Cover.png" alt="" />
+         </div>
+         <div class="popup_modal_content">
+            <div class="portfolio_info">
+               <div class="portfolio_info_text">
+                  <h2 class="title">Simple As Possible 1</h2>
+                  <div class="desc">
+                     <p>
+                        This project implements the SAP-1 (Simple As Possible) 8-bit computer in Proteus, demonstrating core computer functions-processing, control, and memory-using discrete components as a foundation for understanding complex architectures.
+                     </p>
+                  </div>
+                  <a href="https://github.com/touhidulislam1999/Simple-As-Possible-SAP-8-bit-computer-using-Proteus/tree/main" target="_blank" class="btn tj-btn-primary">View on Github <i class="fal fa-arrow-right"></i></a>
+               </div>
+               <div class="portfolio_info_items">
+                  <div class="info_item">
+                     <div class="key">Category</div>
+                     <div class="value">Computer Atchitecture</div>
+                  </div>
+                  <div class="info_item">
+                     <div class="key">Submitted to</div>
+                     <div class="value">University Project</div>
+                  </div>
+                  <div class="info_item">
+                     <div class="key">Start Date</div>
+                     <div class="value">June 05, 2021</div>
+                  </div>
+                  <div class="info_item">
+                     <div class="key">Duration</div>
+                     <div class="value">3 Months</div>
+                  </div>
+               </div>
+            </div>
+
+            <div class="portfolio_gallery owl-carousel">
+               <div class="gallery_item">
+                  <img src="./assets/img/portfolio/SAP/SAP 01.png" alt="" />
+               </div>
+               <div class="gallery_item">
+                  <img src="./assets/img/portfolio/SAP/SAP 02.png" alt="" />
+               </div>
+               <div class="gallery_item">
+                  <img src="./assets/img/portfolio/SAP/SAP 03.png" alt="" />
+               </div>
+               <div class="gallery_item">
+                  <img src="./assets/img/portfolio/SAP/SAP 04.png" alt="" />
+               </div>
+            </div>
+
+            <div class="portfolio_description">
+               <h2 class="title">Project Description</h2>
+               <div class="desc">
+                  <p>
+                     The project focuses on designing and implementing an SAP-1 (Simple-As-Possible) 8-bit computer using combinational and sequential circuits. It integrates core components such as an 8-bit bus, 16×8 RAM, program counter, memory address register, input unit, arithmetic and logic unit (ALU) with accumulator and B register, control unit, and output register. The system executes a basic instruction set-Load, Add, Subtract, Output, and Halt-driven by a 555 timer-based clock with both auto and manual modes. By simulating fundamental CPU operations in Proteus, this project demonstrates the basic principles of computer architecture and provides a solid foundation for understanding more complex digital systems
+                  </p>
+               </div>
+            </div>
+
+            <div class="portfolio_story_approach">
+               <div class="portfolio_approach">
+                  <div class="approach_title">
+                     <h4 class="title">APPROACH</h4>
+                  </div>
+                  <div class="approach_content">
+                     <p>
+                        First, design and interconnect the essential modules: a 4-bit program counter, instruction register, memory address register (MAR), 16×8 RAM, accumulator and B register, ALU, output register, input unit, and the control sequencer. Next, define the instruction set and the micro-operations for each instruction (LOAD, ADD, SUB, OUT, HALT). Then, implement the control logic (control signals and timing states) in Proteus, synchronized via a clock (e.g. 555 timer or internal clock module). After that, simulate and test each component individually (ALU operations, memory read/write, register transfers) and then integrate them, ensuring proper signal flow and control sequencing. Finally, run full instruction cycles in simulation to verify correct execution of programs, debug timing or signal issues, and optimize for reliability. The whole project was built on <b>Proteus 8 Professional</b> software.
+                     </p>
+                  </div>
+               </div>
+            </div>
+
+            <div class="portfolio_navigation"></div>
+         </div>
+      </div>
+      <!--SAP Ends-->
+
+      <!-- end: Portfolio Popup -->
+
+      <!-- SKILLS SECTION START -->
+      <section class="skills-section" id="skills-section">
+         <div class="container">
+            <div class="row">
+               <div class="col-md-12">
+                  <div class="section-header text-center">
+                     <h2 class="section-title wow fadeInUp" data-wow-delay=".3s">My Skills</h2>
+                     <p class="wow fadeInUp" data-wow-delay=".4s">
+                        We put your ideas and thus your wishes in the form of a unique web project that inspires you and
+                        you customers.
+                     </p>
+                  </div>
+               </div>
+            </div>
+
+            <div class="row">
+               <div class="col-md-12">
+                  <div class="skills-widget d-flex flex-wrap justify-content-center align-items-center">
+                     <div class="skill-item wow fadeInUp" data-wow-delay=".3s">
+                        <div class="skill-inner">
+                           <div class="icon-box">
+                              <img src="assets/img/icons/python.svg" alt="" />
+                           </div>
+                           <div class="number">92%</div>
+                        </div>
+                        <p>Python</p>
+                     </div>
+                     <div class="skill-item wow fadeInUp" data-wow-delay=".4s">
+                        <div class="skill-inner">
+                           <div class="icon-box">
+                              <img src="assets/img/icons/laravel.svg" alt="" />
+                           </div>
+                           <div class="number">80%</div>
+                        </div>
+                        <p>Laravel</p>
+                     </div>
+                     <div class="skill-item wow fadeInUp" data-wow-delay=".5s">
+                        <div class="skill-inner">
+                           <div class="icon-box">
+                              <img src="assets/img/icons/php.svg" alt="" />
+                           </div>
+                           <div class="number">85%</div>
+                        </div>
+                        <p>PHP</p>
+                     </div>
+                     <div class="skill-item wow fadeInUp" data-wow-delay=".6s">
+                        <div class="skill-inner">
+                           <div class="icon-box">
+                              <img src="assets/img/icons/django.svg" alt="" />
+                           </div>
+                           <div class="number">89%</div>
+                        </div>
+                        <p>Django</p>
+                     </div>
+                     <div class="skill-item wow fadeInUp" data-wow-delay=".7s">
+                        <div class="skill-inner">
+                           <div class="icon-box">
+                              <img src="assets/img/icons/react.svg" alt="" />
+                           </div>
+                           <div class="number">89%</div>
+                        </div>
+                        <p>React</p>
+                     </div>
+                     <div class="skill-item wow fadeInUp" data-wow-delay=".8s">
+                        <div class="skill-inner">
+                           <div class="icon-box">
+                              <img src="assets/img/icons/js.svg" alt="" />
+                           </div>
+                           <div class="number">93%</div>
+                        </div>
+                        <p>JavaScript</p>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </section>
+      <!-- SKILLS SECTION END -->
+
+      <!-- TESTIMONIAL SECTION START -->
+      <!--section class="testimonial-section" id="testimonials-section">
+         <div class="container">
+            <div class="row">
+               <div class="col-lg-5">
+                  <div class="section-header">
+                     <h2 class="section-title wow fadeInLeft" data-wow-delay=".3s">My Client's Stories</h2>
+                     <p class="wow fadeInLeft" data-wow-delay=".4s">Empowering people in new a digital journey with my
+                        super services</p>
+                  </div>
+               </div>
+               <div class="col-lg-7 col-xl-6 offset-xl-1">
+                  <div class="testimonials-widget wow fadeInRight" data-wow-delay=".5s">
+                     <div class="owl-carousel testimonial-carousel">
+                        <div class="testimonial-item">
+                           <div class="top-area d-flex flex-wrap justify-content-between">
+                              <div class="logo-box">
+                                 <img src="assets/img/testimonials/logo/1.png" alt="" />
+                              </div>
+                              <div class="image-box">
+                                 <img src="assets/img/testimonials/user/1.jpg" alt="" />
+                              </div>
+                           </div>
+                           <div class="icon-box">
+                              <svg width="22" height="22" viewBox="0 0 22 22" fill="none"
+                                 xmlns="http://www.w3.org/2000/svg">
+                                 <path
+                                    d="M0.105431 2.18998C0.0301532 0.988687 1.02531 -0.00647222 2.2266 0.0688056L19.4961 1.15097C21.2148 1.25867 22.0029 3.34358 20.7852 4.56127L4.5979 20.7486C3.3802 21.9663 1.2953 21.1781 1.1876 19.4594L0.105431 2.18998Z"
+                                    fill="url(#paint0_linear_263_588)" />
+                                 <defs>
+                                    <linearGradient id="paint0_linear_263_588" x1="-0.0363755" y1="-0.0729998"
+                                       x2="35.3333" y2="-0.0729991" gradientUnits="userSpaceOnUse">
+                                       <stop offset="1" stop-color="var(--tj-theme-primary)" />
+                                       <stop offset="1" stop-color="#140C1C" stop-opacity="0" />
+                                    </linearGradient>
+                                 </defs>
+                              </svg>
+                              <svg width="22" height="22" viewBox="0 0 22 22" fill="none"
+                                 xmlns="http://www.w3.org/2000/svg">
+                                 <path
+                                    d="M0.105431 2.18998C0.0301532 0.988687 1.02531 -0.00647222 2.2266 0.0688056L19.4961 1.15097C21.2148 1.25867 22.0029 3.34358 20.7852 4.56127L4.5979 20.7486C3.3802 21.9663 1.2953 21.1781 1.1876 19.4594L0.105431 2.18998Z"
+                                    fill="url(#paint0_linear_263_589)" />
+                                 <defs>
+                                    <linearGradient id="paint0_linear_263_589" x1="-0.0363755" y1="-0.0729998"
+                                       x2="35.3333" y2="-0.0729991" gradientUnits="userSpaceOnUse">
+                                       <stop offset="1" stop-color="var(--tj-theme-primary)" />
+                                       <stop offset="1" stop-color="#140C1C" stop-opacity="0" />
+                                    </linearGradient>
+                                 </defs>
+                              </svg>
+                           </div>
+                           <p class="quote">“Taylor is a professional Designer he really helps my business by providing
+                              value to my business.</p>
+                           <h4 class="name">Brandon Fraser</h4>
+                           <span class="designation">Senior Software Dev, Cosmic Sport</span>
+                        </div>
+                        <div class="testimonial-item">
+                           <div class="top-area d-flex flex-wrap justify-content-between">
+                              <div class="logo-box">
+                                 <img src="assets/img/testimonials/logo/2.png" alt="" />
+                              </div>
+                              <div class="image-box">
+                                 <img src="assets/img/testimonials/user/2.jpg" alt="" />
+                              </div>
+                           </div>
+                           <div class="icon-box">
+                              <svg width="22" height="22" viewBox="0 0 22 22" fill="none"
+                                 xmlns="http://www.w3.org/2000/svg">
+                                 <path
+                                    d="M0.105431 2.18998C0.0301532 0.988687 1.02531 -0.00647222 2.2266 0.0688056L19.4961 1.15097C21.2148 1.25867 22.0029 3.34358 20.7852 4.56127L4.5979 20.7486C3.3802 21.9663 1.2953 21.1781 1.1876 19.4594L0.105431 2.18998Z"
+                                    fill="url(#paint0_linear_263_511)" />
+                                 <defs>
+                                    <linearGradient id="paint0_linear_263_511" x1="-0.0363755" y1="-0.0729998"
+                                       x2="35.3333" y2="-0.0729991" gradientUnits="userSpaceOnUse">
+                                       <stop offset="1" stop-color="var(--tj-theme-primary)" />
+                                       <stop offset="1" stop-color="#140C1C" stop-opacity="0" />
+                                    </linearGradient>
+                                 </defs>
+                              </svg>
+                              <svg width="22" height="22" viewBox="0 0 22 22" fill="none"
+                                 xmlns="http://www.w3.org/2000/svg">
+                                 <path
+                                    d="M0.105431 2.18998C0.0301532 0.988687 1.02531 -0.00647222 2.2266 0.0688056L19.4961 1.15097C21.2148 1.25867 22.0029 3.34358 20.7852 4.56127L4.5979 20.7486C3.3802 21.9663 1.2953 21.1781 1.1876 19.4594L0.105431 2.18998Z"
+                                    fill="url(#paint0_linear_263_510)" />
+                                 <defs>
+                                    <linearGradient id="paint0_linear_263_510" x1="-0.0363755" y1="-0.0729998"
+                                       x2="35.3333" y2="-0.0729991" gradientUnits="userSpaceOnUse">
+                                       <stop offset="1" stop-color="var(--tj-theme-primary)" />
+                                       <stop offset="1" stop-color="#140C1C" stop-opacity="0" />
+                                    </linearGradient>
+                                 </defs>
+                              </svg>
+                           </div>
+                           <p class="quote">“Taylor is a professional Designer he really helps my business by providing
+                              value to my business.</p>
+                           <h4 class="name">Tim Bailey</h4>
+                           <span class="designation">SEO Specialist, Theme Junction</span>
+                        </div>
+                        <div class="testimonial-item">
+                           <div class="top-area d-flex flex-wrap justify-content-between">
+                              <div class="logo-box">
+                                 <img src="assets/img/testimonials/logo/1.png" alt="" />
+                              </div>
+                              <div class="image-box">
+                                 <img src="assets/img/testimonials/user/1.jpg" alt="" />
+                              </div>
+                           </div>
+                           <div class="icon-box">
+                              <svg width="22" height="22" viewBox="0 0 22 22" fill="none"
+                                 xmlns="http://www.w3.org/2000/svg">
+                                 <path
+                                    d="M0.105431 2.18998C0.0301532 0.988687 1.02531 -0.00647222 2.2266 0.0688056L19.4961 1.15097C21.2148 1.25867 22.0029 3.34358 20.7852 4.56127L4.5979 20.7486C3.3802 21.9663 1.2953 21.1781 1.1876 19.4594L0.105431 2.18998Z"
+                                    fill="url(#paint0_linear_263_512)" />
+                                 <defs>
+                                    <linearGradient id="paint0_linear_263_512" x1="-0.0363755" y1="-0.0729998"
+                                       x2="35.3333" y2="-0.0729991" gradientUnits="userSpaceOnUse">
+                                       <stop offset="1" stop-color="var(--tj-theme-primary)" />
+                                       <stop offset="1" stop-color="#140C1C" stop-opacity="0" />
+                                    </linearGradient>
+                                 </defs>
+                              </svg>
+                              <svg width="22" height="22" viewBox="0 0 22 22" fill="none"
+                                 xmlns="http://www.w3.org/2000/svg">
+                                 <path
+                                    d="M0.105431 2.18998C0.0301532 0.988687 1.02531 -0.00647222 2.2266 0.0688056L19.4961 1.15097C21.2148 1.25867 22.0029 3.34358 20.7852 4.56127L4.5979 20.7486C3.3802 21.9663 1.2953 21.1781 1.1876 19.4594L0.105431 2.18998Z"
+                                    fill="url(#paint0_linear_263_513)" />
+                                 <defs>
+                                    <linearGradient id="paint0_linear_263_513" x1="-0.0363755" y1="-0.0729998"
+                                       x2="35.3333" y2="-0.0729991" gradientUnits="userSpaceOnUse">
+                                       <stop offset="1" stop-color="var(--tj-theme-primary)" />
+                                       <stop offset="1" stop-color="#140C1C" stop-opacity="0" />
+                                    </linearGradient>
+                                 </defs>
+                              </svg>
+                           </div>
+                           <p class="quote">“Taylor is a professional Designer he really helps my business by providing
+                              value to my business.</p>
+                           <h4 class="name">Brandon Fraser</h4>
+                           <span class="designation">Senior Software Dev, Cosmic Sport</span>
+                        </div>
+                        <div class="testimonial-item">
+                           <div class="top-area d-flex flex-wrap justify-content-between">
+                              <div class="logo-box">
+                                 <img src="assets/img/testimonials/logo/2.png" alt="" />
+                              </div>
+                              <div class="image-box">
+                                 <img src="assets/img/testimonials/user/2.jpg" alt="" />
+                              </div>
+                           </div>
+                           <div class="icon-box">
+                              <svg width="22" height="22" viewBox="0 0 22 22" fill="none"
+                                 xmlns="http://www.w3.org/2000/svg">
+                                 <path
+                                    d="M0.105431 2.18998C0.0301532 0.988687 1.02531 -0.00647222 2.2266 0.0688056L19.4961 1.15097C21.2148 1.25867 22.0029 3.34358 20.7852 4.56127L4.5979 20.7486C3.3802 21.9663 1.2953 21.1781 1.1876 19.4594L0.105431 2.18998Z"
+                                    fill="url(#paint0_linear_263_514)" />
+                                 <defs>
+                                    <linearGradient id="paint0_linear_263_514" x1="-0.0363755" y1="-0.0729998"
+                                       x2="35.3333" y2="-0.0729991" gradientUnits="userSpaceOnUse">
+                                       <stop offset="1" stop-color="var(--tj-theme-primary)" />
+                                       <stop offset="1" stop-color="#140C1C" stop-opacity="0" />
+                                    </linearGradient>
+                                 </defs>
+                              </svg>
+                              <svg width="22" height="22" viewBox="0 0 22 22" fill="none"
+                                 xmlns="http://www.w3.org/2000/svg">
+                                 <path
+                                    d="M0.105431 2.18998C0.0301532 0.988687 1.02531 -0.00647222 2.2266 0.0688056L19.4961 1.15097C21.2148 1.25867 22.0029 3.34358 20.7852 4.56127L4.5979 20.7486C3.3802 21.9663 1.2953 21.1781 1.1876 19.4594L0.105431 2.18998Z"
+                                    fill="url(#paint0_linear_263_515)" />
+                                 <defs>
+                                    <linearGradient id="paint0_linear_263_515" x1="-0.0363755" y1="-0.0729998"
+                                       x2="35.3333" y2="-0.0729991" gradientUnits="userSpaceOnUse">
+                                       <stop offset="1" stop-color="var(--tj-theme-primary)" />
+                                       <stop offset="1" stop-color="#140C1C" stop-opacity="0" />
+                                    </linearGradient>
+                                 </defs>
+                              </svg>
+                           </div>
+                           <p class="quote">“Taylor is a professional Designer he really helps my business by providing
+                              value to my business.</p>
+                           <h4 class="name">Tim Bailey</h4>
+                           <span class="designation">SEO Specialist, Theme Junction</span>
+                        </div>
+                        <div class="testimonial-item">
+                           <div class="top-area d-flex flex-wrap justify-content-between">
+                              <div class="logo-box">
+                                 <img src="assets/img/testimonials/logo/1.png" alt="" />
+                              </div>
+                              <div class="image-box">
+                                 <img src="assets/img/testimonials/user/1.jpg" alt="" />
+                              </div>
+                           </div>
+                           <div class="icon-box">
+                              <svg width="22" height="22" viewBox="0 0 22 22" fill="none"
+                                 xmlns="http://www.w3.org/2000/svg">
+                                 <path
+                                    d="M0.105431 2.18998C0.0301532 0.988687 1.02531 -0.00647222 2.2266 0.0688056L19.4961 1.15097C21.2148 1.25867 22.0029 3.34358 20.7852 4.56127L4.5979 20.7486C3.3802 21.9663 1.2953 21.1781 1.1876 19.4594L0.105431 2.18998Z"
+                                    fill="url(#paint0_linear_263_512)" />
+                                 <defs>
+                                    <linearGradient id="paint0_linear_263_512" x1="-0.0363755" y1="-0.0729998"
+                                       x2="35.3333" y2="-0.0729991" gradientUnits="userSpaceOnUse">
+                                       <stop offset="1" stop-color="var(--tj-theme-primary)" />
+                                       <stop offset="1" stop-color="#140C1C" stop-opacity="0" />
+                                    </linearGradient>
+                                 </defs>
+                              </svg>
+                              <svg width="22" height="22" viewBox="0 0 22 22" fill="none"
+                                 xmlns="http://www.w3.org/2000/svg">
+                                 <path
+                                    d="M0.105431 2.18998C0.0301532 0.988687 1.02531 -0.00647222 2.2266 0.0688056L19.4961 1.15097C21.2148 1.25867 22.0029 3.34358 20.7852 4.56127L4.5979 20.7486C3.3802 21.9663 1.2953 21.1781 1.1876 19.4594L0.105431 2.18998Z"
+                                    fill="url(#paint0_linear_263_513)" />
+                                 <defs>
+                                    <linearGradient id="paint0_linear_263_513" x1="-0.0363755" y1="-0.0729998"
+                                       x2="35.3333" y2="-0.0729991" gradientUnits="userSpaceOnUse">
+                                       <stop offset="1" stop-color="var(--tj-theme-primary)" />
+                                       <stop offset="1" stop-color="#140C1C" stop-opacity="0" />
+                                    </linearGradient>
+                                 </defs>
+                              </svg>
+                           </div>
+                           <p class="quote">“Taylor is a professional Designer he really helps my business by providing
+                              value to my business.</p>
+                           <h4 class="name">Brandon Fraser</h4>
+                           <span class="designation">Senior Software Dev, Cosmic Sport</span>
+                        </div>
+                        <div class="testimonial-item">
+                           <div class="top-area d-flex flex-wrap justify-content-between">
+                              <div class="logo-box">
+                                 <img src="assets/img/testimonials/logo/2.png" alt="" />
+                              </div>
+                              <div class="image-box">
+                                 <img src="assets/img/testimonials/user/2.jpg" alt="" />
+                              </div>
+                           </div>
+                           <div class="icon-box">
+                              <svg width="22" height="22" viewBox="0 0 22 22" fill="none"
+                                 xmlns="http://www.w3.org/2000/svg">
+                                 <path
+                                    d="M0.105431 2.18998C0.0301532 0.988687 1.02531 -0.00647222 2.2266 0.0688056L19.4961 1.15097C21.2148 1.25867 22.0029 3.34358 20.7852 4.56127L4.5979 20.7486C3.3802 21.9663 1.2953 21.1781 1.1876 19.4594L0.105431 2.18998Z"
+                                    fill="url(#paint0_linear_263_514)" />
+                                 <defs>
+                                    <linearGradient id="paint0_linear_263_514" x1="-0.0363755" y1="-0.0729998"
+                                       x2="35.3333" y2="-0.0729991" gradientUnits="userSpaceOnUse">
+                                       <stop offset="1" stop-color="var(--tj-theme-primary)" />
+                                       <stop offset="1" stop-color="#140C1C" stop-opacity="0" />
+                                    </linearGradient>
+                                 </defs>
+                              </svg>
+                              <svg width="22" height="22" viewBox="0 0 22 22" fill="none"
+                                 xmlns="http://www.w3.org/2000/svg">
+                                 <path
+                                    d="M0.105431 2.18998C0.0301532 0.988687 1.02531 -0.00647222 2.2266 0.0688056L19.4961 1.15097C21.2148 1.25867 22.0029 3.34358 20.7852 4.56127L4.5979 20.7486C3.3802 21.9663 1.2953 21.1781 1.1876 19.4594L0.105431 2.18998Z"
+                                    fill="url(#paint0_linear_263_515)" />
+                                 <defs>
+                                    <linearGradient id="paint0_linear_263_515" x1="-0.0363755" y1="-0.0729998"
+                                       x2="35.3333" y2="-0.0729991" gradientUnits="userSpaceOnUse">
+                                       <stop offset="1" stop-color="var(--tj-theme-primary)" />
+                                       <stop offset="1" stop-color="#140C1C" stop-opacity="0" />
+                                    </linearGradient>
+                                 </defs>
+                              </svg>
+                           </div>
+                           <p class="quote">“Taylor is a professional Designer he really helps my business by providing
+                              value to my business.</p>
+                           <h4 class="name">Tim Bailey</h4>
+                           <span class="designation">SEO Specialist, Theme Junction</span>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </section-->
+      <!-- TESTIMONIAL SECTION END -->
+
+      <!-- BLOG SECTION STAR -->
+      <!--section class="blog-section" id="blog-section">
+         <div class="container">
+            <div class="row">
+               <div class="col-md-12">
+                  <div class="section-header text-center">
+                     <h2 class="section-title wow fadeInUp" data-wow-delay=".3s">Recent Blogs</h2>
+                     <p class="wow fadeInUp" data-wow-delay=".4s">
+                        We put your ideas and thus your wishes in the form of a unique web project that inspires you and
+                        you customers.
+                     </p>
+                  </div>
+               </div>
+            </div>
+            <div class="row">
+               <div class="col-lg-4 col-md-6">
+                  <div class="blog-item wow fadeInUp" data-wow-delay=".5s">
+                     <div class="blog-thumb">
+                        <a href="blog-details.html">
+                           <img src="assets/img/blog/1.jpg" alt="" />
+                        </a>
+                        <a href="#" class="category">Tutorial</a>
+                     </div>
+
+                     <div class="blog-content">
+                        <div class="blog-meta">
+                           <ul class="ul-reset">
+                              <li><i class="fa-light fa-calendar-days"></i> Oct 01, 2022</li>
+                              <li><i class="fa-light fa-comments"></i> <a href="#">Comment (0)</a></li>
+                           </ul>
+                        </div>
+                        <h3 class="blog-title"><a href="blog-details.html">Top 10 ui ux designers</a></h3>
+                     </div>
+                  </div>
+               </div>
+               <div class="col-lg-4 col-md-6">
+                  <div class="blog-item wow fadeInUp" data-wow-delay=".6s">
+                     <div class="blog-thumb">
+                        <a href="blog-details.html">
+                           <img src="assets/img/blog/2.jpg" alt="" />
+                        </a>
+                        <a href="#" class="category">TIPS</a>
+                     </div>
+                     <div class="blog-content">
+                        <div class="blog-meta">
+                           <ul class="ul-reset">
+                              <li><i class="fa-light fa-calendar-days"></i> Nov 01, 2022</li>
+                              <li><i class="fa-light fa-comments"></i> <a href="#">Comment (0)</a></li>
+                           </ul>
+                        </div>
+                        <h3 class="blog-title"><a href="blog-details.html">App Development Guides</a></h3>
+                     </div>
+                  </div>
+               </div>
+               <div class="col-lg-4 col-md-6">
+                  <div class="blog-item wow fadeInUp" data-wow-delay=".7s">
+                     <div class="blog-thumb">
+                        <a href="blog-details.html">
+                           <img src="assets/img/blog/3.jpg" alt="" />
+                        </a>
+                        <a href="#" class="category">FREEBIES</a>
+                     </div>
+                     <div class="blog-content">
+                        <div class="blog-meta">
+                           <ul class="ul-reset">
+                              <li><i class="fa-light fa-calendar-days"></i> Dec 01, 2022</li>
+                              <li><i class="fa-light fa-comments"></i> <a href="#">Comment (0)</a></li>
+                           </ul>
+                        </div>
+                        <h3 class="blog-title"><a href="blog-details.html">learn graphic design free</a></h3>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </section-->
+      <!-- BLOG SECTION END -->
+
+      <!-- CONTACT SECTION START -->
+      <section class="contact-section" id="contact-section">
+         <div class="container">
+            <div class="row">
+               <div class="col-lg-12 order-1 order-md-2">
+                  <div class="contact-info-list w-100">
+                     <ul class="ul-reset d-flex flex-column flex-md-row justify-content-between align-items-start text-start">
+                        
+                        <!-- Phone -->
+                        <li class="d-flex align-items-center position-relative wow fadeInRight m-3"
+                           data-wow-delay=".4s">
+                           <div class="icon-box me-2">
+                              <i class="flaticon-phone-call"></i>
+                           </div>
+                           <div class="text-box">
+                              <p class="mb-0">Phone</p>
+                              <a href="https://wa.me/+8801890369682" target="_blank" rel="noopener noreferrer">
+                                 +8801890369682
+                              </a>
+                           </div>
+                        </li>
+
+                        <!-- Email -->
+                        <li class="d-flex align-items-center position-relative wow fadeInRight m-3"
+                           data-wow-delay=".5s">
+                           <div class="icon-box me-2">
+                              <i class="flaticon-mail-inbox-app"></i>
+                           </div>
+                           <div class="text-box">
+                              <p class="mb-0">Email</p>
+                              <a href="mailto:faiazzahin@gmail.com">faiazzahin@gmail.com</a>
+                           </div>
+                        </li>
+
+                        <!-- Address -->
+                        <li class="d-flex align-items-center position-relative wow fadeInRight m-3"
+                           data-wow-delay=".6s">
+                           <div class="icon-box me-2">
+                              <i class="flaticon-location"></i>
+                           </div>
+                           <div class="text-box">
+                              <p class="mb-0">Address</p>
+                              <a href="https://maps.app.goo.gl/tYGokQGjJW98zdtP8" target="_blank" rel="noopener noreferrer">
+                                 Udd-05, Uddipon, Azizpalli,<br />Dhaka Cantonment, Dhaka-1206
+                              </a>
+                           </div>
+                        </li>
+
+                     </ul>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </section>
+      <!-- CONTACT SECTION END -->
+
+      <!-- BEGIN: Contact Form Success Modal Message -->
+      <div class="modal contact_modal" id="message_sent" tabindex="-1">
+         <div class="modal-dialog">
+            <div class="modal-content">
+               <div class="modal-header">
+                  <span class="modal-title"><strong>Message Sent Successfully</strong></span>
+                  <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close"><i
+                        class="fas fa-times"></i></button>
+               </div>
+               <div class="modal-body">
+                  <p>Thank you for contacting us. We will get back to you shortly.<br />Have a great day!</p>
+               </div>
+               <div class="modal-footer">
+                  <button type="button" class="btn" data-bs-dismiss="modal">Close</button>
+               </div>
+            </div>
+         </div>
+      </div>
+      <!-- END: Contact Form Success Modal Message -->
+
+      <!-- BEGIN: Contact Form Fail Modal Message -->
+      <div class="modal contact_modal failed" id="message_fail" tabindex="-1">
+         <div class="modal-dialog">
+            <div class="modal-content">
+               <div class="modal-header">
+                  <span class="modal-title"><strong>Error</strong></span>
+                  <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close"><i
+                        class="fas fa-times"></i></button>
+               </div>
+               <div class="modal-body">
+                  <p>Oops! Something went wrong, please try again.</p>
+               </div>
+               <div class="modal-footer">
+                  <button type="button" class="btn" data-bs-dismiss="modal">Close</button>
+               </div>
+            </div>
+         </div>
+      </div>
+      <!-- END: Contact Form Fail Modal Message End -->
+   </main>
+
+   <!-- FOOTER AREA START -->
+   <footer class="tj-footer-area">
+      <div class="container">
+         <div class="row">
+            <div class="col-md-12 text-center">
+               <div class="footer-logo-box">
+                  <!--a href="#"><img src="assets/img/logo/logo.png" alt="" /></a-->
+                  <a href="#"><img src="assets/img/logo/FZ Logo.png" alt="" /></a>
+               </div>
+               <div class="footer-menu">
+                  <nav>
+                     <ul>
+                        <li><a href="#about-me">About Me</a></li>
+                        <li><a href="#resume-section">Education</a></li>
+                        <li><a href="#works-section">Projects</a></li>
+                        <li><a href="#skills-section">Skills</a></li>
+                        <li><a href="#contact-section">Contact</a></li>
+                     </ul>
+                  </nav>
+               </div>
+               <div class="copy-text">
+                  <p>&copy; 2025 All rights reserved by <a href="https://github.com/touhidulislam1999" target="_blank">Touhidul Islam</a></p>
+               </div>
+            </div>
+         </div>
+      </div>
+   </footer>
+   <!-- FOOTER AREA END -->
+
+   <!-- CSS here -->
+   <script src="assets/js/jquery.min.js"></script>
+   <script src="assets/js/bootstrap.bundle.min.js"></script>
+   <script src="assets/js/nice-select.min.js"></script>
+   <script src="assets/js/backToTop.js"></script>
+   <script src="assets/js/smooth-scroll.js"></script>
+   <script src="assets/js/appear.min.js"></script>
+   <script src="assets/js/wow.min.js"></script>
+   <script src="assets/js/gsap.min.js"></script>
+   <script src="assets/js/one-page-nav.js"></script>
+   <script src="assets/js/lightcase.js"></script>
+   <script src="assets/js/owl.carousel.min.js"></script>
+   <script src="assets/js/swiper.min.js"></script>
+   <script src="assets/js/imagesloaded-pkgd.js"></script>
+   <script src="assets/js/isotope.pkgd.min.js"></script>
+   <script src="assets/js/odometer.min.js"></script>
+   <script src="assets/js/magnific-popup.js"></script>
+   <script src="assets/js/validate.min.js"></script>
+   <script src="assets/js/main.js"></script>
+</body>
+
+</html>
