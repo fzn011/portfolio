@@ -394,31 +394,33 @@ Description: Gerold - Personal Portfolio HTML5 Template
 		if ($("#contact-form").length > 0) {
 			$("#contact-form").validate({
 				rules: {
-					conName: "required",
-					conEmail: {
+					name: "required",
+					email: {
 						required: true,
 						email: true,
 					},
+					message: "required",
 				},
 
 				messages: {
-					conName: "Enter your name.",
-					conEmail: "Enter a valid email.",
+					name: "Enter your name.",
+					email: "Enter a valid email.",
+					message: "Enter your message.",
 				},
 				submitHandler: function (form) {
-					// start ajax request
+					var $form = $(form);
 					$.ajax({
 						type: "POST",
-						url: "assets/mail/contact-form.php",
-						data: $("#contact-form").serialize(),
-						cache: false,
-						success: function (data) {
-							if (data == "Y") {
-								$("#message_sent").modal("show");
-								$("#contact-form").trigger("reset");
-							} else {
-								$("#message_fail").modal("show");
-							}
+						url: $form.attr("action"),
+						data: $form.serialize(),
+						dataType: "json",
+						headers: { "Accept": "application/json" },
+						success: function () {
+							$("#message_sent").modal("show");
+							$form.trigger("reset");
+						},
+						error: function () {
+							$("#message_fail").modal("show");
 						},
 					});
 				},
