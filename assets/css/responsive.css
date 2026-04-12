@@ -27,8 +27,17 @@
 	}
 
 	/* resume section */
-	.resume-widget .resume-item .resume-title {
-		font-size: 23px;
+	.edu-title {
+		font-size: 20px;
+	}
+
+	/* experience section */
+	.experience-section {
+		padding-top: 100px;
+		padding-bottom: 80px;
+	}
+	.experience-role-title {
+		font-size: 24px;
 	}
 
 	/* skills */
@@ -101,11 +110,17 @@
 	.section-header .section-title {
 		font-size: 40px;
 	}
-	.resume-section .resume-item {
-		margin-right: 0;
+	.edu-title {
+		font-size: 20px;
 	}
-	.resume-widget .resume-item .resume-title {
-		font-size: 23px;
+
+	/* experience section */
+	.experience-section {
+		padding-top: 100px;
+		padding-bottom: 80px;
+	}
+	.experience-role-title {
+		font-size: 22px;
 	}
 
 	/* skills */
@@ -379,15 +394,23 @@
 	.section-header .section-title {
 		font-size: 35px;
 	}
-	.resume-section .resume-item {
-		margin-right: 0;
-		padding: 20px 15px;
+	.education-card {
+		padding: 22px 28px;
 	}
-	.resume-widget .resume-item .time {
-		font-size: 15px;
+	.edu-title {
+		font-size: 19px;
 	}
-	.resume-widget .resume-item .resume-title {
-		font-size: 20px;
+
+	/* experience section */
+	.experience-section {
+		padding-top: 80px;
+		padding-bottom: 60px;
+	}
+	.experience-role-title {
+		font-size: 22px;
+	}
+	.experience-company-card {
+		padding: 25px 30px;
 	}
 
 	/* skills */
@@ -769,22 +792,59 @@
 		padding-top: 60px;
 		padding-bottom: 30px;
 	}
-	.resume-section .col-md-6:last-child .section-header {
-		margin-top: 30px;
-	}
 	.section-header .section-title {
 		font-size: 30px;
 	}
-	.resume-section .resume-item {
-		margin-right: 0;
-		padding: 20px 15px;
+	.education-timeline {
+		padding-left: 30px;
 	}
-	.resume-widget .resume-item .time {
-		font-size: 15px;
+	.education-card {
+		padding: 20px 22px;
+		margin-bottom: 20px;
 	}
-	.resume-widget .resume-item .resume-title {
-		font-size: 18px;
-		margin-bottom: 0;
+	.edu-marker {
+		left: -24px;
+		width: 14px;
+		height: 14px;
+		top: 26px;
+	}
+	.edu-title {
+		font-size: 17px;
+	}
+	.edu-time {
+		font-size: 13px;
+		padding: 4px 12px;
+	}
+	.edu-institute {
+		font-size: 14px;
+	}
+	.education-timeline::before {
+		left: 10px;
+	}
+
+	/* experience section */
+	.experience-section {
+		padding-top: 60px;
+		padding-bottom: 40px;
+	}
+	.experience-company-card {
+		padding: 20px 25px;
+		margin-bottom: 30px;
+	}
+	.experience-company-header {
+		flex-direction: column;
+		align-items: flex-start;
+		gap: 10px;
+	}
+	.experience-role-title {
+		font-size: 20px;
+	}
+	.experience-details-box {
+		padding: 25px 20px;
+	}
+	.experience-bullet-list li {
+		font-size: 14px;
+		padding-left: 22px;
 	}
 
 	/* skills */

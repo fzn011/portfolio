@@ -98,8 +98,8 @@ Description: Gerold - Personal Portfolio HTML5 Template
 		/*------------------------------------------------------
   	/  Portfolio Filter
   	/------------------------------------------------------*/
-		$(".portfolio-box").imagesLoaded(function () {
-			var $grid = $(".portfolio-box").isotope({
+		$("#works-section .portfolio-box").imagesLoaded(function () {
+			var $grid = $("#works-section .portfolio-box").isotope({
 				// options
 				masonry: {
 					columnWidth: ".portfolio-box .portfolio-sizer",

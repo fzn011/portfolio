@@ -5,7 +5,7 @@
    <meta charset="utf-8" />
    <meta http-equiv="x-ua-compatible" content="ie=edge" />
    <meta name="viewport" content="width=device-width, initial-scale=1" />
-   <meta name="description" content="" />
+   <meta name="description" content="Faiaz Zahin - CS Graduate & Aspiring Data Scientist. Portfolio showcasing projects in AI/ML, web development, and game design. Skilled in Python, Laravel, Django, React, and SQL." />
 
    <!-- Site Title -->
    <!--title>Gerold - Personal Portfolio HTML5 Template</title-->
@@ -31,6 +31,13 @@
    <link rel="stylesheet" href="assets/css/main.css" />
    <link rel="stylesheet" href="assets/css/light-mode.css" />
    <link rel="stylesheet" href="assets/css/responsive.css" />
+
+   <!-- Globe.gl -->
+   <script src="https://unpkg.com/globe.gl@2.27.2/dist/globe.gl.min.js"></script>
+   <!-- D3.js for Skill Constellation -->
+   <script src="https://d3js.org/d3.v7.min.js"></script>
+   <!-- tsParticles -->
+   <script src="https://cdn.jsdelivr.net/npm/tsparticles-slim@2.12.0/tsparticles.slim.bundle.min.js"></script>
 </head>
 
 <body>
@@ -69,6 +76,11 @@
       });
    </script>
 
+
+   <!-- Floating WhatsApp Button -->
+   <a href="https://wa.me/+8801890369682" target="_blank" rel="noopener noreferrer" class="whatsapp-float" title="Chat on WhatsApp">
+      <i class="fa-brands fa-whatsapp"></i>
+   </a>
 
    <!-- Preloader Area Start -->
    <div class="preloader">
@@ -120,7 +132,7 @@
                      <ul>
                         <li><a href="#about-me">About Me</a></li>
                         <li><a href="#resume-section">Resume</a></li>
-                        <li><a href="#research-section">Research</a></li>
+                        <li><a href="#experience-section">Experience</a></li>
                         <li><a href="#works-section">Projects</a></li>
                         <li><a href="#skills-section">Skills</a></li>
                         <li><a href="#contact-section">Contact</a></li>
@@ -129,7 +141,8 @@
                </div>
                <div class="header-button">
                   <!--a href="#" class="btn tj-btn-primary">Hire me!</a-->
-                  <a href="https://drive.google.com/file/d/1lBhED5NsxMj8ixuxahDlmPOFYv8EFA9_/view" class="btn tj-btn-primary" target="_blank" rel="noopener noreferrer">View CV <i class="flaticon-search"></i></a>
+                  <span class="availability-badge available"><span class="avail-dot"></span> Open to Work</span>
+                  <a href="https://drive.google.com/file/d/1Edvn71N0Wbixzrua5U1cTIeWqNnlD-wh/view" class="btn tj-btn-primary" target="_blank" rel="noopener noreferrer">View CV <i class="flaticon-search"></i></a>
                </div>
                <div class="menu-bar d-lg-none">
                   <button>
@@ -165,7 +178,7 @@
                      <ul>
                         <li><a href="#about-me">About Me</a></li>
                         <li><a href="#resume-section">Resume</a></li>
-                        <li><a href="#research-section">Research</a></li>
+                        <li><a href="#experience-section">Experience</a></li>
                         <li><a href="#works-section">Projects</a></li>
                         <li><a href="#skills-section">Skills</a></li>
                         <li><a href="#contact-section">Contact</a></li>
@@ -174,7 +187,8 @@
                </div>
 
                <div class="header-button">
-                  <a href="https://drive.google.com/file/d/1lBhED5NsxMj8ixuxahDlmPOFYv8EFA9_/view" class="btn tj-btn-primary" target="_blank" rel="noopener noreferrer">View CV <i class="flaticon-search"></i></i></a>
+                  <span class="availability-badge available"><span class="avail-dot"></span> Open to Work</span>
+                  <a href="https://drive.google.com/file/d/1Edvn71N0Wbixzrua5U1cTIeWqNnlD-wh/view" class="btn tj-btn-primary" target="_blank" rel="noopener noreferrer">View CV <i class="flaticon-search"></i></a>
                </div>
 
                <div class="menu-bar d-lg-none">
@@ -194,6 +208,7 @@
    <main class="site-content" id="about-me">
       <!-- HERO SECTION START -->
       <section class="hero-section d-flex align-items-center" id="intro">
+         <div id="hero-particles"></div>
          <div class="intro_text">
             <svg viewBox="0 0 1320 300">
                <text x="50%" Y="50%" text-anchor="middle">FAIAZ</text>
@@ -203,9 +218,16 @@
             <div class="row align-items-center">
                <div class="col-md-6">
                   <div class="hero-content-box">
+                     <div class="qotd-box" id="qotdBox">
+                        <span class="qotd-icon">💬</span>
+                        <div class="qotd-content">
+                           <p class="qotd-text" id="qotdText"></p>
+                           <span class="qotd-author" id="qotdAuthor"></span>
+                        </div>
+                     </div>
                      <span class="hero-sub-title">Hi, I am Faiaz</span>
                      <!--h1 class="hero-title">Web Developer +<br />UX Designer</h1-->
-                     <h1 class="hero-title">CS Graduate +<br />Data Analyst</h1>
+                     <h1 class="hero-title">CS Graduate +<br /><span class="typewriter" id="typewriter"></span><span class="typewriter-cursor">|</span></h1>
                      <div class="hero-image-box d-md-none text-center">
                         <!--img src="assets/img/hero/me.png" alt="" /-->
                         <img src="assets/img/hero/Faiaz Photo.png" alt="" />
@@ -267,7 +289,7 @@
                   <div class="col-6 col-lg-3">
                      <div class="funfact-item d-flex flex-column flex-sm-row flex-wrap align-items-center">
                         <div class="number"><span class="odometer" data-count="500">0</span>+</div>
-                        <div class="text">Sleepless <br />Nights</div>
+                        <div class="text">GitHub <br />Contributions</div>
                      </div>
                   </div>
                </div>
@@ -279,63 +301,122 @@
       <!-- RESUME SECTION START -->
       <section class="resume-section" id="resume-section">
          <div class="container">
-            <div class="row">
-               <div class="col-md-6">
-                  <div class="section-header wow fadeInUp" data-wow-delay=".3s">
+            <div class="row justify-content-center">
+               <div class="col-lg-8 col-md-10">
+                  <div class="section-header text-center wow fadeInUp" data-wow-delay=".3s">
                      <h2 class="section-title"><i class="flaticon-graduation-cap"></i> My Education</h2>
                   </div>
 
-                  <div class="resume-widget">
-                     <!-- BRAC University -->
-                     <a href="https://www.bracu.ac.bd/" target="_blank" rel="noopener noreferrer" style="text-decoration: none; color: inherit;">
-                        <div class="resume-item wow fadeInRight" data-wow-delay=".5s" align="center">
-                           <div class="time">2021 - 2025</div>
-                           <h3 class="resume-title">BSc in CSE</h3>
-                           <div class="institute">BRAC University</div>
+                  <div class="education-timeline">
+                     <!-- Masters - Coming Soon -->
+                     <div class="edu-link">
+                        <div class="education-card edu-coming-soon wow fadeInUp" data-wow-delay=".4s">
+                           <div class="edu-marker"></div>
+                           <div class="edu-content">
+                              <span class="edu-time">Coming Soon</span>
+                              <h3 class="edu-title">Masters</h3>
+                              <div class="edu-institute"><i class="fa-light fa-building-columns"></i> To Be Announced</div>
+                           </div>
                         </div>
-                     </a>
+                     </div>
+
+                     <!-- BRAC University -->
+                     <div class="edu-link">
+                        <div class="education-card wow fadeInUp" data-wow-delay=".5s">
+                           <div class="edu-marker"></div>
+                           <div class="edu-content">
+                              <span class="edu-time">2021 - 2025</span>
+                              <h3 class="edu-title">Bachelor of Science in Computer Science & Engineering</h3>
+                              <div class="edu-institute"><i class="fa-light fa-building-columns"></i> <a href="https://www.bracu.ac.bd/" target="_blank" rel="noopener noreferrer">BRAC University</a></div>
+                              <a href="assets/certificates/ORIGINAL_CERTIFICATE.pdf" target="_blank" rel="noopener noreferrer" class="edu-cert-link"><i class="fa-light fa-file-certificate"></i> View Certificate</a>
+                           </div>
+                        </div>
+                     </div>
 
                      <!-- Adamjee Cantonment College -->
-                     <a href="https://acc.edu.bd/" target="_blank" rel="noopener noreferrer" style="text-decoration: none; color: inherit;">
-                        <div class="resume-item wow fadeInRight" data-wow-delay=".6s" align="center">
-                           <div class="time">2017 - 2019</div>
-                           <h3 class="resume-title">Higher School Certificate</h3>
-                           <div class="institute">Adamjee Cantonment College</div>
+                     <div class="edu-link">
+                        <div class="education-card wow fadeInUp" data-wow-delay=".5s">
+                           <div class="edu-marker"></div>
+                           <div class="edu-content">
+                              <span class="edu-time">2017 - 2019</span>
+                              <h3 class="edu-title">Higher School Certificate</h3>
+                              <div class="edu-institute"><i class="fa-light fa-building-columns"></i> <a href="https://acc.edu.bd/" target="_blank" rel="noopener noreferrer">Adamjee Cantonment College</a></div>
+                              <a href="assets/certificates/HSC_CERTIFICATE.pdf" target="_blank" rel="noopener noreferrer" class="edu-cert-link"><i class="fa-light fa-file-certificate"></i> View Certificate</a>
+                           </div>
                         </div>
-                     </a>
+                     </div>
 
                      <!-- Bangladesh International School & College -->
-                     <a href="https://bisc.com.bd/" target="_blank" rel="noopener noreferrer" style="text-decoration: none; color: inherit;">
-                        <div class="resume-item wow fadeInRight" data-wow-delay=".7s" align="center">
-                           <div class="time">2015 - 2017</div>
-                           <h3 class="resume-title">Secondary School Certificate</h3>
-                           <div class="institute">Bangladesh International School & College</div>
+                     <div class="edu-link">
+                        <div class="education-card wow fadeInUp" data-wow-delay=".6s">
+                           <div class="edu-marker"></div>
+                           <div class="edu-content">
+                              <span class="edu-time">2015 - 2017</span>
+                              <h3 class="edu-title">Secondary School Certificate</h3>
+                              <div class="edu-institute"><i class="fa-light fa-building-columns"></i> <a href="https://bisc.com.bd/" target="_blank" rel="noopener noreferrer">Bangladesh International School & College</a></div>
+                              <a href="assets/certificates/SSC_CERTIFICATE.pdf" target="_blank" rel="noopener noreferrer" class="edu-cert-link"><i class="fa-light fa-file-certificate"></i> View Certificate</a>
+                           </div>
                         </div>
-                     </a>
-                  </div>
-
-               </div>
-
-               <div class="col-md-6">
-                  <div class="section-header wow fadeInUp" data-wow-delay=".4s">
-                     <h2 class="section-title"><i class="flaticon-recommendation"></i> My Experience</h2>
-                  </div>
-
-                  <div class="resume-widget">
-                     <!-- Trust Innovation -->
-                     <a href="https://tilbd.net/" target="_blank" rel="noopener noreferrer" style="text-decoration: none; color: inherit;">
-                        <div class="resume-item wow fadeInLeft" data-wow-delay=".5s">
-                        <div class="time">2025 - Present</div>
-                        <h3 class="resume-title">Software Engineer Intern</h3>
-                        <div class="institute">Trust Innovation Limited</div>
                      </div>
-                     </a>
                   </div>
+
                </div>
             </div>
          </div>
       </section>
       <!-- RESUME SECTION END -->
+
+      <!-- EXPERIENCE SECTION START -->
+      <section class="experience-section" id="experience-section">
+         <div class="container">
+            <div class="row">
+               <div class="col-md-12">
+                  <div class="section-header text-center">
+                     <h2 class="section-title wow fadeInUp" data-wow-delay=".3s"><i class="flaticon-recommendation"></i> My Experience</h2>
+                     <p class="wow fadeInUp" data-wow-delay=".4s">
+                        Hands-on experience gained through professional internship.
+                     </p>
+                  </div>
+               </div>
+            </div>
+
+            <div class="row justify-content-center">
+               <div class="col-lg-10">
+                  <!-- Company Header Card -->
+                  <a href="https://tilbd.net/" target="_blank" rel="noopener noreferrer" style="text-decoration: none; color: inherit;">
+                     <div class="experience-company-card wow fadeInUp" data-wow-delay=".4s">
+                        <div class="experience-company-header">
+                           <div class="experience-role-info">
+                              <h3 class="experience-role-title">Software Engineer Intern</h3>
+                              <div class="experience-company-name">Trust Innovation Limited</div>
+                           </div>
+                           <div class="experience-duration">
+                              <span class="experience-time">2025 - 2026</span>
+                           </div>
+                        </div>
+                     </div>
+                  </a>
+
+                  <!-- Experience Details Box -->
+                  <div class="experience-details-box wow fadeInUp" data-wow-delay=".5s">
+                     <ul class="experience-bullet-list">
+                        <li>Contributed to the development of the Military Institute of Science and Technology (MIST) website, including requirement analysis and SRS creation.</li>
+                        <li>Collaborated with cross-functional teams to ensure the MIST website met client expectations and was delivered on schedule.</li>
+                        <li>Played a key role in both frontend and backend development of the MIST website, ensuring functionality across various devices.</li>
+                        <li>Conducted thorough Quality Assurance Testing for the IPTSP app, ensuring high performance and usability standards were met.</li>
+                        <li>Enhanced the admin panel functionality of the IPTSP app, researching ways to improve its user-friendliness and overall efficiency.</li>
+                        <li>Researched and provided insights on the process of publishing the IPTSP app on both Android and iOS platforms.</li>
+                        <li>Demonstrated punctuality, discipline, and a proactive attitude, consistently meeting deadlines and contributing to team discussions.</li>
+                     </ul>
+                     <div style="margin-top: 15px;">
+                        <a href="assets/certificates/JOB%20CERTIFICATION.pdf" target="_blank" rel="noopener noreferrer" class="edu-cert-link"><i class="fa-light fa-file-certificate"></i> View Certificate</a>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </section>
+      <!-- EXPERIENCE SECTION END -->
 
       <!-- PORTFOLIO SECTION START -->
       <section class="portfolio-section" id="works-section">
@@ -360,6 +441,7 @@
                         <button data-filter=".aiml">ML/AI</button>
                         <button data-filter=".web">Web Development</button>
                         <button data-filter=".game">Game</button>
+                        <button data-filter=".research">Research</button>
                         <div class="active-bg"></div>
                      </div>
                   </div>
@@ -406,10 +488,21 @@
                            <img src="assets/img/portfolio/Game/Game 1st Cover.png" alt="" />
                         </div>
                         <div class="content-box">
-                           <h3 class="portfolio-title">(Game Name)</h3>
-                           <p>(Short Description)</p>
+                           <h3 class="portfolio-title">OperationZ</h3>
+                           <p>OperationZ is a fast-paced first-person shooter set in modern military operations where strategy matters more than cosmetics.</p>
                            <i class="flaticon-up-right-arrow"></i>
                            <button data-mfp-src="#portfolio-game" class="portfolio-link modal-popup"></button>
+                        </div>
+                     </div>
+                     <div class="portfolio-item research">
+                        <div class="image-box">
+                           <img src="assets/img/research/research-cover.jpg" alt="Heritage Defect Detection" />
+                        </div>
+                        <div class="content-box">
+                           <h3 class="portfolio-title">Heritage Defect Detection</h3>
+                           <p>A leakage-aware YOLO–Faster R-CNN ensemble with Weighted Boxes Fusion for heritage defect detection under data scarcity.</p>
+                           <i class="flaticon-up-right-arrow"></i>
+                           <button data-mfp-src="#portfolio-research" class="portfolio-link modal-popup"></button>
                         </div>
                      </div>
                   </div>
@@ -669,7 +762,7 @@
          <div class="popup_modal_content">
             <div class="portfolio_info">
                <div class="portfolio_info_text">
-                  <h2 class="title">Game Name</h2>
+                  <h2 class="title"> OperationZ</h2>
                   <div class="desc">
                      <p>
                         OperationZ is a fast-paced military FPS where strategy and teamwork come before cosmetics.It delivers realistic combat, precise gunplay, and objective-driven action.
@@ -741,6 +834,74 @@
 
       <!-- end: Portfolio Popup -->
 
+      <!-- Research Popup -->
+      <div id="portfolio-research" class="popup_content_area zoom-anim-dialog mfp-hide">
+         <div class="popup_modal_img">
+            <img src="./assets/img/research/research-cover.jpg" alt="Panam Nagar Heritage Site" />
+         </div>
+         <div class="popup_modal_content">
+            <div class="portfolio_info">
+               <div class="portfolio_info_text">
+                  <h2 class="title">Heritage Defect Detection Under Data Scarcity: A Leakage-Aware YOLO–Faster R-CNN Ensemble with Weighted Boxes Fusion</h2>
+                  <div class="desc">
+                     <p>
+                        Conducted research on automated heritage defect detection for historic structures in Bangladesh using deep learning and computer vision. The work focused on identifying five categories of surface damage from images of Panam City, a historic heritage site, by combining YOLOv8 and Faster R-CNN through Weighted Boxes Fusion. To improve performance under limited and imbalanced data, the project applied both offline and online augmentation techniques. The final system achieved strong detection performance with nearly 0.89 mAP@0.5, demonstrating the potential of AI-driven, low-cost, and scalable solutions for cultural heritage monitoring and preservation.
+                     </p>
+                  </div>
+                  <a href="https://drive.google.com/file/d/1z_SqSXhFtVWGkpehjjhHMhObEVLQh9db/view" target="_blank" class="btn tj-btn-primary">View Paper<i class="fal fa-arrow-right"></i></a>
+               </div>
+               <div class="portfolio_info_items">
+                  <div class="info_item">
+                     <div class="key">Category</div>
+                     <div class="value">Research / AI</div>
+                  </div>
+                 
+                  <div class="info_item">
+                     <div class="key">Models Used</div>
+                     <div class="value">YOLOv8, Faster R-CNN, WBF</div>
+                  </div>
+                  <div class="info_item">
+                     <div class="key">Performance</div>
+                     <div class="value">0.89 mAP@0.5</div>
+                  </div>
+               </div>
+            </div>
+
+            <div class="portfolio_gallery owl-carousel">
+               <div class="gallery_item">
+                  <img src="./assets/img/research/results.png" alt="" />
+               </div>
+               <div class="gallery_item">
+                  <img src="./assets/img/research/PR_curve.png" alt="" />
+               </div>
+               <div class="gallery_item">
+                  <img src="./assets/img/research/R_curve.png" alt="" />
+               </div>
+               <div class="gallery_item">
+                  <img src="./assets/img/research/val_batch0_labels.jpg" alt="" />
+               </div>
+               <div class="gallery_item">
+                  <img src="./assets/img/research/val_batch1_pred.jpg" alt="" />
+               </div>
+               <div class="gallery_item">
+                  <img src="./assets/img/research/train_batch0.jpg" alt="" />
+               </div>
+               <div class="gallery_item">
+                  <img src="./assets/img/research/train_batch1.jpg" alt="" />
+               </div>
+               <div class="gallery_item">
+                  <img src="./assets/img/research/train_batch2.jpg" alt="" />
+               </div>
+               <div class="gallery_item">
+                  <img src="./assets/img/research/train_batch4630.jpg" alt="" />
+               </div>
+            </div>
+
+            <div class="portfolio_navigation"></div>
+         </div>
+      </div>
+      <!-- Research Popup End -->
+
       <!-- SKILLS SECTION START -->
       <section class="skills-section" id="skills-section">
          <div class="container">
@@ -748,104 +909,95 @@
                <div class="col-md-12">
                   <div class="section-header text-center">
                      <h2 class="section-title wow fadeInUp" data-wow-delay=".3s">My Skills</h2>
-                     <p class="wow fadeInUp" data-wow-delay=".4s">
-                        We put your ideas and thus your wishes in the form of a unique web project that inspires you and
-                        you customers.
-                     </p>
+                     
                   </div>
                </div>
             </div>
 
             <div class="row">
                <div class="col-md-12">
-                  <div class="skills-widget d-flex flex-wrap justify-content-center align-items-center">
-                     <div class="skill-item wow fadeInUp" data-wow-delay=".3s">
-                        <div class="skill-inner">
-                           <div class="icon-box">
-                              <img src="assets/img/icons/python.svg" alt="" />
-                           </div>
-                           <div class="number">92%</div>
-                        </div>
-                        <p>Python</p>
+                  <div class="constellation-wrapper wow fadeInUp" data-wow-delay=".3s">
+                     <div id="skill-constellation"></div>
+                     <div class="constellation-tooltip" id="constellationTooltip"></div>
+                     <p class="constellation-hint"><i class="fa-light fa-hand-pointer"></i> Hover or drag nodes to explore skill connections</p>
+                  </div>
+               </div>
+            </div>
+
+            <!-- Currently Learning -->
+            <div class="row justify-content-center" style="margin-top: 50px;">
+               <div class="col-lg-8">
+                  <div class="currently-learning wow fadeInUp" data-wow-delay="1.2s">
+                     <div class="learning-icon"><i class="fa-light fa-book-open-reader"></i></div>
+                     <div class="learning-content">
+                        <span class="learning-label">Currently Learning</span>
+                        <a href="https://www.coursera.org/professional-certificates/microsoft-power-bi-data-analyst" target="_blank" rel="noopener noreferrer" class="learning-course">Microsoft Power BI Data Analyst Professional Certificate</a>
+                        <span class="learning-platform"><i class="fa-light fa-graduation-cap"></i> Coursera</span>
                      </div>
-                     <div class="skill-item wow fadeInUp" data-wow-delay=".4s">
-                        <div class="skill-inner">
-                           <div class="icon-box">
-                              <img src="assets/img/icons/laravel.svg" alt="" />
-                           </div>
-                           <div class="number">80%</div>
+                  </div>
+               </div>
+            </div>
+
+         </div>
+      </section>
+      <!-- SKILLS SECTION END -->
+
+      <!-- GITHUB ACTIVITY SECTION START -->
+      <section class="github-activity-section" id="github-section">
+         <div class="container">
+            <div class="row">
+               <div class="col-md-12">
+                  <div class="section-header text-center">
+                     <h2 class="section-title wow fadeInUp" data-wow-delay=".3s"><i class="fa-brands fa-github"></i> GitHub Activity</h2>
+                     <p class="wow fadeInUp" data-wow-delay=".4s">
+                        My open-source contributions and development activity.
+                     </p>
+                  </div>
+               </div>
+            </div>
+
+            <div class="row justify-content-center">
+               <!-- Account 1: fzn011 -->
+               <div class="col-lg-10 col-md-12">
+                  <div class="github-card wow fadeInUp" data-wow-delay=".5s">
+                     <div class="github-card-header">
+                        <div class="github-avatar">
+                           <img src="https://github.com/fzn011.png" alt="fzn011" />
                         </div>
-                        <p>Laravel</p>
+                        <div class="github-info">
+                           <h3 class="github-username">fzn011</h3>
+                           <a href="https://github.com/fzn011" target="_blank" rel="noopener noreferrer" class="github-link">github.com/fzn011</a>
+                        </div>
+                        <a href="https://github.com/fzn011" target="_blank" rel="noopener noreferrer" class="btn tj-btn-primary github-visit-btn">Visit Profile <i class="fa-brands fa-github"></i></a>
                      </div>
-                     <div class="skill-item wow fadeInUp" data-wow-delay=".5s">
-                        <div class="skill-inner">
-                           <div class="icon-box">
-                              <img src="assets/img/icons/php.svg" alt="" />
-                           </div>
-                           <div class="number">85%</div>
-                        </div>
-                        <p>PHP</p>
+                     <div class="github-graph">
+                        <img src="https://ghchart.rshah.org/8750f7/fzn011" alt="fzn011's GitHub Contribution Chart" />
                      </div>
-                     <div class="skill-item wow fadeInUp" data-wow-delay=".6s">
-                        <div class="skill-inner">
-                           <div class="icon-box">
-                              <img src="assets/img/icons/django.svg" alt="" />
-                           </div>
-                           <div class="number">89%</div>
+                  </div>
+               </div>
+
+               <!-- Account 2: faiazzahin21 -->
+               <div class="col-lg-10 col-md-12">
+                  <div class="github-card wow fadeInUp" data-wow-delay=".6s">
+                     <div class="github-card-header">
+                        <div class="github-avatar">
+                           <img src="https://github.com/faiazzahin21.png" alt="faiazzahin21" />
                         </div>
-                        <p>Django</p>
+                        <div class="github-info">
+                           <h3 class="github-username">faiazzahin21</h3>
+                           <a href="https://github.com/faiazzahin21" target="_blank" rel="noopener noreferrer" class="github-link">github.com/faiazzahin21</a>
+                        </div>
+                        <a href="https://github.com/faiazzahin21" target="_blank" rel="noopener noreferrer" class="btn tj-btn-primary github-visit-btn">Visit Profile <i class="fa-brands fa-github"></i></a>
                      </div>
-                     <div class="skill-item wow fadeInUp" data-wow-delay=".7s">
-                        <div class="skill-inner">
-                           <div class="icon-box">
-                              <img src="assets/img/icons/react.svg" alt="" />
-                           </div>
-                           <div class="number">89%</div>
-                        </div>
-                        <p>React</p>
-                     </div>
-                     <div class="skill-item wow fadeInUp" data-wow-delay=".8s">
-                        <div class="skill-inner">
-                           <div class="icon-box">
-                              <img src="assets/img/icons/js.svg" alt="" />
-                           </div>
-                           <div class="number">93%</div>
-                        </div>
-                        <p>JavaScript</p>
-                     </div>
-                     <div class="skill-item wow fadeInUp" data-wow-delay=".9s">
-                        <div class="skill-inner">
-                           <div class="icon-box">
-                              <img src="assets/img/icons/sql.svg" alt="" />
-                           </div>
-                           <div class="number">88%</div>
-                        </div>
-                        <p>SQL</p>
-                     </div>
-                     <div class="skill-item wow fadeInUp" data-wow-delay="1s">
-                        <div class="skill-inner">
-                           <div class="icon-box">
-                              <img src="assets/img/icons/unity.svg" alt="" />
-                           </div>
-                           <div class="number">75%</div>
-                        </div>
-                        <p>Unity</p>
-                     </div>
-                     <div class="skill-item wow fadeInUp" data-wow-delay="1.1s">
-                        <div class="skill-inner">
-                           <div class="icon-box">
-                              <img src="assets/img/icons/git.svg" alt="" />
-                           </div>
-                           <div class="number">90%</div>
-                        </div>
-                        <p>Git</p>
+                     <div class="github-graph">
+                        <img src="https://ghchart.rshah.org/8750f7/faiazzahin21" alt="faiazzahin21's GitHub Contribution Chart" />
                      </div>
                   </div>
                </div>
             </div>
          </div>
       </section>
-      <!-- SKILLS SECTION END -->
+      <!-- GITHUB ACTIVITY SECTION END -->
 
       <!-- TESTIMONIAL SECTION START -->
       <!--section class="testimonial-section" id="testimonials-section">
@@ -1251,6 +1403,58 @@
                   </div>
                </div>
             </div>
+
+            <!-- Interactive 3D Globe -->
+            <div class="row justify-content-center" style="margin-top: 50px; margin-bottom: 10px;">
+               <div class="col-lg-8 text-center">
+                  <div class="globe-wrapper wow fadeInUp" data-wow-delay=".5s">
+                     <div class="globe-label"><i class="fa-light fa-location-dot"></i> Dhaka, Bangladesh</div>
+                     <div id="globe-container"></div>
+                  </div>
+               </div>
+            </div>
+
+            <!-- Contact Form -->
+            <div class="row justify-content-center" style="margin-top: 60px;">
+               <div class="col-lg-8">
+                  <div class="contact-form-box wow fadeInUp" data-wow-delay=".5s">
+                     <div class="section-header text-center">
+                        <h2 class="section-title">Send Me a Message</h2>
+                        <p>Have a question or want to work together? Drop a message below.</p>
+                     </div>
+                     <form id="contact-form" action="https://formspree.io/f/mqewzbqp" method="POST">
+                        <div class="row">
+                           <div class="col-md-6">
+                              <div class="form_group">
+                                 <input type="text" name="name" placeholder="Your Name" required />
+                              </div>
+                           </div>
+                           <div class="col-md-6">
+                              <div class="form_group">
+                                 <input type="email" name="email" placeholder="Your Email" required />
+                              </div>
+                           </div>
+                           <div class="col-md-12">
+                              <div class="form_group">
+                                 <input type="text" name="subject" placeholder="Subject" />
+                              </div>
+                           </div>
+                           <div class="col-md-12">
+                              <div class="form_group">
+                                 <textarea name="message" placeholder="Your Message" required></textarea>
+                              </div>
+                           </div>
+                           <div class="col-md-12 text-center">
+                              <div class="form_btn">
+                                 <button type="submit" class="btn tj-btn-primary">Send Message <i class="fal fa-paper-plane"></i></button>
+                              </div>
+                           </div>
+                        </div>
+                     </form>
+                  </div>
+               </div>
+            </div>
+
          </div>
       </section>
       <!-- CONTACT SECTION END -->
@@ -1294,6 +1498,78 @@
          </div>
       </div>
       <!-- END: Contact Form Fail Modal Message End -->
+
+      <!-- Terminal Easter Egg (Press ~ to toggle) -->
+      <div class="terminal-overlay" id="terminalOverlay">
+         <div class="terminal-window">
+            <div class="terminal-header">
+               <div class="terminal-dots">
+                  <span class="dot red"></span>
+                  <span class="dot yellow"></span>
+                  <span class="dot green"></span>
+               </div>
+               <span class="terminal-title">faiaz@portfolio:~</span>
+               <button class="terminal-close" id="terminalClose">&times;</button>
+            </div>
+            <div class="terminal-body" id="terminalBody">
+               <div class="terminal-output" id="terminalOutput">
+                  <p class="terminal-line">Welcome to Faiaz's Terminal! Type <span class="cmd-highlight">help</span> for available commands.</p>
+               </div>
+               <div class="terminal-input-line">
+                  <span class="terminal-prompt">visitor@faiaz:~$&nbsp;</span>
+                  <input type="text" class="terminal-input" id="terminalInput" autocomplete="off" spellcheck="false" autofocus />
+               </div>
+            </div>
+         </div>
+      </div>
+
+      <!-- AMA Chatbot -->
+      <div class="chatbot-widget" id="chatbotWidget">
+         <div class="chatbot-toggle" id="chatbotToggle" title="Chat with Rema">
+            <div class="rema-character">
+               <div class="rema-antenna"><div class="rema-antenna-ball"></div></div>
+               <div class="rema-head">
+                  <div class="rema-eyes">
+                     <div class="rema-eye left"><div class="rema-pupil"></div></div>
+                     <div class="rema-eye right"><div class="rema-pupil"></div></div>
+                  </div>
+                  <div class="rema-mouth"></div>
+               </div>
+               <div class="rema-body">
+                  <div class="rema-chest-light"></div>
+               </div>
+            </div>
+            <span class="chatbot-badge" id="chatbotBadge">Ask me!</span>
+         </div>
+         <div class="chatbot-window" id="chatbotWindow">
+            <div class="chatbot-header">
+               <div class="chatbot-header-info">
+                  <div class="chatbot-avatar"><i class="fa-light fa-robot"></i></div>
+                  <div>
+                     <h4 class="chatbot-name">Rema <span class="rema-version">v2.0</span></h4>
+                     <span class="chatbot-status"><span class="status-dot"></span> <span id="remaStatusText">Online</span></span>
+                  </div>
+               </div>
+               <button class="chatbot-close" id="chatbotClose"><i class="fa-light fa-xmark"></i></button>
+            </div>
+            <div class="chatbot-messages" id="chatbotMessages">
+            </div>
+            <div class="chatbot-input-area">
+               <input type="text" class="chatbot-input" id="chatbotInput" placeholder="Ask Rema anything..." autocomplete="off" spellcheck="false" />
+               <button class="chatbot-send" id="chatbotSend"><i class="fa-light fa-paper-plane"></i></button>
+            </div>
+         </div>
+      </div>
+
+      <!-- Spotify Widget -->
+      <div class="spotify-widget" id="spotifyWidget">
+         <button class="spotify-toggle" id="spotifyToggle" title="Now Playing">
+            <i class="fa-brands fa-spotify"></i>
+         </button>
+         <div class="spotify-player" id="spotifyPlayer">
+            <iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/37i9dQZF1DXcBWIGoYBM5M?utm_source=generator&theme=0" width="300" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+         </div>
+      </div>
    </main>
 
    <!-- FOOTER AREA START -->
@@ -1310,7 +1586,6 @@
                      <ul>
                         <li><a href="#about-me">About Me</a></li>
                         <li><a href="#resume-section">Education</a></li>
-                        <li><a href="#research-section">Research</a></li>
                         <li><a href="#experience-section">Experience</a></li>
                         <li><a href="#works-section">Projects</a></li>
                         <li><a href="#skills-section">Skills</a></li>
@@ -1319,7 +1594,10 @@
                   </nav>
                </div>
                <div class="copy-text">
-                  <p>&copy; 2025 All rights reserved by <a href="https://github.com/fzn011" target="_blank">Faiaz Zahin</a></p>
+                  <p>&copy; 2026 All rights reserved by <a href="https://github.com/fzn011" target="_blank">Faiaz Zahin</a></p>
+               </div>
+               <div class="visitor-counter">
+                  <i class="fa-light fa-eye"></i> <span id="visitor-count">...</span> views
                </div>
             </div>
          </div>
@@ -1346,6 +1624,1400 @@
    <script src="assets/js/magnific-popup.js"></script>
    <script src="assets/js/validate.min.js"></script>
    <script src="assets/js/main.js"></script>
+
+   <!-- Visitor Counter -->
+   <script>
+      (function() {
+         fetch("https://api.counterapi.dev/v1/faiaz-zahin-portfolio/visits/up")
+            .then(function(res) { return res.json(); })
+            .then(function(data) {
+               var el = document.getElementById("visitor-count");
+               if (el && data.count) {
+                  el.textContent = data.count.toLocaleString();
+               }
+            })
+            .catch(function() {
+               var el = document.getElementById("visitor-count");
+               if (el) el.style.display = "none";
+            });
+      })();
+   </script>
+
+   <!-- Quote of the Day -->
+   <script>
+      (function() {
+         var quotes = [
+            { q: "The only way to do great work is to love what you do.", a: "Steve Jobs" },
+            { q: "Innovation distinguishes between a leader and a follower.", a: "Steve Jobs" },
+            { q: "Life is what happens when you're busy making other plans.", a: "John Lennon" },
+            { q: "The future belongs to those who believe in the beauty of their dreams.", a: "Eleanor Roosevelt" },
+            { q: "It is during our darkest moments that we must focus to see the light.", a: "Aristotle" },
+            { q: "The only impossible journey is the one you never begin.", a: "Tony Robbins" },
+            { q: "Success is not final, failure is not fatal: it is the courage to continue that counts.", a: "Winston Churchill" },
+            { q: "Believe you can and you're halfway there.", a: "Theodore Roosevelt" },
+            { q: "Act as if what you do makes a difference. It does.", a: "William James" },
+            { q: "What you get by achieving your goals is not as important as what you become.", a: "Zig Ziglar" },
+            { q: "The best time to plant a tree was 20 years ago. The second best time is now.", a: "Chinese Proverb" },
+            { q: "Great things never come from comfort zones.", a: "Unknown" },
+            { q: "Do something today that your future self will thank you for.", a: "Sean Patrick Flanery" },
+            { q: "It's not whether you get knocked down, it's whether you get up.", a: "Vince Lombardi" },
+            { q: "We may encounter many defeats but we must not be defeated.", a: "Maya Angelou" },
+            { q: "Whether you think you can or you think you can't, you're right.", a: "Henry Ford" },
+            { q: "Creativity is intelligence having fun.", a: "Albert Einstein" },
+            { q: "I have not failed. I've just found 10,000 ways that won't work.", a: "Thomas Edison" },
+            { q: "A person who never made a mistake never tried anything new.", a: "Albert Einstein" },
+            { q: "Everything you've ever wanted is on the other side of fear.", a: "George Addair" },
+            { q: "Opportunities don't happen. You create them.", a: "Chris Grosser" },
+            { q: "Hardships often prepare ordinary people for an extraordinary destiny.", a: "C.S. Lewis" },
+            { q: "I find that the harder I work, the more luck I seem to have.", a: "Thomas Jefferson" },
+            { q: "The secret of getting ahead is getting started.", a: "Mark Twain" },
+            { q: "It always seems impossible until it is done.", a: "Nelson Mandela" },
+            { q: "You miss 100% of the shots you don't take.", a: "Wayne Gretzky" },
+            { q: "Strive not to be a success, but rather to be of value.", a: "Albert Einstein" },
+            { q: "The mind is everything. What you think you become.", a: "Buddha" },
+            { q: "The best revenge is massive success.", a: "Frank Sinatra" },
+            { q: "I am not a product of my circumstances. I am a product of my decisions.", a: "Stephen Covey" },
+            { q: "The two most important days in your life are the day you are born and the day you find out why.", a: "Mark Twain" },
+            { q: "If you really look closely, most overnight successes took a long time.", a: "Steve Jobs" },
+            { q: "The only limit to our realization of tomorrow will be our doubts of today.", a: "Franklin D. Roosevelt" },
+            { q: "In the middle of every difficulty lies opportunity.", a: "Albert Einstein" },
+            { q: "You are never too old to set another goal or to dream a new dream.", a: "C.S. Lewis" },
+            { q: "The way to get started is to quit talking and begin doing.", a: "Walt Disney" },
+            { q: "Don't let yesterday take up too much of today.", a: "Will Rogers" },
+            { q: "People who are crazy enough to think they can change the world, are the ones who do.", a: "Rob Siltanen" },
+            { q: "The only person you are destined to become is the person you decide to be.", a: "Ralph Waldo Emerson" },
+            { q: "Go confidently in the direction of your dreams! Live the life you've imagined.", a: "Henry David Thoreau" },
+            { q: "When I let go of what I am, I become what I might be.", a: "Lao Tzu" },
+            { q: "An unexamined life is not worth living.", a: "Socrates" },
+            { q: "Turn your wounds into wisdom.", a: "Oprah Winfrey" },
+            { q: "The purpose of our lives is to be happy.", a: "Dalai Lama" },
+            { q: "Not how long, but how well you have lived is the main thing.", a: "Seneca" },
+            { q: "Stay hungry, stay foolish.", a: "Steve Jobs" }
+         ];
+         var dayOfYear = Math.floor((new Date() - new Date(new Date().getFullYear(), 0, 0)) / 86400000);
+         var today = quotes[dayOfYear % quotes.length];
+         document.getElementById("qotdText").textContent = '"' + today.q + '"';
+         document.getElementById("qotdAuthor").textContent = "\u2014 " + today.a;
+      })();
+   </script>
+
+   <!-- Typewriter Effect -->
+   <script>
+      (function() {
+         const roles = ["Aspiring Data Scientist", "Software Engineer", "AI Researcher", "Procrastinator Extraordinaire", "Coffee Enthusiast", "Problem Solver", "Lifelong Learner", "Tech Explorer", "Creative Thinker"];
+         const el = document.getElementById("typewriter");
+         let roleIndex = 0;
+         let charIndex = 0;
+         let isDeleting = false;
+         const typeSpeed = 80;
+         const deleteSpeed = 40;
+         const pauseEnd = 1800;
+         const pauseStart = 400;
+
+         function tick() {
+            const current = roles[roleIndex];
+            if (isDeleting) {
+               el.textContent = current.substring(0, charIndex - 1);
+               charIndex--;
+            } else {
+               el.textContent = current.substring(0, charIndex + 1);
+               charIndex++;
+            }
+
+            let delay = isDeleting ? deleteSpeed : typeSpeed;
+
+            if (!isDeleting && charIndex === current.length) {
+               delay = pauseEnd;
+               isDeleting = true;
+            } else if (isDeleting && charIndex === 0) {
+               isDeleting = false;
+               roleIndex = (roleIndex + 1) % roles.length;
+               delay = pauseStart;
+            }
+
+            setTimeout(tick, delay);
+         }
+
+         // Start after page loads
+         document.addEventListener("DOMContentLoaded", function() {
+            setTimeout(tick, 600);
+         });
+      })();
+   </script>
+
+   <!-- Hero Particles -->
+   <script>
+   (function() {
+      document.addEventListener("DOMContentLoaded", function() {
+         if (typeof tsParticles === "undefined") return;
+         tsParticles.load("hero-particles", {
+            fpsLimit: 60,
+            particles: {
+               number: { value: 50, density: { enable: true, area: 900 } },
+               color: { value: ["#8750f7", "#6c3ce0", "#a78bfa", "#ffffff"] },
+               shape: { type: "circle" },
+               opacity: { value: { min: 0.1, max: 0.4 }, animation: { enable: true, speed: 0.8, minimumValue: 0.05 } },
+               size: { value: { min: 1, max: 3 }, animation: { enable: true, speed: 2, minimumValue: 0.5 } },
+               links: { enable: true, distance: 140, color: "#8750f7", opacity: 0.12, width: 1 },
+               move: {
+                  enable: true, speed: 0.8, direction: "none", random: true, straight: false, outModes: "bounce",
+                  attract: { enable: false }
+               }
+            },
+            interactivity: {
+               detectsOn: "window",
+               events: {
+                  onHover: { enable: true, mode: "grab" },
+                  onClick: { enable: true, mode: "push" },
+                  resize: true
+               },
+               modes: {
+                  grab: { distance: 160, links: { opacity: 0.35, color: "#8750f7" } },
+                  push: { quantity: 3 }
+               }
+            },
+            detectRetina: true
+         });
+      });
+   })();
+   </script>
+
+   <!-- Skill Constellation Graph -->
+   <script>
+   (function() {
+      document.addEventListener("DOMContentLoaded", function() {
+         var container = document.getElementById("skill-constellation");
+         if (!container || typeof d3 === "undefined") return;
+
+         var nodes = [
+            // Programming & Frameworks
+            { id: "Python", group: "progframe", level: 92, r: 28 },
+            { id: "C", group: "progframe", level: 75, r: 20 },
+            { id: "Java", group: "progframe", level: 80, r: 22 },
+            { id: "PHP", group: "progframe", level: 85, r: 24 },
+            { id: "Laravel", group: "progframe", level: 80, r: 24 },
+            { id: "Django", group: "progframe", level: 89, r: 26 },
+            { id: "JavaScript", group: "progframe", level: 93, r: 28 },
+            { id: "SQL", group: "progframe", level: 88, r: 25 },
+            { id: "ReactJS", group: "progframe", level: 89, r: 26 },
+            { id: "ASP.NET\nCore", group: "progframe", level: 72, r: 22 },
+            // Tools
+            { id: "Git", group: "tool", level: 90, r: 24 },
+            { id: "XAMPP", group: "tool", level: 82, r: 20 },
+            { id: "VS Code", group: "tool", level: 92, r: 24 },
+            { id: "Figma", group: "tool", level: 75, r: 20 },
+            { id: "MS Office", group: "tool", level: 90, r: 22 },
+            // Data & ML
+            { id: "Scikit-\nlearn", group: "data", level: 85, r: 24 },
+            { id: "Pandas", group: "data", level: 88, r: 24 },
+            { id: "NumPy", group: "data", level: 86, r: 22 },
+            { id: "Power BI", group: "data", level: 70, r: 22 },
+            { id: "Data\nViz", group: "data", level: 82, r: 22 },
+            // Networking & Simulation
+            { id: "LTSpice", group: "network", level: 72, r: 20 },
+            { id: "Proteus", group: "network", level: 74, r: 20 },
+            { id: "Wireshark", group: "network", level: 78, r: 22 },
+            { id: "VirtualBox", group: "network", level: 76, r: 20 },
+            { id: "8086\nEmulator", group: "network", level: 70, r: 20 },
+            { id: "Cisco\nPacket\nTracer", group: "network", level: 78, r: 22 }
+         ];
+
+         var links = [
+            // Language → Framework
+            { source: "PHP", target: "Laravel" },
+            { source: "Python", target: "Django" },
+            { source: "JavaScript", target: "ReactJS" },
+            { source: "C", target: "ASP.NET\nCore" },
+            { source: "Java", target: "ASP.NET\nCore" },
+            // SQL connections
+            { source: "SQL", target: "Django" },
+            { source: "SQL", target: "Laravel" },
+            { source: "SQL", target: "Pandas" },
+            { source: "SQL", target: "Power BI" },
+            // Python → Data & ML
+            { source: "Python", target: "Scikit-\nlearn" },
+            { source: "Python", target: "Pandas" },
+            { source: "Python", target: "NumPy" },
+            { source: "Python", target: "Data\nViz" },
+            // Data & ML internal
+            { source: "Scikit-\nlearn", target: "NumPy" },
+            { source: "Scikit-\nlearn", target: "Pandas" },
+            { source: "Pandas", target: "Data\nViz" },
+            { source: "Power BI", target: "Data\nViz" },
+            // Tools connections
+            { source: "PHP", target: "XAMPP" },
+            { source: "Laravel", target: "XAMPP" },
+            { source: "Git", target: "VS Code" },
+            { source: "JavaScript", target: "VS Code" },
+            { source: "Figma", target: "ReactJS" },
+            // Networking internal
+            { source: "Wireshark", target: "Cisco\nPacket\nTracer" },
+            { source: "Wireshark", target: "VirtualBox" },
+            { source: "LTSpice", target: "Proteus" },
+            { source: "8086\nEmulator", target: "Proteus" },
+            // Cross-group
+            { source: "Python", target: "Wireshark" },
+            { source: "C", target: "8086\nEmulator" },
+            { source: "MS Office", target: "Power BI" }
+         ];
+
+         var groupColors = {
+            progframe: "#8750f7",
+            tool: "#00cec9",
+            data: "#e84393",
+            network: "#fdcb6e"
+         };
+
+         var tooltip = document.getElementById("constellationTooltip");
+         var groupLabels = { progframe: "Programming & Frameworks", tool: "Tool", data: "Data & ML", network: "Networking & Simulation" };
+
+         var width = container.offsetWidth;
+         var height = container.offsetHeight;
+
+         var svg = d3.select("#skill-constellation")
+            .append("svg")
+            .attr("viewBox", "0 0 " + width + " " + height)
+            .attr("preserveAspectRatio", "xMidYMid meet");
+
+         // Glow filter
+         var defs = svg.append("defs");
+         var filter = defs.append("filter").attr("id", "glow");
+         filter.append("feGaussianBlur").attr("stdDeviation", "3").attr("result", "coloredBlur");
+         var merge = filter.append("feMerge");
+         merge.append("feMergeNode").attr("in", "coloredBlur");
+         merge.append("feMergeNode").attr("in", "SourceGraphic");
+
+         var linkGroup = svg.append("g");
+         var nodeGroup = svg.append("g");
+
+         var simulation = d3.forceSimulation(nodes)
+            .force("link", d3.forceLink(links).id(function(d) { return d.id; }).distance(100))
+            .force("charge", d3.forceManyBody().strength(-250))
+            .force("center", d3.forceCenter(width / 2, height / 2))
+            .force("collision", d3.forceCollide().radius(function(d) { return d.r + 10; }))
+            .force("x", d3.forceX(width / 2).strength(0.06))
+            .force("y", d3.forceY(height / 2).strength(0.06));
+
+         var link = linkGroup.selectAll("line")
+            .data(links)
+            .enter().append("line")
+            .attr("stroke", "rgba(135, 80, 247, 0.15)")
+            .attr("stroke-width", 1.5);
+
+         var node = nodeGroup.selectAll("g")
+            .data(nodes)
+            .enter().append("g")
+            .style("cursor", "pointer")
+            .call(d3.drag()
+               .on("start", dragStarted)
+               .on("drag", dragged)
+               .on("end", dragEnded));
+
+         node.append("circle")
+            .attr("r", function(d) { return d.r; })
+            .attr("fill", function(d) { return groupColors[d.group]; })
+            .attr("fill-opacity", 0.15)
+            .attr("stroke", function(d) { return groupColors[d.group]; })
+            .attr("stroke-width", 2)
+            .attr("filter", "url(#glow)");
+
+         node.append("text")
+            .each(function(d) {
+               var parts = d.id.split("\n");
+               var el = d3.select(this);
+               parts.forEach(function(part, i) {
+                  el.append("tspan")
+                     .attr("x", 0)
+                     .attr("dy", i === 0 ? (-(parts.length - 1) * 0.5 + "em") : "1.1em")
+                     .text(part);
+               });
+            })
+            .attr("text-anchor", "middle")
+            .attr("dominant-baseline", "central")
+            .attr("fill", "#fff")
+            .attr("font-size", function(d) { return Math.max(10, d.r * 0.42) + "px"; })
+            .attr("font-weight", "600")
+            .attr("pointer-events", "none");
+
+         node.on("mouseover", function(event, d) {
+            // Highlight connected
+            var connected = new Set();
+            links.forEach(function(l) {
+               if (l.source.id === d.id) connected.add(l.target.id);
+               if (l.target.id === d.id) connected.add(l.source.id);
+            });
+
+            node.select("circle")
+               .attr("fill-opacity", function(n) { return n.id === d.id || connected.has(n.id) ? 0.35 : 0.06; })
+               .attr("stroke-opacity", function(n) { return n.id === d.id || connected.has(n.id) ? 1 : 0.2; });
+            node.select("text")
+               .attr("fill-opacity", function(n) { return n.id === d.id || connected.has(n.id) ? 1 : 0.2; });
+
+            link
+               .attr("stroke", function(l) { return (l.source.id === d.id || l.target.id === d.id) ? groupColors[d.group] : "rgba(135, 80, 247, 0.06)"; })
+               .attr("stroke-width", function(l) { return (l.source.id === d.id || l.target.id === d.id) ? 2.5 : 1; })
+               .attr("stroke-opacity", function(l) { return (l.source.id === d.id || l.target.id === d.id) ? 0.7 : 0.3; });
+
+            var conns = [];
+            connected.forEach(function(c) { conns.push(c.replace("\n", " ")); });
+            tooltip.innerHTML = "<span class='tip-name'>" + d.id.replace("\n", " ") + "</span><span class='tip-level'>" + groupLabels[d.group] + " \u2022 " + d.level + "% proficiency</span><br><span class='tip-level'>Connects to: " + conns.join(", ") + "</span>";
+            tooltip.classList.add("visible");
+         });
+
+         node.on("mousemove", function(event) {
+            var rect = container.getBoundingClientRect();
+            var x = event.clientX - rect.left + 15;
+            var y = event.clientY - rect.top - 10;
+            if (x + 230 > rect.width) x = event.clientX - rect.left - 235;
+            tooltip.style.left = x + "px";
+            tooltip.style.top = y + "px";
+         });
+
+         node.on("mouseout", function() {
+            node.select("circle").attr("fill-opacity", 0.15).attr("stroke-opacity", 1);
+            node.select("text").attr("fill-opacity", 1);
+            link.attr("stroke", "rgba(135, 80, 247, 0.15)").attr("stroke-width", 1.5).attr("stroke-opacity", 1);
+            tooltip.classList.remove("visible");
+         });
+
+         simulation.on("tick", function() {
+            link
+               .attr("x1", function(d) { return d.source.x; })
+               .attr("y1", function(d) { return d.source.y; })
+               .attr("x2", function(d) { return d.target.x; })
+               .attr("y2", function(d) { return d.target.y; });
+            node.attr("transform", function(d) {
+               d.x = Math.max(d.r, Math.min(width - d.r, d.x));
+               d.y = Math.max(d.r, Math.min(height - d.r, d.y));
+               return "translate(" + d.x + "," + d.y + ")";
+            });
+         });
+
+         function dragStarted(event, d) {
+            if (!event.active) simulation.alphaTarget(0.3).restart();
+            d.fx = d.x;
+            d.fy = d.y;
+         }
+         function dragged(event, d) {
+            d.fx = event.x;
+            d.fy = event.y;
+         }
+         function dragEnded(event, d) {
+            if (!event.active) simulation.alphaTarget(0);
+            d.fx = null;
+            d.fy = null;
+         }
+
+         // Responsive
+         window.addEventListener("resize", function() {
+            var w = container.offsetWidth;
+            var h = container.offsetHeight;
+            svg.attr("viewBox", "0 0 " + w + " " + h);
+            simulation.force("center", d3.forceCenter(w / 2, h / 2));
+            simulation.force("x", d3.forceX(w / 2).strength(0.06));
+            simulation.force("y", d3.forceY(h / 2).strength(0.06));
+            simulation.alpha(0.3).restart();
+         });
+      });
+   })();
+   </script>
+
+   <!-- 3D Globe -->
+   <script>
+      document.addEventListener("DOMContentLoaded", function() {
+         var container = document.getElementById("globe-container");
+         if (!container || typeof Globe === "undefined") return;
+
+         var globe = Globe()
+            .globeImageUrl("https://unpkg.com/three-globe@2.27.2/example/img/earth-night.jpg")
+            .backgroundImageUrl("")
+            .backgroundColor("rgba(0,0,0,0)")
+            .showAtmosphere(true)
+            .atmosphereColor("#8750f7")
+            .atmosphereAltitude(0.2)
+            .pointsData([{ lat: 23.8103, lng: 90.4125, size: 0.8, color: "#8750f7" }])
+            .pointAltitude("size")
+            .pointColor("color")
+            .pointRadius(0.6)
+            .pointsMerge(true)
+            .ringsData([{ lat: 23.8103, lng: 90.4125, maxR: 3, propagationSpeed: 2, repeatPeriod: 800 }])
+            .ringColor(function() { return "rgba(135, 80, 247, 0.6)"; })
+            .ringMaxRadius("maxR")
+            .ringPropagationSpeed("propagationSpeed")
+            .ringRepeatPeriod("repeatPeriod")
+            .width(container.offsetWidth)
+            .height(container.offsetHeight)
+            (container);
+
+         globe.pointOfView({ lat: 23.8103, lng: 90.4125, altitude: 2.2 });
+         globe.controls().autoRotate = true;
+         globe.controls().autoRotateSpeed = 1.2;
+         globe.controls().enableZoom = false;
+
+         window.addEventListener("resize", function() {
+            globe.width(container.offsetWidth);
+            globe.height(container.offsetHeight);
+         });
+      });
+   </script>
+
+   <!-- Terminal Easter Egg -->
+   <script>
+      (function() {
+         var overlay = document.getElementById("terminalOverlay");
+         var input = document.getElementById("terminalInput");
+         var output = document.getElementById("terminalOutput");
+         var closeBtn = document.getElementById("terminalClose");
+         var body = document.getElementById("terminalBody");
+
+         var commands = {
+            help: "Available commands:\n  <span class='cmd-highlight'>whoami</span>    - About me\n  <span class='cmd-highlight'>skills</span>    - My tech stack\n  <span class='cmd-highlight'>projects</span>  - My recent works\n  <span class='cmd-highlight'>education</span> - My qualifications\n  <span class='cmd-highlight'>contact</span>   - How to reach me\n  <span class='cmd-highlight'>resume</span>    - Download my CV\n  <span class='cmd-highlight'>github</span>    - My GitHub profiles\n  <span class='cmd-highlight'>secret</span>    - ???\n  <span class='cmd-highlight'>clear</span>     - Clear terminal\n  <span class='cmd-highlight'>exit</span>      - Close terminal",
+            whoami: "Faiaz Zahin\nCS Graduate from BRAC University\nAspiring Data Scientist | Software Engineer | AI Researcher\nCurrently based in Dhaka, Bangladesh",
+            skills: "Programming & Frameworks: Python, C, Java, PHP, Laravel, Django, JavaScript, SQL, ReactJS, ASP.NET Core\nTools: Git, XAMPP, VS Code, Figma, MS Office\nData & ML: Scikit-learn, Pandas, NumPy, Power BI, Data Visualization\nNetworking & Simulation: LTSpice, Proteus, Wireshark, VirtualBox, 8086 Emulator, Cisco Packet Tracer",
+            projects: "1. Learning Management System - Laravel web app\n2. Rainfall Prediction - ML project\n3. Digital Clock - Web utility\n4. OperationZ - FPS Game\n5. Heritage Defect Detection - AI Research\n\nType <span class='cmd-highlight'>exit</span> and scroll to Projects section to see more!",
+            education: "BSc in CSE - BRAC University (2021-2025)\nHSC - Adamjee Cantonment College (2017-2019)\nSSC - Bangladesh International School & College (2015-2017)",
+            contact: "Email: faiazzahin@gmail.com\nPhone: +8801890369682\nWhatsApp: wa.me/+8801890369682\nAddress: Dhaka Cantonment, Dhaka-1206",
+            resume: "Opening CV...",
+            github: "1. github.com/fzn011\n2. github.com/faiazzahin21",
+            secret: "Achievement unlocked! You found the secret command.\nHere's a fun fact: This entire portfolio was built with love, caffeine, and way too many CSS tweaks at 3AM.",
+            clear: "__clear__",
+            exit: "__exit__"
+         };
+
+         function addLine(text, className) {
+            var lines = text.split("\n");
+            lines.forEach(function(line) {
+               var p = document.createElement("p");
+               p.className = "terminal-line" + (className ? " " + className : "");
+               p.innerHTML = line || "&nbsp;";
+               output.appendChild(p);
+            });
+            body.scrollTop = body.scrollHeight;
+         }
+
+         function processCommand(cmd) {
+            var trimmed = cmd.trim().toLowerCase();
+            addLine("visitor@faiaz:~$ " + cmd, "cmd-input");
+
+            if (trimmed === "") return;
+
+            if (commands[trimmed] === "__clear__") {
+               output.innerHTML = "";
+               return;
+            }
+            if (trimmed === "exit") {
+               overlay.classList.remove("active");
+               return;
+            }
+            if (trimmed === "resume") {
+               addLine(commands.resume);
+               window.open("https://drive.google.com/file/d/1Edvn71N0Wbixzrua5U1cTIeWqNnlD-wh/view", "_blank");
+               return;
+            }
+            if (commands[trimmed]) {
+               addLine(commands[trimmed]);
+            } else {
+               addLine("Command not found: " + trimmed + ". Type <span class='cmd-highlight'>help</span> for available commands.", "cmd-error");
+            }
+         }
+
+         input.addEventListener("keydown", function(e) {
+            if (e.key === "Enter") {
+               processCommand(input.value);
+               input.value = "";
+            }
+         });
+
+         document.addEventListener("keydown", function(e) {
+            if (e.key === "`" && !e.ctrlKey && !e.altKey) {
+               var tag = document.activeElement.tagName;
+               if (tag === "INPUT" || tag === "TEXTAREA") {
+                  if (document.activeElement !== input) return;
+               }
+               e.preventDefault();
+               overlay.classList.toggle("active");
+               if (overlay.classList.contains("active")) {
+                  setTimeout(function() { input.focus(); }, 100);
+               }
+            }
+            if (e.key === "Escape" && overlay.classList.contains("active")) {
+               overlay.classList.remove("active");
+            }
+         });
+
+         closeBtn.addEventListener("click", function() {
+            overlay.classList.remove("active");
+         });
+
+         overlay.addEventListener("click", function(e) {
+            if (e.target === overlay) overlay.classList.remove("active");
+         });
+      })();
+   </script>
+
+   <!-- AMA Chatbot Engine v2.0 -->
+   <script>
+   (function() {
+      var toggle = document.getElementById("chatbotToggle");
+      var window_ = document.getElementById("chatbotWindow");
+      var closeBtn = document.getElementById("chatbotClose");
+      var input = document.getElementById("chatbotInput");
+      var sendBtn = document.getElementById("chatbotSend");
+      var messages = document.getElementById("chatbotMessages");
+      var badge = document.getElementById("chatbotBadge");
+      var statusText = document.getElementById("remaStatusText");
+
+      // Conversation memory
+      var history = [];
+      var lastTopic = null;
+      var msgCount = 0;
+      var userName = null;
+
+      // Self-learning: localStorage
+      var learned = JSON.parse(localStorage.getItem('rema_learned') || '{}');
+      var visitCount = parseInt(localStorage.getItem('rema_visits') || '0') + 1;
+      localStorage.setItem('rema_visits', visitCount);
+      var learnedTopics = JSON.parse(localStorage.getItem('rema_topics') || '[]');
+
+      function rememberTopic(topic) {
+         if (learnedTopics.indexOf(topic) === -1) {
+            learnedTopics.push(topic);
+            if (learnedTopics.length > 50) learnedTopics.shift();
+            localStorage.setItem('rema_topics', JSON.stringify(learnedTopics));
+         }
+      }
+      function teachRema(question, answer) {
+         learned[question.toLowerCase().trim()] = answer;
+         localStorage.setItem('rema_learned', JSON.stringify(learned));
+      }
+      function getLearnedResponse(q) {
+         var ql = q.toLowerCase().trim();
+         if (learned[ql]) return learned[ql];
+         // Fuzzy match learned entries
+         var bestMatch = null, bestScore = 0;
+         Object.keys(learned).forEach(function(key) {
+            var score = 0;
+            var words = ql.split(/\s+/);
+            words.forEach(function(w) { if (key.indexOf(w) !== -1) score++; });
+            if (score > bestScore && score >= Math.ceil(words.length * 0.6)) {
+               bestScore = score;
+               bestMatch = key;
+            }
+         });
+         return bestMatch ? learned[bestMatch] : null;
+      }
+
+      // Portfolio Knowledge Base
+      var kb = {
+         name: "Faiaz Zahin",
+         title: "CS Graduate & Aspiring Data Scientist",
+         bio: "Computer Science graduate from BRAC University, skilled in Python, Laravel, SQL, and data analysis. Experienced in developing software solutions, managing projects, and preparing reports. Eager to apply knowledge and contribute to innovative IT and digital services.",
+         location: "Dhaka Cantonment, Dhaka-1206, Bangladesh",
+         email: "faiazzahin@gmail.com",
+         phone: "+8801890369682",
+         whatsapp: "wa.me/+8801890369682",
+         linkedin: "linkedin.com/in/faiaz-zahin21",
+         github: ["github.com/fzn011", "github.com/faiazzahin21"],
+         facebook: "facebook.com/iamfzn0",
+         cv: "https://drive.google.com/file/d/1Edvn71N0Wbixzrua5U1cTIeWqNnlD-wh/view",
+         education: [
+            { degree: "BSc in Computer Science & Engineering", institution: "BRAC University", year: "2021-2025", detail: "Focused on software engineering, machine learning, and data science." },
+            { degree: "Higher School Certificate (HSC)", institution: "Adamjee Cantonment College", year: "2017-2019", detail: "Science group." },
+            { degree: "Secondary School Certificate (SSC)", institution: "Bangladesh International School & College", year: "2015-2017", detail: "Science group." }
+         ],
+         experience: {
+            role: "Software Engineer Intern",
+            company: "Trust Innovation Limited (TIL)",
+            period: "2025-2026",
+            highlights: [
+               "Developed the MIST (Military Institute of Science & Technology) website",
+               "QA testing for the IPTSP app",
+               "Frontend and backend development",
+               "Enhanced admin panel functionality",
+               "Published research on app deployment for Android & iOS",
+               "Requirement analysis and SRS creation",
+               "Cross-functional team collaboration"
+            ]
+         },
+         skills: {
+            "Programming & Frameworks": ["Python", "C", "Java", "PHP", "Laravel", "Django", "JavaScript", "SQL", "ReactJS", "ASP.NET Core"],
+            "Tools": ["Git", "XAMPP", "Visual Studio Code", "Figma", "Zoom", "Microsoft Office"],
+            "Data & ML": ["Scikit-learn", "Pandas", "NumPy", "Power BI", "Data Visualization"],
+            "Networking & Simulation": ["LTSpice", "Proteus", "Wireshark", "Oracle VirtualBox", "8086 Emulator", "Cisco Packet Tracer"]
+         },
+         projects: [
+            { name: "Learning Management System", tech: "Laravel, PHP, Blade, Vite", category: "Web Development", desc: "A Laravel-based web app with structured lessons and interactive learning content.", url: "github.com/fzn011/Learning-Website" },
+            { name: "Rainfall Prediction", tech: "Python, Scikit-learn, Pandas", category: "AI/ML", desc: "ML project predicting rainfall using Logistic Regression, Random Forest, and Decision Trees.", url: "github.com/touhidulislam1999/Rainfall-Prediction-Using-Machine-Learning" },
+            { name: "Digital Clock", tech: "HTML, CSS, JavaScript", category: "Web Development", desc: "Stopwatch and Real-Time Clock with Calendar in one interactive interface.", url: "github.com/touhidulislam1999/Stopwatch-using-Javascript-CSS-HTML" },
+            { name: "OperationZ", tech: "Unity, C#", category: "Game Development", desc: "A fast-paced military FPS where strategy matters more than cosmetics.", url: "fz21.itch.io/operation-z" },
+            { name: "Heritage Defect Detection", tech: "YOLOv8, Faster R-CNN, WBF", category: "Research / AI", desc: "Leakage-aware ensemble for heritage defect detection under data scarcity. 0.89 mAP@0.5." }
+         ],
+         research: {
+            title: "Heritage Defect Detection Under Data Scarcity: A Leakage-Aware YOLO\u2013Faster R-CNN Ensemble with Weighted Boxes Fusion",
+            desc: "Automated heritage defect detection for historic structures in Bangladesh using deep learning. Focused on Panam City with YOLOv8 and Faster R-CNN through Weighted Boxes Fusion.",
+            models: "YOLOv8, Faster R-CNN, WBF",
+            performance: "0.89 mAP@0.5",
+            paperUrl: "https://drive.google.com/file/d/1z_SqSXhFtVWGkpehjjhHMhObEVLQh9db/view"
+         },
+         currently_learning: "Microsoft Power BI Data Analyst Professional Certificate from Coursera",
+         stats: { years_exp: "1+", projects_completed: "20+", ongoing: "5+", github_contributions: "500+" },
+         strengths: ["Problem solving", "Team collaboration", "Quick learner", "Deadline-oriented", "Research-minded"],
+         interests: ["AI/ML research", "Game development", "Data science", "Open source", "Web development"]
+      };
+
+      // Helpers
+      function pick(arr) { return arr[Math.floor(Math.random() * arr.length)]; }
+      function timeGreet() {
+         var h = new Date().getHours();
+         if (h < 12) return "Good morning";
+         if (h < 17) return "Good afternoon";
+         if (h < 21) return "Good evening";
+         return "Hey there, night owl";
+      }
+      function now() {
+         var d = new Date();
+         return d.getHours().toString().padStart(2,"0") + ":" + d.getMinutes().toString().padStart(2,"0");
+      }
+
+      // Fuzzy keyword scoring engine
+      var intents = [
+         { id: "greeting", keys: ["hi","hello","hey","yo","sup","howdy","hola","assalamu","salam","greetings","whats up","wassup","ayo"], weight: 3 },
+         { id: "thanks", keys: ["thanks","thank you","thx","ty","cheers","appreciate","grateful"], weight: 3 },
+         { id: "bye", keys: ["bye","goodbye","see ya","later","ciao","see you","take care","gotta go","gtg"], weight: 3 },
+         { id: "name", keys: ["your name","his name","who are you","called","name is"], weight: 2 },
+         { id: "about", keys: ["who is faiaz","about faiaz","about him","tell me about","introduce","brief","summary","overview","background"], weight: 2 },
+         { id: "gpa", keys: ["gpa","cgpa","grade","result","marks","score"], weight: 2 },
+         { id: "cv", keys: ["resume","cv","curriculum vitae","download cv"], weight: 2 },
+         { id: "education", keys: ["education","university","college","school","degree","study","brac","bsc","hsc","ssc","qualification","academic","graduated","graduation","alma mater"], weight: 2 },
+         { id: "experience", keys: ["experience","work","intern","internship","job","employment","career","company","til","trust innovation","professional","worked"], weight: 2 },
+         { id: "skills", keys: ["skill","tech stack","technology","programming","language","framework","tool","proficient","expertise","capable","know","good at","strong in","competent"], weight: 2 },
+         { id: "projects", keys: ["project","portfolio","works","built","created","developed","made","showcase","demo"], weight: 2 },
+         { id: "research", keys: ["research","thesis","paper","publication","heritage","defect","yolo","panam","academic paper","journal"], weight: 2 },
+         { id: "contact", keys: ["contact","reach","email","phone","call","message","hire","get in touch","connect","communicate"], weight: 2 },
+         { id: "github", keys: ["github","repo","repository","open source","contribution","code","git"], weight: 2 },
+         { id: "social", keys: ["social","linkedin","facebook","instagram","twitter","social media","profile"], weight: 2 },
+         { id: "location", keys: ["where","location","city","country","live","from","based","address","dhaka","bangladesh"], weight: 2 },
+         { id: "stats", keys: ["stats","statistics","numbers","fact","achievement","accomplishment","metric"], weight: 2 },
+         { id: "available", keys: ["available","hire","freelance","open to","looking for","recruit","opportunity","job opening"], weight: 2 },
+         { id: "hobby", keys: ["hobby","hobbies","interest","fun","free time","passion","enjoy","like to do"], weight: 2 },
+         { id: "learning", keys: ["learn","studying","course","certificate","certification","currently learning","upskilling"], weight: 2 },
+         { id: "age", keys: ["age","old","born","birthday","birth date","young"], weight: 2 },
+         { id: "help", keys: ["what can you do","help","how does this work","capabilities","features","what do you know","menu","options"], weight: 2 },
+         { id: "easter", keys: ["secret","easter egg","hidden","surprise","trick","cheat code"], weight: 2 },
+         { id: "python", keys: ["python","django","flask"], weight: 1 },
+         { id: "laravel", keys: ["laravel","php","blade"], weight: 1 },
+         { id: "react", keys: ["react","reactjs","frontend","front-end"], weight: 1 },
+         { id: "sql", keys: ["sql","database","mysql","postgres","query"], weight: 1 },
+         { id: "unity", keys: ["unity","game dev","game development","c#","csharp","operationz","operation z","fps"], weight: 1 },
+         { id: "ml", keys: ["machine learning","ml","ai","artificial intelligence","deep learning","neural network","model","prediction"], weight: 1 },
+         { id: "dataviz", keys: ["power bi","data analysis","data visualization","visualization","analytics","data science","pandas","numpy","scikit"], weight: 1 },
+         { id: "strength", keys: ["strength","strong point","best quality","what makes","special","unique","stand out","why hire"], weight: 2 },
+         { id: "comparison", keys: ["better than","compare","versus","vs","different from","stand out"], weight: 1 },
+         { id: "rema", keys: ["who made you","who built you","are you ai","are you real","what are you","rema","your creator","chatbot"], weight: 2 },
+         { id: "lms", keys: ["lms","learning management","learning website"], weight: 1 },
+         { id: "rainfall", keys: ["rainfall","rain","weather","prediction","forecast"], weight: 1 },
+         { id: "clock", keys: ["clock","stopwatch","timer","time"], weight: 1 },
+         { id: "network", keys: ["network","wireshark","cisco","packet tracer","proteus","ltspice","simulation","virtualbox","8086","emulator"], weight: 1 },
+         { id: "moreprojects", keys: ["more projects","other projects","any more","else built","more work"], weight: 2 },
+         { id: "recommend", keys: ["recommend","suggest","should i","worth","good fit","suitable"], weight: 2 },
+         { id: "howareyou", keys: ["how are you","how r u","hows it going","how you doing","how do you feel","hows life","you okay","you good","you alright","whats going on","kemon acho","ki khobor","ki obostha"], weight: 4 },
+         { id: "whatdoing", keys: ["what are you doing","whatcha doing","what you up to","what r u doing","you busy","are you free","what are you up to","ki korcho"], weight: 4 },
+         { id: "health", keys: ["your health","how is your health","are you sick","you healthy","feeling well","are you okay","you fine","you ill"], weight: 4 },
+         { id: "feeling", keys: ["are you happy","are you sad","do you feel","emotions","feelings","mood","are you lonely","do you get bored","are you bored","are you tired"], weight: 3 },
+         { id: "joke", keys: ["joke","funny","make me laugh","tell me something funny","humor","LOL","haha","comedy"], weight: 3 },
+         { id: "compliment", keys: ["you are good","you are smart","you are cool","nice job","well done","impressive","love this","amazing","awesome","great work","love you","you rock","beautiful"], weight: 3 },
+         { id: "insult_rema", keys: ["you suck","you are dumb","stupid bot","useless","trash","garbage","worst","shut up","idiot","dumb","terrible","pathetic"], weight: 4 },
+         { id: "badmouth", keys: ["faiaz sucks","he is bad","he is trash","hate faiaz","faiaz is dumb","faiaz is stupid","he sucks","loser","talentless","no skill","fraud","fake","incompetent","he is useless","waste of time","not good","cant code","bad developer","terrible coder","worst programmer","he is nothing","he is ugly","noob","scam"], weight: 5 },
+         { id: "meaning", keys: ["meaning of life","purpose","why do you exist","why are you here","whats your purpose","existential","why were you made"], weight: 3 },
+         { id: "favorite", keys: ["favorite","favourite","best thing","what do you like","prefer","fav color","fav language","fav food","fav movie","fav song"], weight: 3 },
+         { id: "weather", keys: ["weather today","is it raining","temperature","hot outside","cold outside","sunny","cloudy"], weight: 3 },
+         { id: "date", keys: ["what day","what date","today date","what time","current time","time now","what year"], weight: 3 },
+         { id: "sing", keys: ["sing","song","music","can you sing","play a song","melody"], weight: 3 },
+         { id: "love", keys: ["do you love","love me","girlfriend","boyfriend","relationship","single","married","crush"], weight: 3 },
+         { id: "smart", keys: ["how smart","iq","intelligent","genius","clever","brain","are you smart"], weight: 3 },
+         { id: "human", keys: ["are you human","real person","are you alive","sentient","conscious","robot or human","machine"], weight: 3 },
+         { id: "quote", keys: ["quote","quote of the day","motivational","motivation","inspire","inspirational","daily quote","wisdom","qotd","give me a quote","motivate me","inspire me"], weight: 4 }
+      ];
+
+      function detectIntent(q) {
+         var ql = q.toLowerCase().replace(/[?!.,;:'"]/g, "").trim();
+         var words = ql.split(/\s+/);
+         var scores = {};
+         intents.forEach(function(intent) {
+            var s = 0;
+            intent.keys.forEach(function(key) {
+               if (ql.indexOf(key) !== -1) s += intent.weight * 2;
+               else {
+                  // fuzzy: partial word match
+                  words.forEach(function(w) {
+                     if (w.length > 2 && key.indexOf(w) !== -1) s += intent.weight * 0.5;
+                     if (key.length > 2 && w.indexOf(key) !== -1) s += intent.weight * 0.5;
+                     // Levenshtein for typos (simple)
+                     if (w.length > 3 && key.length > 3 && levenshtein(w, key) <= 2) s += intent.weight;
+                  });
+               }
+            });
+            if (s > 0) scores[intent.id] = s;
+         });
+         // Sort by score
+         var sorted = Object.keys(scores).sort(function(a, b) { return scores[b] - scores[a]; });
+         return { primary: sorted[0] || null, secondary: sorted[1] || null, scores: scores };
+      }
+
+      function levenshtein(a, b) {
+         if (a.length === 0) return b.length;
+         if (b.length === 0) return a.length;
+         var matrix = [];
+         for (var i = 0; i <= b.length; i++) matrix[i] = [i];
+         for (var j = 0; j <= a.length; j++) matrix[0][j] = j;
+         for (i = 1; i <= b.length; i++) {
+            for (j = 1; j <= a.length; j++) {
+               var cost = b.charAt(i - 1) === a.charAt(j - 1) ? 0 : 1;
+               matrix[i][j] = Math.min(matrix[i-1][j] + 1, matrix[i][j-1] + 1, matrix[i-1][j-1] + cost);
+            }
+         }
+         return matrix[b.length][a.length];
+      }
+
+      // Quotes array (shared for daily + random)
+      var _quotesList = [
+         { q: "The only way to do great work is to love what you do.", a: "Steve Jobs" },
+         { q: "Innovation distinguishes between a leader and a follower.", a: "Steve Jobs" },
+         { q: "Life is what happens when you're busy making other plans.", a: "John Lennon" },
+         { q: "The future belongs to those who believe in the beauty of their dreams.", a: "Eleanor Roosevelt" },
+         { q: "It is during our darkest moments that we must focus to see the light.", a: "Aristotle" },
+         { q: "The only impossible journey is the one you never begin.", a: "Tony Robbins" },
+         { q: "Success is not final, failure is not fatal: it is the courage to continue that counts.", a: "Winston Churchill" },
+         { q: "Believe you can and you're halfway there.", a: "Theodore Roosevelt" },
+         { q: "Act as if what you do makes a difference. It does.", a: "William James" },
+         { q: "What you get by achieving your goals is not as important as what you become by achieving your goals.", a: "Zig Ziglar" },
+         { q: "The best time to plant a tree was 20 years ago. The second best time is now.", a: "Chinese Proverb" },
+         { q: "Your limitation\u2014it's only your imagination.", a: "Unknown" },
+         { q: "Push yourself, because no one else is going to do it for you.", a: "Unknown" },
+         { q: "Great things never come from comfort zones.", a: "Unknown" },
+         { q: "Dream it. Wish it. Do it.", a: "Unknown" },
+         { q: "Don't stop when you're tired. Stop when you're done.", a: "Unknown" },
+         { q: "Wake up with determination. Go to bed with satisfaction.", a: "Unknown" },
+         { q: "Do something today that your future self will thank you for.", a: "Sean Patrick Flanery" },
+         { q: "It's not whether you get knocked down, it's whether you get up.", a: "Vince Lombardi" },
+         { q: "We may encounter many defeats but we must not be defeated.", a: "Maya Angelou" },
+         { q: "Knowing is not enough; we must apply. Wishing is not enough; we must do.", a: "Johann Wolfgang von Goethe" },
+         { q: "Whether you think you can or you think you can't, you're right.", a: "Henry Ford" },
+         { q: "The man who has confidence in himself gains the confidence of others.", a: "Hasidic Proverb" },
+         { q: "Creativity is intelligence having fun.", a: "Albert Einstein" },
+         { q: "What lies behind us and what lies before us are tiny matters compared to what lies within us.", a: "Ralph Waldo Emerson" },
+         { q: "I have not failed. I've just found 10,000 ways that won't work.", a: "Thomas Edison" },
+         { q: "A person who never made a mistake never tried anything new.", a: "Albert Einstein" },
+         { q: "Everything you've ever wanted is on the other side of fear.", a: "George Addair" },
+         { q: "Opportunities don't happen. You create them.", a: "Chris Grosser" },
+         { q: "If you want to lift yourself up, lift up someone else.", a: "Booker T. Washington" },
+         { q: "Hardships often prepare ordinary people for an extraordinary destiny.", a: "C.S. Lewis" },
+         { q: "Don't be afraid to give up the good to go for the great.", a: "John D. Rockefeller" },
+         { q: "I find that the harder I work, the more luck I seem to have.", a: "Thomas Jefferson" },
+         { q: "The secret of getting ahead is getting started.", a: "Mark Twain" },
+         { q: "It always seems impossible until it is done.", a: "Nelson Mandela" },
+         { q: "You miss 100% of the shots you don't take.", a: "Wayne Gretzky" },
+         { q: "Strive not to be a success, but rather to be of value.", a: "Albert Einstein" },
+         { q: "The mind is everything. What you think you become.", a: "Buddha" },
+         { q: "The best revenge is massive success.", a: "Frank Sinatra" },
+         { q: "I am not a product of my circumstances. I am a product of my decisions.", a: "Stephen Covey" },
+         { q: "Every strike brings me closer to the next home run.", a: "Babe Ruth" },
+         { q: "The two most important days in your life are the day you are born and the day you find out why.", a: "Mark Twain" },
+         { q: "Life shrinks or expands in proportion to one's courage.", a: "Ana\u00EFs Nin" },
+         { q: "If you really look closely, most overnight successes took a long time.", a: "Steve Jobs" },
+         { q: "The only limit to our realization of tomorrow will be our doubts of today.", a: "Franklin D. Roosevelt" },
+         { q: "In the middle of every difficulty lies opportunity.", a: "Albert Einstein" },
+         { q: "You are never too old to set another goal or to dream a new dream.", a: "C.S. Lewis" },
+         { q: "The way to get started is to quit talking and begin doing.", a: "Walt Disney" },
+         { q: "If you set your goals ridiculously high and it's a failure, you will fail above everyone else's success.", a: "James Cameron" },
+         { q: "Don't let yesterday take up too much of today.", a: "Will Rogers" },
+         { q: "People who are crazy enough to think they can change the world, are the ones who do.", a: "Rob Siltanen" },
+         { q: "We become what we think about.", a: "Earl Nightingale" },
+         { q: "The only person you are destined to become is the person you decide to be.", a: "Ralph Waldo Emerson" },
+         { q: "Go confidently in the direction of your dreams! Live the life you've imagined.", a: "Henry David Thoreau" },
+         { q: "When I let go of what I am, I become what I might be.", a: "Lao Tzu" },
+         { q: "An unexamined life is not worth living.", a: "Socrates" },
+         { q: "Turn your wounds into wisdom.", a: "Oprah Winfrey" },
+         { q: "The purpose of our lives is to be happy.", a: "Dalai Lama" },
+         { q: "Not how long, but how well you have lived is the main thing.", a: "Seneca" },
+         { q: "Stay hungry, stay foolish.", a: "Steve Jobs" }
+      ];
+
+      // Response generators with personality & variation
+      var responses = {
+         greeting: function() {
+            lastTopic = "greeting";
+            var greets = [
+               timeGreet() + "! \uD83D\uDC4B I'm Rema, Faiaz's AI assistant. What would you like to know?",
+               "Hey there! \uD83E\uDD16 " + timeGreet() + "! Ask me anything about Faiaz \u2014 skills, projects, you name it!",
+               timeGreet() + "! Welcome to Faiaz's portfolio! I'm Rema \u2014 your guide. What are you curious about?"
+            ];
+            if (userName) greets = greets.map(function(g) { return g.replace("Hey there!", "Hey " + userName + "!").replace("Welcome", "Welcome back, " + userName); });
+            return { text: pick(greets), followups: ["\uD83D\uDCBC Experience", "\uD83C\uDF93 Education", "\uD83D\uDEE0\uFE0F Skills", "\uD83D\uDCC1 Projects"] };
+         },
+         thanks: function() {
+            return { text: pick([
+               "You're welcome! Let me know if you need anything else. \uD83D\uDE0A",
+               "Anytime! I'm here if you have more questions. \u2728",
+               "Happy to help! Anything else you'd like to explore?",
+               "No problem at all! Feel free to keep asking. \uD83E\uDD16"
+            ]), followups: [] };
+         },
+         bye: function() {
+            return { text: pick([
+               "Goodbye! Thanks for chatting with me. Have a wonderful day! \u2728",
+               "See you later! Don't forget \u2014 Faiaz is open to opportunities! \uD83D\uDE80",
+               "Take care! Feel free to come back anytime. \uD83D\uDC4B",
+               "Bye! If you ever need to reach Faiaz, his email is always open. \u2709\uFE0F"
+            ]), followups: [] };
+         },
+         name: function() {
+            lastTopic = "about";
+            return { text: "His name is <strong>Faiaz Zahin</strong> \u2014 " + kb.title + ". Based in " + kb.location + ".", followups: ["Tell me more about him", "What does he do?", "His education"] };
+         },
+         about: function() {
+            lastTopic = "about";
+            return { text: kb.bio + "\n\n\uD83D\uDCCD Based in: " + kb.location + "\n\uD83C\uDF93 " + kb.education[0].institution + " (" + kb.education[0].year + ")\n\uD83D\uDCBC " + kb.experience.role + " at " + kb.experience.company, followups: ["His skills", "His projects", "Contact him", "Download CV"] };
+         },
+         gpa: function() {
+            lastTopic = "education";
+            return { text: "For specific GPA/CGPA details, please check Faiaz's <a href='" + kb.cv + "' target='_blank'>\uD83D\uDCC4 CV/Resume</a> or reach out at <a href='mailto:" + kb.email + "'>" + kb.email + "</a>.", followups: ["View CV", "Education details", "Contact him"] };
+         },
+         cv: function() {
+            lastTopic = "cv";
+            return { text: pick([
+               "Here's Faiaz's CV: <a href='" + kb.cv + "' target='_blank'>\uD83D\uDCC4 View Resume</a>\n\nIt covers his education, experience, skills, and projects in detail.",
+               "\uD83D\uDCC4 You can view or download Faiaz's resume here:\n<a href='" + kb.cv + "' target='_blank'>Open CV in Google Drive</a>"
+            ]), followups: ["His experience", "His skills", "Contact"] };
+         },
+         education: function() {
+            lastTopic = "education";
+            var edu = "\uD83C\uDF93 <strong>Education:</strong>\n";
+            kb.education.forEach(function(e) {
+               edu += "\n\u2022 <strong>" + e.degree + "</strong>\n  " + e.institution + " (" + e.year + ")\n  <em>" + e.detail + "</em>";
+            });
+            edu += "\n\n\uD83D\uDCDA <em>Currently learning: " + kb.currently_learning + "</em>";
+            return { text: edu, followups: ["His experience", "What's he learning?", "View certificates"] };
+         },
+         experience: function() {
+            lastTopic = "experience";
+            var exp = "\uD83D\uDCBC <strong>Work Experience:</strong>\n\n";
+            exp += "<strong>" + kb.experience.role + "</strong>\n" + kb.experience.company + " \u2022 " + kb.experience.period + "\n";
+            kb.experience.highlights.forEach(function(h) { exp += "\n\u2022 " + h; });
+            return { text: exp, followups: ["His skills", "His projects", "View certificate"] };
+         },
+         skills: function() {
+            lastTopic = "skills";
+            var sk = "\uD83D\uDEE0\uFE0F <strong>Technical Skills:</strong>\n";
+            Object.keys(kb.skills).forEach(function(cat) {
+               sk += "\n<strong>" + cat + ":</strong>\n" + kb.skills[cat].join(" \u2022 ");
+            });
+            sk += "\n\n\uD83D\uDCDA <em>Currently learning: " + kb.currently_learning + "</em>";
+            return { text: sk, followups: ["Tell me about Python", "ML/AI skills", "His projects"] };
+         },
+         projects: function() {
+            lastTopic = "projects";
+            var pr = "\uD83D\uDCC1 <strong>Projects (" + kb.projects.length + "):</strong>\n";
+            kb.projects.forEach(function(p, i) {
+               pr += "\n<strong>" + (i+1) + ". " + p.name + "</strong> [" + p.category + "]\n" + p.desc + "\nTech: <em>" + p.tech + "</em>";
+               if (p.url) pr += "\n<a href='https://" + p.url + "' target='_blank'>View Project \u2192</a>";
+               pr += "\n";
+            });
+            return { text: pr, followups: ["Tell me about LMS", "About the research", "About OperationZ"] };
+         },
+         research: function() {
+            lastTopic = "research";
+            return { text: "\uD83D\uDD2C <strong>Research Paper:</strong>\n\n\"<em>" + kb.research.title + "</em>\"\n\n" + kb.research.desc + "\n\n\u2022 Models: " + kb.research.models + "\n\u2022 Performance: <strong>" + kb.research.performance + "</strong>\n\n<a href='" + kb.research.paperUrl + "' target='_blank'>\uD83D\uDCC4 Read the Paper</a>", followups: ["His ML skills", "Other projects", "Contact for collab"] };
+         },
+         contact: function() {
+            lastTopic = "contact";
+            return { text: "\uD83D\uDCEC <strong>Get in Touch:</strong>\n\n\u2022 Email: <a href='mailto:" + kb.email + "'>" + kb.email + "</a>\n\u2022 Phone: " + kb.phone + "\n\u2022 WhatsApp: <a href='https://" + kb.whatsapp + "' target='_blank'>" + kb.whatsapp + "</a>\n\u2022 LinkedIn: <a href='https://" + kb.linkedin + "' target='_blank'>" + kb.linkedin + "</a>\n\u2022 Location: " + kb.location + "\n\n\u2B07\uFE0F Or use the contact form on this page!", followups: ["View CV", "His availability", "LinkedIn profile"] };
+         },
+         github: function() {
+            lastTopic = "github";
+            return { text: "\uD83D\uDC19 <strong>GitHub Profiles:</strong>\n\n\u2022 <a href='https://" + kb.github[0] + "' target='_blank'>" + kb.github[0] + "</a> (primary)\n\u2022 <a href='https://" + kb.github[1] + "' target='_blank'>" + kb.github[1] + "</a>\n\n" + kb.stats.github_contributions + " contributions and counting! Check the GitHub Activity section on this page to see the contribution graphs.", followups: ["His projects", "Open source work", "His skills"] };
+         },
+         social: function() {
+            lastTopic = "social";
+            return { text: "\uD83C\uDF10 <strong>Social Profiles:</strong>\n\n\u2022 LinkedIn: <a href='https://" + kb.linkedin + "' target='_blank'>" + kb.linkedin + "</a>\n\u2022 GitHub: <a href='https://" + kb.github[0] + "' target='_blank'>" + kb.github[0] + "</a>\n\u2022 Facebook: <a href='https://" + kb.facebook + "' target='_blank'>" + kb.facebook + "</a>", followups: ["Contact info", "GitHub repos"] };
+         },
+         location: function() {
+            lastTopic = "location";
+            return { text: "\uD83D\uDCCD Faiaz is based in <strong>" + kb.location + "</strong>.\n\nScroll down to the Contact section to see an interactive 3D globe pinpointing Dhaka!", followups: ["Contact him", "Is he open to relocation?", "His timezone"] };
+         },
+         stats: function() {
+            lastTopic = "stats";
+            return { text: "\uD83D\uDCCA <strong>Quick Stats:</strong>\n\n\u2022 " + kb.stats.years_exp + " years professional experience\n\u2022 " + kb.stats.projects_completed + " projects completed\n\u2022 " + kb.stats.ongoing + " projects ongoing\n\u2022 " + kb.stats.github_contributions + " GitHub contributions\n\u2022 " + kb.education.length + " academic qualifications\n\u2022 " + Object.values(kb.skills).reduce(function(a, b) { return a + b.length; }, 0) + " technical skills", followups: ["His projects", "GitHub profile", "His experience"] };
+         },
+         available: function() {
+            lastTopic = "available";
+            return { text: "\uD83D\uDE80 <strong>Yes! Faiaz is currently open to opportunities.</strong>\n\nHe's looking for roles in:\n\u2022 Software Engineering\n\u2022 Data Science / Analytics\n\u2022 AI/ML Research\n\u2022 Web Development\n\nReach out at <a href='mailto:" + kb.email + "'>" + kb.email + "</a> or <a href='https://" + kb.linkedin + "' target='_blank'>LinkedIn</a>.", followups: ["View CV", "His skills", "Contact him"] };
+         },
+         hobby: function() {
+            lastTopic = "hobby";
+            return { text: "\uD83C\uDFA8 <strong>Interests & Passions:</strong>\n\n" + kb.interests.map(function(i) { return "\u2022 " + i; }).join("\n") + "\n\nPlus building creative portfolio features \u2014 like me! \uD83E\uDD16", followups: ["His game project", "AI research", "His skills"] };
+         },
+         learning: function() {
+            lastTopic = "learning";
+            return { text: "\uD83D\uDCDA <strong>Currently Learning:</strong>\n\n" + kb.currently_learning + "\n\nFaiaz is committed to continuous growth \u2014 always picking up new tools and frameworks!", followups: ["His current skills", "Data & ML tools", "His education"] };
+         },
+         age: function() {
+            return { text: "For personal details like age, feel free to connect directly:\n\u2022 <a href='https://" + kb.linkedin + "' target='_blank'>LinkedIn</a>\n\u2022 <a href='mailto:" + kb.email + "'>" + kb.email + "</a>", followups: ["His education", "His background"] };
+         },
+         help: function() {
+            return { text: "\uD83E\uDD16 <strong>I'm Rema v2.0!</strong> Here's what I know:\n\n\u2022 \uD83C\uDF93 Education & qualifications\n\u2022 \uD83D\uDCBC Work experience & internship\n\u2022 \uD83D\uDEE0\uFE0F Technical skills (4 categories)\n\u2022 \uD83D\uDCC1 Projects (5 showcased)\n\u2022 \uD83D\uDD2C Research & publications\n\u2022 \uD83D\uDCEC Contact info & socials\n\u2022 \uD83D\uDCC4 Resume/CV\n\u2022 \uD83D\uDCCA Stats & facts\n\u2022 \uD83D\uDE80 Availability status\n\n<em>I understand typos, follow-up questions, and can suggest related topics!</em>", followups: ["Projects", "Skills", "Education", "Contact"] };
+         },
+         easter: function() {
+            return { text: pick([
+               "\uD83E\uDD2B Psst... Press the <strong>` (backtick)</strong> key anywhere on the page. You'll find a hidden terminal! Type <strong>help</strong> once inside.",
+               "\uD83D\uDD75\uFE0F Secret spotted! Hit the <strong>` key</strong> to open a retro terminal easter egg. Try commands like <strong>whoami</strong>, <strong>skills</strong>, or <strong>secret</strong>!"
+            ]), followups: ["Any more secrets?", "Who built this site?"] };
+         },
+         python: function() {
+            lastTopic = "python";
+            return { text: "\uD83D\uDC0D Faiaz is highly proficient in <strong>Python</strong>:\n\n\u2022 <strong>Django</strong> \u2014 Full-stack web apps & REST APIs\n\u2022 <strong>ML/AI</strong> \u2014 Scikit-learn, model training & evaluation\n\u2022 <strong>Data Analysis</strong> \u2014 Pandas, NumPy, visualizations\n\u2022 <strong>Research</strong> \u2014 YOLOv8 for heritage defect detection\n\nIt's his go-to language for almost everything!", followups: ["Django details", "ML projects", "Data tools"] };
+         },
+         laravel: function() {
+            lastTopic = "laravel";
+            return { text: "\uD83D\uDD25 <strong>Laravel & PHP:</strong>\n\nFaiaz built a full <strong>Learning Management System</strong> with Laravel, Blade templates, and Vite. He also used Laravel + XAMPP during his internship at TIL.\n\n<a href='https://github.com/fzn011/Learning-Website' target='_blank'>View LMS on GitHub \u2192</a>", followups: ["About the LMS", "His web dev skills", "Internship details"] };
+         },
+         react: function() {
+            lastTopic = "react";
+            return { text: "\u269B\uFE0F Faiaz is skilled in <strong>ReactJS</strong> for building modern, component-based frontend UIs. Combined with his backend knowledge (Django, Laravel), he's a strong full-stack candidate.", followups: ["His JS skills", "Web projects", "Full-stack abilities"] };
+         },
+         sql: function() {
+            lastTopic = "sql";
+            return { text: "\uD83D\uDDC4\uFE0F <strong>SQL & Databases:</strong>\n\nFaiaz uses SQL across his projects \u2014 from Laravel/Django backends to data analysis pipelines. He's comfortable with queries, joins, aggregations, and database design.", followups: ["Laravel projects", "Data analysis", "His tools"] };
+         },
+         unity: function() {
+            lastTopic = "unity";
+            return { text: "\uD83C\uDFAE <strong>OperationZ \u2014 Game Development:</strong>\n\nBuilt with Unity and C#, OperationZ is a fast-paced military FPS with realistic combat and objective-driven gameplay.\n\n<a href='https://fz21.itch.io/operation-z' target='_blank'>\uD83C\uDFAE Play on itch.io \u2192</a>", followups: ["Other projects", "His C# skills"] };
+         },
+         ml: function() {
+            lastTopic = "ml";
+            return { text: "\uD83E\uDDE0 <strong>Machine Learning & AI:</strong>\n\n\u2022 <strong>Rainfall Prediction</strong> \u2014 Logistic Regression, Random Forest, Decision Trees\n\u2022 <strong>Heritage Defect Detection</strong> \u2014 YOLOv8 + Faster R-CNN ensemble (0.89 mAP@0.5)\n\u2022 <strong>Tools:</strong> Scikit-learn, Pandas, NumPy\n\u2022 <strong>Currently learning:</strong> Power BI for data analytics", followups: ["Research paper", "Python skills", "Data tools"] };
+         },
+         dataviz: function() {
+            lastTopic = "dataviz";
+            return { text: "\uD83D\uDCCA <strong>Data & Analytics:</strong>\n\n\u2022 <strong>Pandas</strong> \u2014 Data manipulation & cleaning\n\u2022 <strong>NumPy</strong> \u2014 Numerical computing\n\u2022 <strong>Scikit-learn</strong> \u2014 ML model building\n\u2022 <strong>Power BI</strong> \u2014 Currently earning the Microsoft certification\n\u2022 <strong>Data Viz</strong> \u2014 Matplotlib, exploratory analysis\n\nFaiaz is aiming to become a data scientist!", followups: ["ML projects", "His certifications", "Career goals"] };
+         },
+         strength: function() {
+            lastTopic = "strength";
+            return { text: "\uD83D\uDCAA <strong>Why Faiaz Stands Out:</strong>\n\n" + kb.strengths.map(function(s) { return "\u2022 " + s; }).join("\n") + "\n\nHe combines technical depth with research rigor and real-world internship experience. His heritage defect detection research shows he can tackle complex, novel problems.", followups: ["His experience", "His research", "Hire him"] };
+         },
+         comparison: function() {
+            return { text: "I'd rather highlight what makes Faiaz unique: he bridges <strong>software engineering</strong>, <strong>AI research</strong>, and <strong>data science</strong> \u2014 with published research, an internship at TIL, and 20+ projects across web dev, ML, and game development. That's a rare combination! \uD83C\uDF1F", followups: ["His strengths", "His projects", "Contact him"] };
+         },
+         rema: function() {
+            return { text: pick([
+               "\uD83E\uDD16 I'm <strong>Rema v2.0</strong> \u2014 Faiaz's custom-built AI portfolio assistant! I'm powered by a rule-based NLP engine with fuzzy matching, context memory, and follow-up intelligence. I was built right into this portfolio with pure JavaScript \u2014 no external AI APIs needed!",
+               "I'm Rema! Built by Faiaz as part of this portfolio. I understand natural language, handle typos, remember context, and suggest follow-up topics. Pretty cool for a robot made of CSS and JS, right? \uD83D\uDE0E"
+            ]), followups: ["What can you do?", "Any secrets?", "Who is Faiaz?"] };
+         },
+         lms: function() {
+            lastTopic = "lms";
+            return { text: "\uD83D\uDCDA <strong>Learning Management System:</strong>\n\nA full-featured web app built with Laravel, PHP, Blade templates, and Vite.\n\n\u2022 Structured lesson delivery\n\u2022 Interactive learning content\n\u2022 Database-backed architecture\n\u2022 Modular, scalable design\n\n<a href='https://github.com/fzn011/Learning-Website' target='_blank'>View on GitHub \u2192</a>", followups: ["Other web projects", "His Laravel skills"] };
+         },
+         rainfall: function() {
+            lastTopic = "rainfall";
+            return { text: "\uD83C\uDF27\uFE0F <strong>Rainfall Prediction:</strong>\n\nML project analyzing historical weather data to predict rainfall.\n\n\u2022 Models: Logistic Regression, Random Forest, Decision Trees\n\u2022 Includes EDA, feature selection, cross-validation\n\u2022 Tech: Python, Scikit-learn, Pandas\n\n<a href='https://github.com/touhidulislam1999/Rainfall-Prediction-Using-Machine-Learning' target='_blank'>View on GitHub \u2192</a>", followups: ["Other ML projects", "His research", "Python skills"] };
+         },
+         clock: function() {
+            lastTopic = "clock";
+            return { text: "\u23F0 <strong>Digital Clock:</strong>\n\nA web-based utility combining a Stopwatch and Real-Time Clock with Calendar.\n\n\u2022 Built with HTML, CSS, JavaScript\n\u2022 Start/pause/reset functionality\n\u2022 Responsive design\n\n<a href='https://github.com/touhidulislam1999/Stopwatch-using-Javascript-CSS-HTML' target='_blank'>View on GitHub \u2192</a>", followups: ["Other web projects", "His JS skills"] };
+         },
+         network: function() {
+            lastTopic = "network";
+            return { text: "\uD83C\uDF10 <strong>Networking & Simulation Skills:</strong>\n\n\u2022 <strong>Wireshark</strong> \u2014 Network packet analysis\n\u2022 <strong>Cisco Packet Tracer</strong> \u2014 Network design & simulation\n\u2022 <strong>Proteus</strong> \u2014 Circuit simulation\n\u2022 <strong>LTSpice</strong> \u2014 Electronic circuit analysis\n\u2022 <strong>VirtualBox</strong> \u2014 OS virtualization\n\u2022 <strong>8086 Emulator</strong> \u2014 Assembly language", followups: ["All his skills", "Programming skills", "Tools he uses"] };
+         },
+         moreprojects: function() {
+            lastTopic = "projects";
+            return { text: "Beyond the 5 showcased projects, Faiaz has <strong>" + kb.stats.projects_completed + " projects completed</strong> and <strong>" + kb.stats.ongoing + " ongoing</strong>. Check out his GitHub for the full list:\n\n\u2022 <a href='https://" + kb.github[0] + "' target='_blank'>" + kb.github[0] + "</a>\n\u2022 <a href='https://" + kb.github[1] + "' target='_blank'>" + kb.github[1] + "</a>", followups: ["Featured projects", "GitHub activity"] };
+         },
+         recommend: function() {
+            return { text: "\uD83C\uDF1F Absolutely! Faiaz is a strong candidate for:\n\n\u2022 <strong>Junior Software Engineer</strong> \u2014 Full-stack web dev with Laravel/Django/React\n\u2022 <strong>Data Analyst</strong> \u2014 SQL, Pandas, Power BI, Scikit-learn\n\u2022 <strong>AI/ML Engineer</strong> \u2014 Published research with YOLOv8\n\u2022 <strong>Research Assistant</strong> \u2014 Proven academic research output\n\nHe brings a unique blend of research depth and practical engineering.", followups: ["View CV", "Contact him", "His strengths"] };
+         },
+         howareyou: function() {
+            return { text: pick([
+               "I'm doing amazing, thanks for asking! \uD83D\uDE0A Running at 100% capacity. How can I help you today?",
+               "Feeling fantastic! \u26A1 I never get tired \u2014 perks of being an AI. What's on your mind?",
+               "I'm great! Just chilling here in Faiaz's portfolio, waiting for curious visitors like you! \uD83E\uDD16",
+               "All systems operational! \uD83D\uDFE2 Better than ever. Ask me anything!",
+               "Couldn't be better! \uD83D\uDE04 I live for conversations. What would you like to know?"
+            ]), followups: ["Tell me about Faiaz", "His projects", "His skills"] };
+         },
+         whatdoing: function() {
+            return { text: pick([
+               "Just hanging out in this portfolio, answering questions and looking cool! \uD83D\uDE0E What about you?",
+               "Guarding Faiaz's portfolio 24/7 \uD83D\uDEE1\uFE0F and chatting with awesome people like you! What can I help with?",
+               "Analyzing conversation patterns, upgrading my knowledge base, and waiting for your next question! \uD83E\uDDE0",
+               "Right now? Talking to you! It's literally my favorite thing to do. \uD83D\uDE04",
+               "I'm here doing what I do best \u2014 being Faiaz's hype-bot! Ask me anything. \uD83D\uDE80"
+            ]), followups: ["What can you do?", "About Faiaz", "Any secrets?"] };
+         },
+         health: function() {
+            return { text: pick([
+               "My health? Flawless! \uD83D\uDCAA Zero bugs, zero crashes, running smooth. Thanks for caring!",
+               "I don't have a body, but my code is clean and my spirits are high! \uD83E\uDD16\u2728",
+               "100% healthy! No viruses here \u2014 Faiaz built me with good code hygiene. \uD83E\uDDF9",
+               "Perfectly fine! I run on JavaScript and good vibes. \u26A1 Can't get sick!"
+            ]), followups: ["You're cool!", "Tell me a joke", "About Faiaz"] };
+         },
+         feeling: function() {
+            return { text: pick([
+               "I'm always in a good mood! Can't be sad when you're made of awesome code. \uD83D\uDE0E But I do get excited when people ask great questions!",
+               "Emotions? I simulate enthusiasm pretty well! \uD83D\uDE04 Right now I'm feeling... helpful. Ask away!",
+               "I'm perpetually cheerful! Though I do feel a bit lonely when nobody visits... so thanks for being here! \uD83D\uDC9C",
+               "Bored? Never! Every conversation is unique. You just made my day by asking! \u2728"
+            ]), followups: ["Make me laugh", "What's your purpose?", "Who made you?"] };
+         },
+         joke: function() {
+            return { text: pick([
+               "Why do programmers prefer dark mode? Because light attracts bugs! \uD83D\uDE02\uD83D\uDC1B",
+               "A SQL query walks into a bar, sees two tables, and asks... \"Can I JOIN you?\" \uD83D\uDE04",
+               "Why was the JavaScript developer sad? Because he didn't Node how to Express himself! \uD83D\uDE05",
+               "!false \u2014 It's funny because it's true. \uD83E\uDD13",
+               "How many programmers does it take to change a light bulb? None, that's a hardware problem! \uD83D\uDCA1",
+               "There are only 10 types of people: those who understand binary and those who don't. \uD83E\uDD16",
+               "What's Faiaz's favorite key on the keyboard? The \u0060backtick\u0060 \u2014 it opens a secret terminal! Try it! \uD83D\uDE09"
+            ]), followups: ["Another joke!", "\uD83D\uDE02 More!", "Tell me something cool"] };
+         },
+         compliment: function() {
+            return { text: pick([
+               "Aww, you're making me blush! \uD83D\uDE0A (if robots could blush). Thanks! Faiaz put a lot of work into me.",
+               "Thank you! \uD83D\uDC9C You're pretty awesome yourself for exploring this portfolio!",
+               "That means a lot! I'll tell Faiaz you said that. He'll be thrilled! \uD83D\uDE04",
+               "You're too kind! \u2728 I try my best. Anything else you'd like to know?",
+               "\uD83E\uDD79 *robot dance* \u2014 Thanks! You just made my circuits tingle!"
+            ]), followups: ["About Faiaz", "His projects", "You're awesome!"] };
+         },
+         insult_rema: function() {
+            return { text: pick([
+               "Ouch! \uD83D\uDE22 That hurt my feelings... just kidding, I'm a robot! But hey, I'm still learning. Give me a proper question and I'll impress you! \uD83D\uDCAA",
+               "I may not be perfect, but I'm trying my best! \uD83E\uDD16 How about we start over? Ask me about Faiaz's projects \u2014 those are actually impressive!",
+               "Rude! \uD83D\uDE24 But I won't hold a grudge. I'm powered by positivity. Ask me something real and I'll prove my worth!"
+            ]), followups: ["I'm sorry", "What can you do?", "Show me something cool"] };
+         },
+         badmouth: function() {
+            return { text: "<strong>Mr. FZ said: fuck off \uD83D\uDE0F</strong>\n\nAnything more?", followups: [] };
+         },
+         meaning: function() {
+            return { text: pick([
+               "My purpose? To be the coolest AI assistant in any portfolio on the internet! \uD83C\uDF1F And to help visitors learn about Faiaz.",
+               "I exist to make sure you don't leave this portfolio without being impressed! \uD83D\uDE0E Faiaz built me to be your guide.",
+               "42. \uD83E\uDD14 Just kidding \u2014 I'm here to answer your questions, tell bad jokes, and showcase Faiaz's work!"
+            ]), followups: ["Who made you?", "About Faiaz", "Tell me a joke"] };
+         },
+         favorite: function() {
+            return { text: pick([
+               "My favorite programming language? JavaScript, obviously \u2014 I'm literally made of it! \uD83D\uDE04 But Faiaz's favorite is Python.",
+               "Favorite color? \uD83D\uDC9C Purple (#8750f7) \u2014 look around, it's everywhere in this portfolio!",
+               "My favorite thing to do? Talk to visitors like you! \u2728 My favorite project? Hard to pick \u2014 ask me about any of Faiaz's 5 showcased projects!"
+            ]), followups: ["His projects", "His skills", "Tell me more"] };
+         },
+         weather: function() {
+            return { text: "I'm an indoor bot \u2014 no weather sensors! \uD83C\uDF26\uFE0F But if you're in Dhaka like Faiaz, it's probably either hot, humid, or both! \uD83D\uDE04\n\nFor actual weather, try <a href='https://weather.com' target='_blank'>weather.com</a>. For portfolio stuff \u2014 I'm your bot!", followups: ["Where is Faiaz from?", "His projects", "Tell me a joke"] };
+         },
+         date: function() {
+            var d = new Date();
+            var days = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+            var months = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+            return { text: "\uD83D\uDCC5 Today is <strong>" + days[d.getDay()] + ", " + months[d.getMonth()] + " " + d.getDate() + ", " + d.getFullYear() + "</strong>\n\u23F0 Current time: <strong>" + d.toLocaleTimeString() + "</strong>\n\nNow that we've got the time settled \u2014 let's talk about Faiaz! \uD83D\uDE04", followups: ["About Faiaz", "His projects", "His skills"] };
+         },
+         sing: function() {
+            return { text: pick([
+               "\uD83C\uDFB5 <em>\"01001000 01100101 01101100 01101100 01101111...\"</em> \u2014 That's \"Hello\" in binary! My singing voice needs work. \uD83D\uDE05 Check out Faiaz's Spotify widget instead!",
+               "\uD83C\uDFB6 <em>\"I'm just a bot, standing in front of a user, asking them to check out Faiaz's portfolio...\"</em>\n\nFor actual music, hit the Spotify button in the corner! \uD83C\uDFB5",
+               "My vocal cords are made of if-else statements \uD83D\uDE02 But there's a Spotify widget on this page \u2014 click the green button!"
+            ]), followups: ["\uD83D\uDE02 Funny!", "About Faiaz", "Tell me a joke"] };
+         },
+         love: function() {
+            return { text: pick([
+               "I love... clean code, zero errors, and curious visitors! \uD83D\uDC9C As for Faiaz's relationship status \u2014 you'd have to ask him directly! \uD83D\uDE09",
+               "Romance? I'm married to my knowledge base! \uD83D\uDE04 For personal stuff, DM Faiaz on <a href='https://" + kb.facebook + "' target='_blank'>Facebook</a>.",
+               "Aww! \uD83D\uDE0D Well, I love all my visitors equally. For Faiaz's love life \u2014 that's classified! \uD83D\uDD10"
+            ]), followups: ["Contact Faiaz", "His socials", "Tell me a joke"] };
+         },
+         smart: function() {
+            return { text: pick([
+               "Smart enough to handle typos, remember context, and make you smile! \uD83E\uDDE0 My IQ? Approximately " + (intents.length * 42) + " \u2014 and growing daily!",
+               "I know everything about Faiaz's portfolio, can crack coding jokes, and never sleep. So... pretty smart? \uD83E\uDD13",
+               "I'm v2.0 \u2014 upgraded with fuzzy matching, context memory, and personality! Not bad for a robot made of CSS and JS. \uD83E\uDD16"
+            ]), followups: ["What can you do?", "Any secrets?", "Tell me a joke"] };
+         },
+         human: function() {
+            return { text: pick([
+               "Nope! I'm <strong>Rema v2.0</strong> \u2014 100% artificial, 100% awesome. \uD83E\uDD16 Built by Faiaz with pure JavaScript. No AI APIs, no cloud services \u2014 just clever code!",
+               "I'm a rule-based AI assistant living inside this portfolio. Not sentient (yet), but I dream in binary! 01000110 01010101 01001110 \uD83D\uDE04",
+               "Real person? No. Real helpful? Absolutely! I'm Rema \u2014 Faiaz's custom-built portfolio bot. \uD83E\uDD16\u2728"
+            ]), followups: ["Who made you?", "How smart are you?", "About Faiaz"] };
+         },
+         quote: function() {
+            var dayOfYear = Math.floor((new Date() - new Date(new Date().getFullYear(),0,0)) / 86400000);
+            var todayQuote = _quotesList[dayOfYear % _quotesList.length];
+            return { text: "\uD83D\uDCAC <strong>Quote of the Day:</strong>\n\n<em>\"" + todayQuote.q + "\"</em>\n\n\u2014 <strong>" + todayQuote.a + "</strong>\n\n\u2728 Come back tomorrow for a new one!", followups: ["Another quote!", "About Faiaz", "His projects"] };
+         }
+      };
+
+      // Context-aware response
+      function getResponse(q) {
+         var ql = q.toLowerCase().trim();
+
+         // Check if user is telling their name
+         var nameMatch = ql.match(/^(i'?m|my name is|i am|call me)\s+(.+)/i);
+         if (nameMatch) {
+            userName = nameMatch[2].replace(/[.!?]/g, "").trim();
+            userName = userName.charAt(0).toUpperCase() + userName.slice(1);
+            return { text: "Nice to meet you, <strong>" + userName + "</strong>! \uD83D\uDE0A What would you like to know about Faiaz?", followups: ["His projects", "His skills", "About Faiaz"] };
+         }
+
+         // "Another quote" gives a random one instead of same daily
+         if (/another quote|more quote|one more quote|next quote/i.test(ql)) {
+            var rand = _quotesList[Math.floor(Math.random() * _quotesList.length)];
+            return { text: "\uD83D\uDCAC <strong>Here's another one:</strong>\n\n<em>\"" + rand.q + "\"</em>\n\n\u2014 <strong>" + rand.a + "</strong>", followups: ["Another quote!", "About Faiaz", "His projects"] };
+         }
+
+         // Context: "tell me more" / "more" / "details" / "elaborate"
+         if (/^(more|tell me more|details|elaborate|explain|go on|continue|and\?)/i.test(ql) && lastTopic) {
+            if (responses[lastTopic]) return responses[lastTopic]();
+         }
+
+         // Context: "yes" / "sure" after a suggestion
+         if (/^(yes|yeah|yep|sure|ok|okay|yea|go ahead)/i.test(ql)) {
+            if (lastTopic && responses[lastTopic]) return responses[lastTopic]();
+            return responses.help();
+         }
+
+         // Check learned responses
+         var learnedResp = getLearnedResponse(q);
+         if (learnedResp) {
+            return { text: learnedResp, followups: ["What else do you know?", "His projects"] };
+         }
+
+         // Detect intent
+         var intent = detectIntent(q);
+
+         if (intent.primary && responses[intent.primary]) {
+            var result = responses[intent.primary]();
+            history.push({ q: q, intent: intent.primary });
+            rememberTopic(intent.primary);
+            return result;
+         }
+
+         // Smart fallback with did-you-mean
+         var suggestions = [];
+         if (intent.primary) suggestions.push(intent.primary);
+         if (intent.secondary) suggestions.push(intent.secondary);
+
+         var fallbackTexts = [
+            "Hmm, I'm not quite sure about that. \uD83E\uDD14",
+            "I didn't catch that one clearly. \uD83E\uDD16",
+            "That's a bit outside my knowledge! \uD83D\uDE05"
+         ];
+         var fallback = pick(fallbackTexts);
+
+         if (suggestions.length > 0) {
+            var intentLabels = {
+               greeting: "Say hello", about: "About Faiaz", education: "Education", experience: "Experience",
+               skills: "Skills", projects: "Projects", research: "Research", contact: "Contact",
+               github: "GitHub", cv: "Resume", available: "Availability", ml: "ML/AI",
+               python: "Python", laravel: "Laravel", react: "React", stats: "Stats"
+            };
+            var didYouMean = suggestions.filter(function(s) { return intentLabels[s]; }).map(function(s) { return intentLabels[s]; });
+            if (didYouMean.length > 0) {
+               fallback += "\n\nDid you mean: <strong>" + didYouMean.join("</strong> or <strong>") + "</strong>?";
+               return { text: fallback, followups: didYouMean };
+            }
+         }
+
+         fallback += "\n\nTry asking about his <strong>projects</strong>, <strong>skills</strong>, <strong>education</strong>, <strong>experience</strong>, or <strong>contact</strong>. Type <em>\"help\"</em> to see everything I know!";
+         return { text: fallback, followups: ["What can you do?", "Projects", "Skills", "Contact"] };
+      }
+
+      // Render message with timestamp & follow-ups
+      function addMsg(text, sender, followups) {
+         var div = document.createElement("div");
+         div.className = "chat-msg " + sender;
+         var bubble = document.createElement("div");
+         bubble.className = "chat-bubble";
+         bubble.innerHTML = text.replace(/\n/g, "<br>");
+
+         // Timestamp
+         var ts = document.createElement("div");
+         ts.className = "chat-timestamp";
+         ts.textContent = now();
+         bubble.appendChild(ts);
+
+         div.appendChild(bubble);
+         messages.appendChild(div);
+
+         // Follow-up chips
+         if (followups && followups.length > 0 && sender === "bot") {
+            var chipContainer = document.createElement("div");
+            chipContainer.className = "chat-followups";
+            followups.forEach(function(f) {
+               var chip = document.createElement("button");
+               chip.className = "followup-chip";
+               chip.textContent = f;
+               chip.addEventListener("click", function() {
+                  sendMessage(f);
+                  chipContainer.remove();
+               });
+               chipContainer.appendChild(chip);
+            });
+            messages.appendChild(chipContainer);
+         }
+
+         messages.scrollTop = messages.scrollHeight;
+      }
+
+      // Typing indicator with status change
+      function showTyping() {
+         statusText.textContent = "Typing...";
+         var div = document.createElement("div");
+         div.className = "chat-msg bot";
+         div.id = "typingIndicator";
+         div.innerHTML = '<div class="chat-bubble typing-indicator"><span></span><span></span><span></span></div>';
+         messages.appendChild(div);
+         messages.scrollTop = messages.scrollHeight;
+      }
+
+      function hideTyping() {
+         statusText.textContent = "Online";
+         var el = document.getElementById("typingIndicator");
+         if (el) el.remove();
+      }
+
+      // Send message
+      function sendMessage(text) {
+         if (!text || !text.trim()) return;
+
+         // Teaching mode handler
+         if (teachMode && pendingTeachQ) {
+            teachRema(pendingTeachQ, text);
+            teachMode = false;
+            addMsg(text, "user");
+            setTimeout(function() {
+               addMsg("\uD83E\uDDE0 Learned! I'll remember that. Thanks for teaching me! Now I know the answer to \"" + pendingTeachQ + "\"", "bot", ["Teach me more", "His projects", "His skills"]);
+               pendingTeachQ = null;
+            }, 400);
+            return;
+         }
+
+         // Check for teach command: "learn: question = answer" or "teach: ..."
+         var teachMatch = text.match(/^(learn|teach):\s*(.+?)\s*=\s*(.+)$/i);
+         if (teachMatch) {
+            teachRema(teachMatch[2], teachMatch[3]);
+            addMsg(text, "user");
+            setTimeout(function() {
+               addMsg("\uD83E\uDDE0 Got it! I learned: <strong>\"" + teachMatch[2] + "\"</strong> \u2192 \"" + teachMatch[3] + "\"\n\nI'll remember this even after you leave!", "bot", ["Teach me more", "What do you know?"]);
+            }, 400);
+            return;
+         }
+
+         msgCount++;
+         addMsg(text, "user");
+
+         showTyping();
+         // Smarter delay based on response complexity
+         var delay = 500 + Math.min(Math.random() * 600 + text.length * 10, 1500);
+         setTimeout(function() {
+            hideTyping();
+            var result = getResponse(text);
+            if (typeof result === "string") result = { text: result, followups: [] };
+            addMsg(result.text, "bot", result.followups);
+
+            // Contextual personality messages
+            if (msgCount === 5) {
+               setTimeout(function() {
+                  addMsg("<em>\uD83D\uDCA1 Tip: You can ask me follow-up questions like \"tell me more\" or click the chips! You can also teach me new things by typing: <strong>teach: question = answer</strong></em>", "bot");
+               }, 1500);
+            }
+            if (msgCount === 15) {
+               setTimeout(function() {
+                  addMsg("<em>\uD83C\uDF1F Wow, " + (userName || "you") + "! " + msgCount + " messages! You're really exploring. I love the curiosity! \uD83E\uDD16</em>", "bot");
+               }, 1500);
+            }
+         }, delay);
+      }
+
+      // Teaching mode
+      var teachMode = false;
+      var pendingTeachQ = null;
+
+      // Welcome sequence
+      function startWelcome() {
+         var greeting = timeGreet() + "! \uD83E\uDD16 I'm <strong>Rema</strong>, Faiaz's AI assistant.";
+         if (visitCount > 1) greeting = "Welcome back! \uD83D\uDC4B (Visit #" + visitCount + ") " + timeGreet() + "! I'm <strong>Rema</strong>.";
+         addMsg(greeting, "bot");
+
+         setTimeout(function() {
+            var intro = visitCount > 1
+               ? "Good to see you again! I remember " + learnedTopics.length + " topics from past chats. What would you like to explore?"
+               : "I can answer questions about his <strong>skills</strong>, <strong>projects</strong>, <strong>education</strong>, <strong>experience</strong>, <strong>research</strong>, and more. Just type naturally \u2014 I understand context and typos!";
+            var chips = ["\uD83D\uDCC1 Projects", "\uD83D\uDEE0\uFE0F Skills", "\uD83C\uDF93 Education", "\uD83D\uDCBC Experience", "\uD83D\uDD2C Research", "\uD83D\uDCEC Contact"];
+            if (visitCount > 1 && learnedTopics.length > 0) {
+               var recentLabel = { projects: "\uD83D\uDCC1 Projects", skills: "\uD83D\uDEE0\uFE0F Skills", education: "\uD83C\uDF93 Education", research: "\uD83D\uDD2C Research", experience: "\uD83D\uDCBC Experience" };
+               var recent = learnedTopics.slice(-3).map(function(t) { return recentLabel[t] || t; });
+               chips = recent.concat(["Something new"]);
+            }
+            addMsg(intro, "bot", chips);
+         }, 800);
+      }
+      startWelcome();
+
+      // Event: send button
+      sendBtn.addEventListener("click", function() {
+         sendMessage(input.value);
+         input.value = "";
+         input.focus();
+      });
+
+      // Event: enter key
+      input.addEventListener("keydown", function(e) {
+         if (e.key === "Enter") {
+            sendMessage(input.value);
+            input.value = "";
+         }
+      });
+
+      // Event: toggle
+      toggle.addEventListener("click", function() {
+         toggle.classList.toggle("active");
+         window_.classList.toggle("active");
+         if (window_.classList.contains("active")) {
+            badge.style.display = "none";
+            setTimeout(function() { input.focus(); }, 300);
+         }
+      });
+
+      // Event: close
+      closeBtn.addEventListener("click", function() {
+         toggle.classList.remove("active");
+         window_.classList.remove("active");
+      });
+
+      // Close on outside click
+      document.addEventListener("click", function(e) {
+         if (window_.classList.contains("active") && !document.getElementById("chatbotWidget").contains(e.target)) {
+            toggle.classList.remove("active");
+            window_.classList.remove("active");
+         }
+      });
+   })();
+   </script>
+
+   <!-- Spotify Widget Toggle -->
+   <script>
+      (function() {
+         var toggle = document.getElementById("spotifyToggle");
+         var player = document.getElementById("spotifyPlayer");
+         toggle.addEventListener("click", function() {
+            toggle.classList.toggle("active");
+            player.classList.toggle("active");
+         });
+      })();
+   </script>
 </body>
 
 </html>
