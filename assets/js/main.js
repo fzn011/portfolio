@@ -389,43 +389,7 @@ Description: Gerold - Personal Portfolio HTML5 Template
 			});
 		}
 
-		// Form Validation
-		/* contact form */
-		if ($("#contact-form").length > 0) {
-			$("#contact-form").validate({
-				rules: {
-					name: "required",
-					email: {
-						required: true,
-						email: true,
-					},
-					message: "required",
-				},
-
-				messages: {
-					name: "Enter your name.",
-					email: "Enter a valid email.",
-					message: "Enter your message.",
-				},
-				submitHandler: function (form) {
-					var $form = $(form);
-					$.ajax({
-						type: "POST",
-						url: $form.attr("action"),
-						data: $form.serialize(),
-						dataType: "json",
-						headers: { "Accept": "application/json" },
-						success: function () {
-							$("#message_sent").modal("show");
-							$form.trigger("reset");
-						},
-						error: function () {
-							$("#message_fail").modal("show");
-						},
-					});
-				},
-			});
-		}
+		// Form validation handled inline in index.html (Formspree)
 		/* !contact form */
 	});
 })(jQuery);
