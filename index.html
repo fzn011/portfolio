@@ -308,14 +308,14 @@
                   </div>
 
                   <div class="education-timeline">
-                     <!-- Masters - Coming Soon -->
+                     <!-- Masters -->
                      <div class="edu-link">
-                        <div class="education-card edu-coming-soon wow fadeInUp" data-wow-delay=".4s">
+                        <div class="education-card wow fadeInUp" data-wow-delay=".4s">
                            <div class="edu-marker"></div>
                            <div class="edu-content">
-                              <span class="edu-time">Coming Soon</span>
-                              <h3 class="edu-title">Masters</h3>
-                              <div class="edu-institute"><i class="fa-light fa-building-columns"></i> To Be Announced</div>
+                              <span class="edu-time">August 2026 - Present</span>
+                              <h3 class="edu-title">Master of Data Science and Artificial Intelligence</h3>
+                              <div class="edu-institute"><i class="fa-light fa-building-columns"></i> <a href="https://www.newcastle.edu.au/" target="_blank" rel="noopener noreferrer">University of Newcastle</a></div>
                            </div>
                         </div>
                      </div>
@@ -426,7 +426,6 @@
                   <div class="section-header text-center">
                      <h2 class="section-title wow fadeInUp" data-wow-delay=".3s">Featured Projects</h2>
                      <p class="wow fadeInUp" data-wow-delay=".4s">
-                        A curated selection of my recent work across AI/ML, analytics, web engineering, game development, and research.
                         <br>For more projects, explore my GitHub repositories.
                      </p>
                   </div>
@@ -1588,8 +1587,8 @@
                            </div>
                            <div class="text-box">
                               <p class="mb-0">Address</p>
-                              <a href="https://maps.app.goo.gl/tYGokQGjJW98zdtP8" target="_blank" rel="noopener noreferrer">
-                                 Udd-05, Uddipon, Azizpalli,<br />Dhaka Cantonment, Dhaka-1206
+                              <a href="https://www.google.com/maps/place/Newcastle+NSW,+Australia" target="_blank" rel="noopener noreferrer">
+                                 Newcastle, NSW,<br />Australia
                               </a>
                            </div>
                         </li>
@@ -1603,7 +1602,7 @@
             <div class="row justify-content-center" style="margin-top: 50px; margin-bottom: 10px;">
                <div class="col-lg-8 text-center">
                   <div class="globe-wrapper wow fadeInUp" data-wow-delay=".5s">
-                     <div class="globe-label"><i class="fa-light fa-location-dot"></i> Dhaka, Bangladesh</div>
+                     <div class="globe-label"><i class="fa-light fa-location-dot"></i> Newcastle, NSW, Australia</div>
                      <div id="globe-container"></div>
                   </div>
                </div>
@@ -2278,12 +2277,12 @@
             .showAtmosphere(true)
             .atmosphereColor("#8750f7")
             .atmosphereAltitude(0.2)
-            .pointsData([{ lat: 23.8103, lng: 90.4125, size: 0.8, color: "#8750f7" }])
+            .pointsData([{ lat: -32.9283, lng: 151.7817, size: 0.8, color: "#8750f7" }])
             .pointAltitude("size")
             .pointColor("color")
             .pointRadius(0.6)
             .pointsMerge(true)
-            .ringsData([{ lat: 23.8103, lng: 90.4125, maxR: 3, propagationSpeed: 2, repeatPeriod: 800 }])
+            .ringsData([{ lat: -32.9283, lng: 151.7817, maxR: 3, propagationSpeed: 2, repeatPeriod: 800 }])
             .ringColor(function() { return "rgba(135, 80, 247, 0.6)"; })
             .ringMaxRadius("maxR")
             .ringPropagationSpeed("propagationSpeed")
@@ -2292,7 +2291,7 @@
             .height(container.offsetHeight)
             (container);
 
-         globe.pointOfView({ lat: 23.8103, lng: 90.4125, altitude: 2.2 });
+         globe.pointOfView({ lat: -32.9283, lng: 151.7817, altitude: 2.2 });
          globe.controls().autoRotate = true;
          globe.controls().autoRotateSpeed = 1.2;
          globe.controls().enableZoom = false;
@@ -2315,11 +2314,11 @@
 
          var commands = {
             help: "Available commands:\n  <span class='cmd-highlight'>whoami</span>    - About me\n  <span class='cmd-highlight'>skills</span>    - My tech stack\n  <span class='cmd-highlight'>projects</span>  - My recent works\n  <span class='cmd-highlight'>education</span> - My qualifications\n  <span class='cmd-highlight'>contact</span>   - How to reach me\n  <span class='cmd-highlight'>resume</span>    - Download my CV\n  <span class='cmd-highlight'>github</span>    - My GitHub profiles\n  <span class='cmd-highlight'>secret</span>    - ???\n  <span class='cmd-highlight'>clear</span>     - Clear terminal\n  <span class='cmd-highlight'>exit</span>      - Close terminal",
-            whoami: "Faiaz Zahin\nCS Graduate from BRAC University\nAspiring Data Scientist | Software Engineer | AI Researcher\nCurrently based in Dhaka, Bangladesh",
+            whoami: "Faiaz Zahin\nCS Graduate from BRAC University\nAspiring Data Scientist | Software Engineer | AI Researcher\nCurrently based in Newcastle, NSW, Australia",
             skills: "Programming & Frameworks: Python, C, Java, PHP, Laravel, Django, JavaScript, SQL, ReactJS, ASP.NET Core\nTools: Git, XAMPP, VS Code, Figma, MS Office\nData & ML: Scikit-learn, Pandas, NumPy, Power BI, Data Visualization\nNetworking & Simulation: LTSpice, Proteus, Wireshark, VirtualBox, 8086 Emulator, Cisco Packet Tracer",
             projects: "1. Learning Management System - Laravel web app\n2. Rainfall Prediction - ML project\n3. Digital Clock - Web utility\n4. OperationZ - FPS Game\n5. Heritage Defect Detection - AI Research\n\nType <span class='cmd-highlight'>exit</span> and scroll to Projects section to see more!",
-            education: "BSc in CSE - BRAC University (2021-2025)\nHSC - Adamjee Cantonment College (2017-2019)\nSSC - Bangladesh International School & College (2015-2017)",
-            contact: "Email: faiazzahin@gmail.com\nPhone: +8801890369682\nWhatsApp: wa.me/+8801890369682\nAddress: Dhaka Cantonment, Dhaka-1206",
+            education: "Master of Data Science and Artificial Intelligence - University of Newcastle (Aug 2026-Present)\nBSc in CSE - BRAC University (2021-2025)\nHSC - Adamjee Cantonment College (2017-2019)\nSSC - Bangladesh International School & College (2015-2017)",
+            contact: "Email: faiazzahin@gmail.com\nPhone: +8801890369682\nWhatsApp: wa.me/+8801890369682\nAddress: Newcastle, NSW, Australia",
             resume: "Opening CV...",
             github: "1. github.com/fzn011\n2. github.com/faiazzahin21",
             secret: "Achievement unlocked! You found the secret command.\nHere's a fun fact: This entire portfolio was built with love, caffeine, and way too many CSS tweaks at 3AM.",
@@ -2455,7 +2454,7 @@
          name: "Faiaz Zahin",
          title: "CS Graduate & Aspiring Data Scientist",
          bio: "Computer Science graduate from BRAC University, skilled in Python, Laravel, SQL, and data analysis. Experienced in developing software solutions, managing projects, and preparing reports. Eager to apply knowledge and contribute to innovative IT and digital services.",
-         location: "Dhaka Cantonment, Dhaka-1206, Bangladesh",
+         location: "Newcastle, NSW, Australia",
          email: "faiazzahin@gmail.com",
          phone: "+8801890369682",
          whatsapp: "wa.me/+8801890369682",
@@ -2464,6 +2463,7 @@
          facebook: "facebook.com/iamfzn0",
          cv: "https://drive.google.com/file/d/1Edvn71N0Wbixzrua5U1cTIeWqNnlD-wh/view",
          education: [
+            { degree: "Master of Data Science and Artificial Intelligence", institution: "University of Newcastle", year: "August 2026 - Present", detail: "Currently pursuing advanced study in AI, machine learning, and data science." },
             { degree: "BSc in Computer Science & Engineering", institution: "BRAC University", year: "2021-2025", detail: "Focused on software engineering, machine learning, and data science." },
             { degree: "Higher School Certificate (HSC)", institution: "Adamjee Cantonment College", year: "2017-2019", detail: "Science group." },
             { degree: "Secondary School Certificate (SSC)", institution: "Bangladesh International School & College", year: "2015-2017", detail: "Science group." }
@@ -2539,7 +2539,7 @@
          { id: "contact", keys: ["contact","reach","email","phone","call","message","hire","get in touch","connect","communicate"], weight: 2 },
          { id: "github", keys: ["github","repo","repository","open source","contribution","code","git"], weight: 2 },
          { id: "social", keys: ["social","linkedin","facebook","instagram","twitter","social media","profile"], weight: 2 },
-         { id: "location", keys: ["where","location","city","country","live","from","based","address","dhaka","bangladesh"], weight: 2 },
+         { id: "location", keys: ["where","location","city","country","live","from","based","address","newcastle","australia","nsw"], weight: 2 },
          { id: "stats", keys: ["stats","statistics","numbers","fact","achievement","accomplishment","metric"], weight: 2 },
          { id: "available", keys: ["available","hire","freelance","open to","looking for","recruit","opportunity","job opening"], weight: 2 },
          { id: "hobby", keys: ["hobby","hobbies","interest","fun","free time","passion","enjoy","like to do"], weight: 2 },
@@ -2786,7 +2786,7 @@
          },
          location: function() {
             lastTopic = "location";
-            return { text: "\uD83D\uDCCD Faiaz is based in <strong>" + kb.location + "</strong>.\n\nScroll down to the Contact section to see an interactive 3D globe pinpointing Dhaka!", followups: ["Contact him", "Is he open to relocation?", "His timezone"] };
+            return { text: "\uD83D\uDCCD Faiaz is based in <strong>" + kb.location + "</strong>.\n\nScroll down to the Contact section to see an interactive 3D globe pinpointing Newcastle!", followups: ["Contact him", "Is he open to relocation?", "His timezone"] };
          },
          stats: function() {
             lastTopic = "stats";
@@ -2959,7 +2959,7 @@
             ]), followups: ["His projects", "His skills", "Tell me more"] };
          },
          weather: function() {
-            return { text: "I'm an indoor bot \u2014 no weather sensors! \uD83C\uDF26\uFE0F But if you're in Dhaka like Faiaz, it's probably either hot, humid, or both! \uD83D\uDE04\n\nFor actual weather, try <a href='https://weather.com' target='_blank'>weather.com</a>. For portfolio stuff \u2014 I'm your bot!", followups: ["Where is Faiaz from?", "His projects", "Tell me a joke"] };
+            return { text: "I'm an indoor bot \u2014 no weather sensors! \uD83C\uDF26\uFE0F But if you're in Newcastle like Faiaz, conditions can shift quickly near the coast! \uD83D\uDE04\n\nFor actual weather, try <a href='https://weather.com' target='_blank'>weather.com</a>. For portfolio stuff \u2014 I'm your bot!", followups: ["Where is Faiaz from?", "His projects", "Tell me a joke"] };
          },
          date: function() {
             var d = new Date();
