@@ -338,15 +338,21 @@
 		padding-bottom: 60px;
 	}
 	.portfolio-box .portfolio-item {
-		padding: 25px 15px 0 15px;
+		padding: 20px 20px 0 20px;
 	}
 	.portfolio-box .content-box {
-		width: calc(100% - 30px);
-		padding: 15px 30px 15px 15px;
+		width: 100%;
+		padding: 0 0 22px 0;
 	}
 	.portfolio-box .portfolio-item .content-box .portfolio-title {
-		font-size: 25px;
+		font-size: 22px;
 		margin: 0;
+	}
+	.portfolio-box .image-box img {
+		height: 230px;
+	}
+	.portfolio-actions {
+		gap: 8px;
 	}
 	.portfolio-box .portfolio-item .content-box i {
 		font-size: 15px;
@@ -711,11 +717,17 @@
 		padding-bottom: 30px;
 	}
 	.portfolio-filter .button-group {
-		padding: 0 8px;
+		padding: 6px 8px;
+		display: inline-flex;
+		align-items: center;
+		gap: 4px;
+		overflow-x: auto;
+		white-space: nowrap;
 	}
 	.portfolio-filter .button-group button {
 		font-size: 14px;
-		padding: 10px 6px;
+		padding: 10px 12px;
+		flex: 0 0 auto;
 	}
 	.portfolio-box {
 		padding-top: 40px;
@@ -725,16 +737,43 @@
 	}
 	.portfolio-box .portfolio-item {
 		width: 100%;
-		padding: 25px 15px 0 15px;
+		padding: 16px 16px 0 16px;
 		margin-bottom: 30px;
 	}
 	.portfolio-box .content-box {
-		width: calc(100% - 30px);
-		padding: 15px 30px 15px 15px;
+		width: 100%;
+		padding: 0 0 18px 0;
 	}
 	.portfolio-box .portfolio-item .content-box .portfolio-title {
-		font-size: 25px;
+		font-size: 21px;
 		margin: 0;
+	}
+	.portfolio-box .image-box img {
+		height: 210px;
+	}
+	.portfolio-topline {
+		margin-bottom: 8px;
+	}
+	.portfolio-type,
+	.portfolio-year {
+		font-size: 11px;
+		padding: 5px 9px;
+	}
+	.portfolio-tags {
+		gap: 6px;
+		margin-bottom: 12px;
+	}
+	.portfolio-tags span {
+		font-size: 11px;
+		padding: 5px 8px;
+	}
+	.portfolio-actions {
+		gap: 8px;
+	}
+	.portfolio-cta {
+		height: 34px;
+		padding: 0 12px;
+		font-size: 12px;
 	}
 	.portfolio-box .portfolio-item .content-box i {
 		font-size: 15px;
