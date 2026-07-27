@@ -98,25 +98,42 @@ Description: Gerold - Personal Portfolio HTML5 Template
 		/*------------------------------------------------------
   	/  Portfolio Filter
   	/------------------------------------------------------*/
-		$("#works-section .portfolio-box").imagesLoaded(function () {
-			var $grid = $("#works-section .portfolio-box").isotope({
-				// options
-				masonry: {
-					columnWidth: ".portfolio-box .portfolio-sizer",
-					gutter: ".portfolio-box .gutter-sizer",
-				},
-				itemSelector: ".portfolio-box .portfolio-item",
-				percentPosition: true,
-			});
+		var $portfolioBox = $("#works-section .portfolio-box");
+		var $matrixRows = $("#works-section .projects-matrix tbody .matrix-row");
+		var $isotopeGrid = null;
 
-			// filter items on button click
-			$(".filter-button-group").on("click", "button", function () {
-				$(".filter-button-group button").removeClass("active");
-				$(this).addClass("active");
-
-				var filterValue = $(this).attr("data-filter");
-				$grid.isotope({ filter: filterValue });
+		if ($portfolioBox.length) {
+			$portfolioBox.imagesLoaded(function () {
+				$isotopeGrid = $portfolioBox.isotope({
+					masonry: {
+						columnWidth: ".portfolio-box .portfolio-sizer",
+						gutter: ".portfolio-box .gutter-sizer",
+					},
+					itemSelector: ".portfolio-box .portfolio-item",
+					percentPosition: true,
+				});
 			});
+		}
+
+		$(".filter-button-group").on("click", "button", function () {
+			$(".filter-button-group button").removeClass("active");
+			$(this).addClass("active");
+
+			var filterValue = $(this).attr("data-filter");
+
+			if ($isotopeGrid) {
+				$isotopeGrid.isotope({ filter: filterValue });
+			}
+
+			if ($matrixRows.length) {
+				if (filterValue === "*") {
+					$matrixRows.show();
+				} else {
+					var className = filterValue.replace(".", "");
+					$matrixRows.hide();
+					$matrixRows.filter("." + className).show();
+				}
+			}
 		});
 
 		/*------------------------------------------------------

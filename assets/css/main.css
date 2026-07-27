@@ -1581,6 +1581,130 @@ body.loaded {
 	-o-transition: all 0.5s ease;
 	transition: all 0.5s ease;
 }
+
+.projects-matrix-wrap {
+	padding-top: 45px;
+	position: relative;
+	z-index: 2;
+	overflow-x: auto;
+	border-radius: 14px;
+	border: 1px solid rgba(135, 80, 247, 0.16);
+	background: rgba(255, 255, 255, 0.02);
+}
+
+.projects-matrix {
+	width: 100%;
+	min-width: 1080px;
+	border-collapse: collapse;
+}
+
+.projects-matrix thead th {
+	background: rgba(135, 80, 247, 0.18);
+	color: var(--tj-white);
+	font-size: 13px;
+	font-weight: 700;
+	letter-spacing: 0.5px;
+	text-transform: uppercase;
+	padding: 16px 18px;
+	border-bottom: 1px solid rgba(135, 80, 247, 0.25);
+	text-align: left;
+	white-space: nowrap;
+}
+
+.projects-matrix tbody td {
+	padding: 18px;
+	vertical-align: top;
+	border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+	color: var(--tj-body);
+	font-size: 15px;
+	line-height: 1.6;
+}
+
+.projects-matrix tbody tr {
+	transition: background-color 0.25s ease;
+	background: rgba(255, 255, 255, 0.01);
+}
+
+.projects-matrix tbody tr:hover {
+	background: rgba(135, 80, 247, 0.08);
+}
+
+.projects-matrix tbody tr:last-child td {
+	border-bottom: none;
+}
+
+.projects-matrix strong {
+	color: var(--tj-white);
+	font-size: 16px;
+	font-weight: 700;
+	display: inline-block;
+	margin-bottom: 6px;
+}
+
+.projects-matrix details {
+	margin-top: 2px;
+}
+
+.projects-matrix details summary {
+	list-style: none;
+	cursor: pointer;
+	display: inline-flex;
+	align-items: center;
+	gap: 6px;
+	font-size: 12px;
+	font-weight: 600;
+	color: var(--tj-theme-primary);
+	text-transform: uppercase;
+	letter-spacing: 0.4px;
+	padding: 4px 10px;
+	border: 1px solid rgba(135, 80, 247, 0.35);
+	border-radius: 999px;
+	transition: all 0.2s ease;
+	width: fit-content;
+}
+
+.projects-matrix details summary::-webkit-details-marker {
+	display: none;
+}
+
+.projects-matrix details summary::before {
+	content: "+";
+	font-weight: 700;
+	line-height: 1;
+}
+
+.projects-matrix details[open] summary::before {
+	content: "−";
+}
+
+.projects-matrix details[open] summary {
+	background: rgba(135, 80, 247, 0.16);
+	border-color: rgba(135, 80, 247, 0.6);
+	color: var(--tj-white);
+}
+
+.projects-matrix details[open] {
+	color: var(--tj-body);
+	font-size: 14px;
+	line-height: 1.65;
+}
+
+.projects-matrix details[open] summary {
+	margin-bottom: 8px;
+}
+
+.matrix-link-group {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 8px;
+	min-width: 185px;
+}
+
+.matrix-link-group .portfolio-cta {
+	height: 34px;
+	padding: 0 14px;
+	font-size: 12px;
+}
 .portfolio-box {
 	padding-top: 50px;
 	background-size: contain;

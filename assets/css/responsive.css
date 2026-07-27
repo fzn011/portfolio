@@ -101,6 +101,9 @@
 	.portfolio_story_approach .portfolio_story {
 		gap: 15px;
 	}
+	.projects-matrix {
+		min-width: 980px;
+	}
 
 	/* resume section */
 	.resume-section {
@@ -258,6 +261,44 @@
 		display: none;
 	}
 
+	.projects-matrix-wrap {
+		border-radius: 12px;
+	}
+	.projects-matrix {
+		min-width: 900px;
+	}
+	.projects-matrix thead th,
+	.projects-matrix tbody td {
+		padding: 14px 14px;
+	}
+
+
+@media only screen and (max-width: 767px) {
+	.projects-matrix-wrap {
+		padding-top: 24px;
+		border-radius: 10px;
+	}
+	.projects-matrix {
+		min-width: 860px;
+	}
+	.projects-matrix thead th,
+	.projects-matrix tbody td {
+		padding: 12px;
+		font-size: 13px;
+	}
+	.projects-matrix strong {
+		font-size: 14px;
+	}
+	.projects-matrix details summary {
+		font-size: 11px;
+		padding: 4px 8px;
+	}
+	.matrix-link-group .portfolio-cta {
+		height: 32px;
+		padding: 0 10px;
+		font-size: 11px;
+	}
+}
 	/* hero section */
 	.hero-section {
 		padding: 130px 0 30px;
