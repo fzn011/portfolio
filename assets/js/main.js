@@ -257,6 +257,17 @@ Description: Gerold - Personal Portfolio HTML5 Template
 			removalDelay: 300,
 			mainClass: "popup-mfp",
 		});
+
+		$(".portfolio-box").on("click", ".portfolio-item", function (e) {
+			if ($(e.target).closest("a, button").length) {
+				return;
+			}
+
+			var $popupTrigger = $(this).find(".portfolio-link.modal-popup").first();
+			if ($popupTrigger.length) {
+				$popupTrigger.trigger("click");
+			}
+		});
 	});
 
 	$(window).on("load", function () {
